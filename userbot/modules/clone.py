@@ -13,6 +13,8 @@ from telethon.utils import get_input_location
 from telethon.tl import functions
 from userbot import bot, CMD_HELP
 from userbot.events import register
+from userbot import TEMP_DOWNLOAD_DIRECTORY
+(user_id, TEMP_DOWNLOAD_DIRECTORY)
 
 
 @register(outgoing=True, pattern="^.clone(?: |$)(.*)")
@@ -25,7 +27,7 @@ async def _(event):
         await event.edit(str(error_i_a))
         return False
     user_id = replied_user.user.id
-    profile_pic = await event.client.download_profile_photo(user_id, Config.TMP_DOWNLOAD_DIRECTORY)
+    profile_pic = await event.client.download_profile_photo(user_id, TEMP.TEMP_DOWNLOAD_DIRECTORY)
     # some people have weird HTML in their names
     first_name = html.escape(replied_user.user.first_name)
     # https://stackoverflow.com/a/5072031/4723940
