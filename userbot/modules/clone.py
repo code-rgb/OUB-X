@@ -11,10 +11,9 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 #from userbot.util import admin_cmd
 from telethon.tl import functions
-from userbot import bot, CMD_HELP
+
 from userbot.events import register
-from userbot import TEMP_DOWNLOAD_DIRECTORY
-(user_id, TEMP_DOWNLOAD_DIRECTORY)
+from userbot import TEMP_DOWNLOAD_DIRECTORY, user_id, bot
 
 
 @register(outgoing=True, pattern="^.clone(?: |$)(.*)")
