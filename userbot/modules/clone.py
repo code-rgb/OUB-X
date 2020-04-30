@@ -1,6 +1,6 @@
 #Copy That Plugin by @ViperAdnan
 #Give credit if you are going to kang it.
-#imported from uniborg to userbot by @heyworld
+#imported from uniborg to userbot by @deleteduser420
 
 import html
 import os
