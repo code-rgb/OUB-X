@@ -188,7 +188,7 @@ async def _(event):
 
         return
 
-    animation_interval = 2
+    animation_interval = 1
 
     animation_ttl = range(0, 100)
 
@@ -214,13 +214,7 @@ async def _(event):
             "🖤",
 
             "❤️",
-             "🖤",
-
-            "❤️",
-
-            "🖤",
-
-            "❤️",
+      
             "‎"
 
         ]
@@ -229,7 +223,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 12])
+            await event.edit(animation_chars[i % 8])
 
 
 
@@ -271,9 +265,16 @@ async def _(event):
 
             "😢",
 
-           
+           "😁",
 
-            "__**...BOY oh BOY! i feel like a wamen....**__"
+            "😧",
+
+            "😡",
+
+            "😢"
+
+
+            
 
         ]
 
@@ -281,7 +282,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 9])
+            await event.edit(animation_chars[i % 12])
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
