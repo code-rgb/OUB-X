@@ -273,34 +273,34 @@ UWUS = [
     "((+_+))",
 ]
 PICKUPS = [
-"Well, 📌 I am. 😦 are your other ✌ wishes? "
-"Hey, my name's Microsoft. Can I crash at your 🏟 tonight?"
-"Are you French 🇫🇷 Because Eiffel for you."
-"There is something wrong with my cell 📶 It doesn't have your 8️⃣  number in it."
-"Aside from being sexy, 😦 do you do  a living?"
-"If you were a Transformer… you’d be Optimus Fine."
-"I wish🙏 I were cross🚷-eyed😙 so I can see👀 you twice."
-"I must be in a  museum🎨, because you truly are a work🏢 of art🎨."
-"Do you believe in 💗love💗💗 at first sight—or should I 🏃walk 🏃 by again?"
-"Feel my 👔shirt 👔. Know what😦😦 it’s made of? Boyfriend material."
-"I’m 📖learning 📖 about important dates🏩🏩 in history 📜📜. Wanna be 1️⃣one1️⃣ of them?"
-"Did you just come out of the oven? Because you’re hot 🐪🐪."
-"I was wondering if you had an extra heart💕. Because ⛏mine was just stolen."
-"Is your name📛 Google? Because you have  everything I’ve been searching 🔍 for."
-"Are you a bank🏧 loan? Because you got  my interest."
-"Are you a 🕕time 🕕 traveler? Cause I 🙈see🙈 you in my future📡!"
-"Can I follow you where you’re going right▶️ now? Because my parents👪👪 always told me to follow my dreams."
-"Is this the Hogwarts Express? Because 🇮🇹it 🇮🇹 feels like💞 you and I are 🗣headed🗣🗣 somewhere magical."
-"My love💙 for you is 💗like 💗 diarrhea, I just can't 👭hold👭 it🇮🇹 in."
-"Somebody better 🏇 call📲 God, because he’s missing an angel😇."
-"We’re not socks, but I 🤔think 🤔🤔 we’d make a great 👫pair👫."
-"You must be 😫tired 😫😫 because you've been running💨 through my mind all night 🌒."
-"Do you have a map 🗺? I keep getting  lost in your eyes🙄."
-"Do you have a Band Aid? I just scraped my knee falling🌠 for you."
-"Do you like👭 Star Wars? Because Yoda only one 1️⃣ for me!"
-"Did you invent the airplane🛩? Because you seem Wright for me."
-"Did the sun🔆 come out or did you just smile😎😎 at me?"
-"Do you know CPR? Because you are taking my breath away!"
+"Well, 📌 I am. 😦 are your other ✌ wishes? ",
+"Hey, my name's Microsoft. Can I crash at your 🏟 tonight?",
+"Are you French 🇫🇷 Because Eiffel for you.",
+"There is something wrong with my cell 📶 It doesn't have your 8️⃣  number in it.",
+"Aside from being sexy, 😦 do you do  a living?",
+"If you were a Transformer… you’d be Optimus Fine.",
+"I wish🙏 I were cross🚷-eyed😙 so I can see👀 you twice.",
+"I must be in a  museum🎨, because you truly are a work🏢 of art🎨.",
+"Do you believe in 💗love💗💗 at first sight—or should I 🏃walk 🏃 by again?",
+"Feel my 👔shirt 👔. Know what😦😦 it’s made of? Boyfriend material.",
+"I’m 📖learning 📖 about important dates🏩🏩 in history 📜📜. Wanna be 1️⃣one1️⃣ of them?",
+"Did you just come out of the oven? Because you’re hot 🐪🐪.",
+"I was wondering if you had an extra heart💕. Because ⛏mine was just stolen.",
+"Is your name📛 Google? Because you have  everything I’ve been searching 🔍 for.",
+"Are you a bank🏧 loan? Because you got  my interest.",
+"Are you a 🕕time 🕕 traveler? Cause I 🙈see🙈 you in my future📡!",
+"Can I follow you where you’re going right▶️ now? Because my parents👪👪 always told me to follow my dreams.",
+"Is this the Hogwarts Express? Because 🇮🇹it 🇮🇹 feels like💞 you and I are 🗣headed🗣🗣 somewhere magical.",
+"My love💙 for you is 💗like 💗 diarrhea, I just can't 👭hold👭 it🇮🇹 in.",
+"Somebody better 🏇 call📲 God, because he’s missing an angel😇.",
+"We’re not socks, but I 🤔think 🤔🤔 we’d make a great 👫pair👫.",
+"You must be 😫tired 😫😫 because you've been running💨 through my mind all night 🌒.",
+"Do you have a map 🗺? I keep getting  lost in your eyes🙄.",
+"Do you have a Band Aid? I just scraped my knee falling🌠 for you.",
+"Do you like👭 Star Wars? Because Yoda only one 1️⃣ for me!",
+"Did you invent the airplane🛩? Because you seem Wright for me.",
+"Did the sun🔆 come out or did you just smile😎😎 at me?",
+"Do you know CPR? Because you are taking my breath away!",
 ]
 FACEREACTS = [
     "ʘ‿ʘ",
