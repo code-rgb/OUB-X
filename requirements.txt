@@ -59,10 +59,7 @@ python-dateutil
 pyfiglet   
 jotquote
 csvfaker
-<<<<<<< HEAD
-pymongo
 PyLyrics
 wget
-=======
 pymongo[srv]
->>>>>>> 82761a0451e2027bb6bac9869b910d4b5ce58b50
+
