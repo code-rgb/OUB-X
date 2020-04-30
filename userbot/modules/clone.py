@@ -9,7 +9,7 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-from userbot.util import admin_cmd
+#from userbot.util import admin_cmd
 from telethon.tl import functions
 from userbot import bot, CMD_HELP
 from userbot.events import register
