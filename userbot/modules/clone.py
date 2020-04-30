@@ -1,7 +1,6 @@
-#and set as own profile.
-#Syntax: .clone @username"""
 #Copy That Plugin by @ViperAdnan
 #Give credit if you are going to kang it.
+#imported from uniborg to userbot by @heyworld
 
 import html
 import os
@@ -9,12 +8,10 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-#from userbot.util import admin_cmd
+#from uniborg.util import admin_cmd
 from telethon.tl import functions
-
-from userbot.events import register
-from userbot import TEMP_DOWNLOAD_DIRECTORY, bot
-
+from userbot.events import register 
+from userbot import TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot
 
 @register(outgoing=True, pattern="^.clone(?: |$)(.*)")
 async def _(event):
@@ -62,7 +59,7 @@ async def _(event):
     #message_id_to_reply = event.message.reply_to_msg_id
     #if not message_id_to_reply:
     #    message_id_to_reply = event.message.id
-    #await bot.send_message(
+    #await borg.send_message(
     #  event.chat_id,
     #  "Hey ? Whats Up !",
     #  reply_to=message_id_to_reply,
@@ -70,7 +67,7 @@ async def _(event):
     await event.delete()
     await bot.send_message(
       event.chat_id,
-      "**Bro Syntax said me that my dad fcuked your mom and you were the result.**",
+      "**cloned like pero.**",
       reply_to=reply_message
       )
 
@@ -127,3 +124,7 @@ async def get_full_user(event):
                 return replied_user, None
             except Exception as e:
                 return None, e
+CMD_HELP.update({
+"clone": ".clone userid\
+    \nUsage: clone like pros xD. "
+})
