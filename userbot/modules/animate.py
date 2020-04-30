@@ -254,7 +254,7 @@ async def _(event):
 
             "😢",
 
-           
+           "😎"
 
 
             
@@ -265,7 +265,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 8])
+            await event.edit(animation_chars[i % 9])
 
 
 
@@ -421,7 +421,7 @@ async def _(event):
 
             await event.edit(animation_chars[i % 13])
             
-            
+
             
             
 CMD_HELP.update({
