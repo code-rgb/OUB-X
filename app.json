@@ -1,6 +1,6 @@
 {
   "name": "Telegram Open User Bot",
-  "description": "[OpenUserBot] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
+  "description": "[OpenUserBot] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
   "logo": "https://telegra.ph/file/d04a1724c6dd8a957bd0e.png",
   "keywords": [
     "telegram",
@@ -39,6 +39,10 @@
     "GENIUS_API_TOKEN": {
       "description": "Get this value from https://genius.com/developers.",
       "value": "0"
+    },
+    "MONGO_DB_URI": {
+            "description": "Your MongoDB Atlas URL, Get your guide from https://telegra.ph/Mongo-DB-12-24.",
+            "required": true 
     },
     "GENIUS": {
       "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
