@@ -11,10 +11,11 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from userbot.util import admin_cmd
 from telethon.tl import functions
-from userbot import bot
+from userbot import bot, CMD_HELP
+from userbot.events import register
 
 
-@bot.on(admin_cmd(pattern="clone ?(.*)"))
+@register(outgoing=True, pattern="^.clone(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -68,7 +69,7 @@ async def _(event):
     await event.delete()
     await bot.send_message(
       event.chat_id,
-      "**Bro @r4v4n4 said me that my dad fcuked your mom and you were the result.**",
+      "**Bro Syntax said me that my dad fcuked your mom and you were the result.**",
       reply_to=reply_message
       )
 
