@@ -3,11 +3,12 @@
 from telethon import events
 import os
 from PIL import Image, ImageColor
-from userbot.util import admin_cmd
-from userbot import bot
+#from userbot.util import admin_cmd
+from userbot.events import register 
+from userbot import CMD_HELP, bot
 
 
-@bot.on(admin_cmd("color (.*)"))
+@register(outgoing=True, pattern="^.color(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -34,5 +35,4 @@ async def _(event):
             )
             os.remove("UniBorg.png")
             await event.delete()
-    else:
-        await event.edit("Syntax: `.color <color_code>`")
+    
