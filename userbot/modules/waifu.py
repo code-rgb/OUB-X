@@ -1,7 +1,7 @@
 from asyncio import sleep
 from random import choice, getrandbits, randint
 from re import sub
-from random import randint
+import random
 from os import execl
 import time
 from telethon import events
