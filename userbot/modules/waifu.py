@@ -13,7 +13,7 @@ import os
 import io
 import html
 import json
-
+from PIL import ImageEnhance, ImageOps
 
 from userbot import CMD_HELP
 from userbot.events import register
