@@ -33,7 +33,7 @@ async def waifu(animu):
             return
     animus = [20, 32, 33, 40, 41, 42, 58]
     sticcers = await bot.inline_query(
-        "stickerizerbot", f"#{random.choice(animus)}")
+        "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}")
     await sticcers[0].click(animu.chat_id,
                             reply_to=animu.reply_to_msg_id,
                             silent=True if animu.is_reply else False,
