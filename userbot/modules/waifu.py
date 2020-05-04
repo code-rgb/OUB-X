@@ -24,7 +24,7 @@ from userbot.modules.admin import get_user_from_event
 async def waifu(animu):
 #"""Generate random waifu sticker with the text!"""
      
-    text = animu.pattern_match.group(2)
+    text = animu.pattern_match.group(1)
     if not text:
         if animu.is_reply:
             text = (await animu.get_reply_message()).message
