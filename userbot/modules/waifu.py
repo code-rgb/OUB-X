@@ -4,7 +4,7 @@ from re import sub
 from random import randint
 from os import execl
 import time
-from telethon import animus
+from telethon import events
 from userbot import bot
 from collections import deque
 import requests
@@ -13,7 +13,8 @@ import os
 import io
 import html
 import json
-from cowpy import cow
+
+
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
