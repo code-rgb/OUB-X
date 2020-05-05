@@ -42,7 +42,7 @@ async def timer_blankx(e):
 
  if e.pattern_match.group(1) == 'f':
 
-  await e.edit("`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100 [Space Grey Varient]\nBattery Percentage:` [100%] https://telegra.ph/file/93a3563e501394fb1e861.mp4 ", link_preview=True)
+  await e.edit("`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100` Space Grey Varient\n`Battery Percentage:` [100%] https://telegra.ph/file/93a3563e501394fb1e861.mp4 ", link_preview=True)
 
     
     
