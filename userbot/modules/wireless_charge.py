@@ -7,7 +7,7 @@ from telethon import events
 
 from datetime import datetime
 
-from userbot.util import admin_cmd
+#from userbot.util import admin_cmd
 
 import importlib.util
 
@@ -15,14 +15,14 @@ import asyncio
 
 import random
 
-
+from userbot.events import register
 
 from userbot import bot
 
 
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern='^\.(q?w)char'))
+@register(outgoing=True, pattern="^.wchar(?: |$)(.*)")
 
 async def timer_blankx(e):
 
@@ -42,7 +42,7 @@ async def timer_blankx(e):
 
  if e.pattern_match.group(1) == 'f':
 
-  await e.edit("`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100` Space Grey Varient\n`Battery Percentage:` [100%] https://telegra.ph/file/93a3563e501394fb1e861.mp4 ", link_preview=True)
+  await e.edit("`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100` Space Grey Varient\n`Battery Percentage:` [100%] (https://telegra.ph/file/93a3563e501394fb1e861.mp4)", link_preview=True)
 
     
     
