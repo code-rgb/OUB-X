@@ -47,13 +47,7 @@ async def _(event):
 
 
 from telethon import events
-
 import asyncio
-
-
-
-
-
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
 async def _(event):
@@ -226,7 +220,7 @@ async def _(event):
 
     animation_interval = 1
 
-    animation_ttl = range(0, 11)
+    animation_ttl = range(0, 9)
 
     input_str = event.pattern_match.group(1)
 
@@ -246,15 +240,15 @@ async def _(event):
 
            
  
-            "😁",
+            "😢",
 
             "😧",
 
             "😡",
 
-            "😢",
+            "😁",
 
-           "😎"
+           
 
 
             
@@ -265,7 +259,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 9])
+            await event.edit(animation_chars[i % 8])
 
 
 
@@ -277,9 +271,9 @@ async def _(event):
 
         return
 
-    animation_interval = 2
+    animation_interval = 1.3
 
-    animation_ttl = range(0, 6)
+    animation_ttl = range(0, 7)
 
     input_str = event.pattern_match.group(1)
 
@@ -289,17 +283,20 @@ async def _(event):
 
         animation_chars = [
 
-            "🐵",
+            ">🐵<",
 
-            "🙉",
+            ">🙉<",
 
-            "🙈",
+            ">🙈<",
 
-            "🙊",
+            ">🙊<",
+            
+            ">🐵<",
 
-            "🖕‎🐵🖕",
+            ">🙊<",
 
-            "OPPA Monkey Style....**"
+
+            ">🖕‎🐵🖕<"
 
         ]
 
@@ -307,7 +304,7 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 6])
+            await event.edit(animation_chars[i % 7])
 
             
             
@@ -354,11 +351,11 @@ async def _(event):
 
             "🤘",
 
-            "🤙",
+            "👌",
 
             "🖐️",
 
-            "👌"
+            "🤙"
 
         ]
 
