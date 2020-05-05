@@ -63,8 +63,7 @@ async def waifu(animu):
     await animu.delete()
     
 
-CMD_HELP.update({
-    "waifu":
+CMD_HELP.update(
+    {"waifu":
     ".waifu\
-         \nUsage:to stickerize your text with beautiful Anime girl templates."
-    })
+    \nUsage:to stickerize your text with beautiful Anime girl templates."})
