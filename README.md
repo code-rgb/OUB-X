@@ -13,7 +13,6 @@
 <p align="center">Huge thanks to <a href="https://github.com/code-rgb/OUB-X/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Updates and Support</h2>
-<p align="center">Join <a href="https://t.me/PaperplaneExtended_news">Telegram Channel</a> for update notifications!</p>
 <p align="center">Contact <a href="https://t.me/deleteduser420">Syntax Error</a> for help and support!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Documentation</h2>
