@@ -63,3 +63,13 @@ async def waifu(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
+    
+    
+     CMD_HELP.update({
+    "waifu":
+    ".waifu\
+      \nSyntax:.waifu <text>\
+         \nUsage:to stickerize your text with beautiful anime girl template."
+    
+    
+})
