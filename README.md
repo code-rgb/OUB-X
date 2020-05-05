@@ -16,7 +16,7 @@
 <p align="center">Contact <a href="https://t.me/deleteduser420">Syntax Error</a> for help and support!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Documentation</h2>
-<p align="center">View License<a href="https://www.gnu.org/licenses/gpl-3.0.txt">Telegram Channel</a></p>
+<p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0.txt">View License</a></p>
 <p align="center">&nbsp;</p>
 
 
