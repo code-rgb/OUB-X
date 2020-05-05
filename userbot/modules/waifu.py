@@ -7,7 +7,7 @@ import random
 from os import execl
 import time
 from telethon import events
-from userbot import bot
+from userbot import CMD_HELP, bot
 from collections import deque
 import requests
 import sys
@@ -16,8 +16,6 @@ import io
 import html
 import json
 from PIL import ImageEnhance, ImageOps
-
-from userbot import CMD_HELP
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 
@@ -64,12 +62,9 @@ async def waifu(animu):
                             hide_via=True)
     await animu.delete()
     
-    
-     CMD_HELP.update({
+
+CMD_HELP.update({
     "waifu":
     ".waifu\
-      \nSyntax:.waifu <text>\
          \nUsage:to stickerize your text with beautiful anime girl template."
-    
-    
-})
+    })
