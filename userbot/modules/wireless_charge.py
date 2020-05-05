@@ -44,3 +44,10 @@ async def timer_blankx(e):
 
   await e.edit("`Tesla Wireless Charging (beta) Completed...\nDevice Detected: Nokia 1100 (Space Grey Varient)\nBattery Percentage:` [100%](https://telegra.ph/file/93a3563e501394fb1e861.mp4) ", link_preview=True)
 
+  CMD_HELP.update({
+    "wireless_charge":
+    ".wchar\
+    \nUsage: Charge your phone Wirelessly!!!"
+    
+    
+})
