@@ -1,9 +1,3 @@
-<style>
-#grad1 {
-  height: 200px;
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
-}
 
 <h1 align="center"> Error's Terror</h1>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
@@ -25,5 +19,4 @@
 <h2 align="center">Documentation</h2>
 <p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0.txt">View License</a></p>
 <p align="center">&nbsp;</p>
-</style>
 
