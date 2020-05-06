@@ -44,6 +44,6 @@ async def _(event):
 
 
 CMD_HELP.update({
-"Antivirus": ".𝘀𝗰𝗮𝗻\
+"Antivirus": ".scan\
     \nUsage: Type .scan to remove virus"
 })
