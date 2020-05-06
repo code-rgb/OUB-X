@@ -230,19 +230,19 @@ CMD_HELP.update({
         "Anime random generator \
         \nUsage: .(𝗴𝗲𝗻𝗿𝗲) 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗶𝗺𝗲𝘀 (𝗶𝗻𝘁𝗲𝗿𝗴𝗲𝗿) \
         \n\nAvailable commands: \
-        \n.𝗮𝗰𝘁𝗶𝗼𝗻 \
+        \n.action \
           \nInfo: Generate anime genre action.\
-          \n\n.𝗮𝗱𝘃𝗲𝗻𝘁𝘂𝗿𝗲 \
+          \n\n.adventure \
           \nInfo: Generate anime genre adventure.\
-          \n\n.𝗵𝗮𝗿𝗲𝗺 \
+          \n\n.harem \
           \nInfo: Generate anime genre harem UwU.\
-          \n\n.𝗿𝗼𝗺𝗮𝗻𝗰𝗲 \
+          \n\n.romance \
           \nInfo: Generate anime genre romance.\
-          \n\n.𝘀𝗹𝗶𝗰𝗲 \
+          \n\n.slice \
           \nInfo: Generate anime genre slice of life.\
-          \n\n.𝗺𝗲𝗰𝗵𝗮 \
+          \n\n.mecha \
           \nInfo: Generate anime genre mecha.\
-          \n\n.𝗶𝘀𝗲𝗸𝗮𝗶 \
+          \n\n.isekai \
           \nInfo: Generate anime genre isekai."
           
     })
