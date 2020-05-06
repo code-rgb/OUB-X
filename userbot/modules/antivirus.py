@@ -1,6 +1,5 @@
 # Lots of lub to @r4v4n4 for gibing the base <3
-""" cmd is .scan """
-
+#ported by @heyworld
 import os
 import datetime
 from telethon import events
@@ -8,7 +7,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.events import register 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME
-#ported by @heyworld
+
 
 @register(outgoing=True, pattern="^.scan(?: |$)(.*)")
 async def _(event):
