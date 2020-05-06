@@ -3,10 +3,6 @@ from telethon import events
 from userbot import bot, CMD_HELP
 import asyncio
 
-
-
-
-
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
 async def _(event):
@@ -423,15 +419,15 @@ async def _(event):
             
 CMD_HELP.update({
     "animate":
-    ".animate\
+    ".𝗮𝗻𝗶𝗺𝗮𝘁𝗲\
     \nUsage: Some animated memes see yourself lul\
-     \n\n.load\
-     \n.square\
-     \n.up\
-     \n.round\
-     \n.heart\
-     \n.anim\
-     \n.monkey\
-     \n.hand"
+     \n\n.𝗹𝗼𝗮𝗱\
+     \n.𝘀𝗾𝘂𝗮𝗿𝗲\
+   \n.𝘂𝗽\
+     \n.𝗿𝗼𝘂𝗻𝗱\
+     \n.𝗵𝗲𝗮𝗿𝘁\
+     \n.𝗮𝗻𝗶𝗺\
+     \n.𝗺𝗼𝗻𝗸𝗲𝘆\
+     \n.𝗵𝗮𝗻𝗱"
     
 })
