@@ -1,6 +1,6 @@
 
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
-<h1 align="center"> ⚠️Kang at your own risk⚠️</br></h1><h2><p align="center"> No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></p></h2>
+<h1 align="center"> ⚠️Kang at your own risk⚠️</h1><h2><p align="center"> No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></p></h2>
 <p align="center">&nbsp;</p>
 <h1 align="center">Project OUB-X</h1>
 
