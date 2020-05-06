@@ -1,6 +1,7 @@
 
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
-<h2 align="center"> ⚠️Kang at your own risk⚠️. No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
+<h2 align="center"> ⚠️Kang at your own risk⚠️.</h2>
+<h3 align="center"> Project OUB-X</h1>No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h3>
 <p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
 <h4 align="center">Based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
