@@ -36,7 +36,7 @@ async def all(event):
     
 CMD_HELP.update({
     "all":
-    ".𝗮𝗹𝗹\
+    ".all\
 \nUsage: A Plugin to tagall in the chat."
 })    
 
