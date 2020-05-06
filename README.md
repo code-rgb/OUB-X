@@ -6,14 +6,15 @@
 <p align="center">&nbsp;</p>
 <h1 align="center"> Disclaimer</h1>
 
-### No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
-<p align="center"></br>
-           
-           
+<h2 align="center">No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
+</br>
+      
+          
    ```
 
 /**
-          ⚠️Kang at your own risk⚠️
+
+    ⚠️Kang at your own risk⚠️
           
     Your Telegram account may get banned.
     I am not responsible for any improper use of this bot
@@ -28,6 +29,7 @@
     for getting your account deleted?
     We will be rolling on the floor laughing at you.
     Yes! you heard it right.
+    
 /**
 ```
 <p align="center">&nbsp;</p>
