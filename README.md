@@ -9,7 +9,7 @@
 
 
 
-<h1 align="center"> Disclaimer</h1>
+<h2 align="center"> Disclaimer</h2>
 
 ### No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
 
