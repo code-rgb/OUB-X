@@ -228,21 +228,21 @@ async def action(event):
 CMD_HELP.update({
         "anime":  \
         "Anime random generator \
-        \nUsage: .(genre) number of times (interger) \
+        \nUsage: .(𝗴𝗲𝗻𝗿𝗲) 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗶𝗺𝗲𝘀 (𝗶𝗻𝘁𝗲𝗿𝗴𝗲𝗿) \
         \n\nAvailable commands: \
-        \n.action \
+        \n.𝗮𝗰𝘁𝗶𝗼𝗻 \
           \nInfo: Generate anime genre action.\
-          \n\n.adventure \
+          \n\n.𝗮𝗱𝘃𝗲𝗻𝘁𝘂𝗿𝗲 \
           \nInfo: Generate anime genre adventure.\
-          \n\n.harem \
+          \n\n.𝗵𝗮𝗿𝗲𝗺 \
           \nInfo: Generate anime genre harem UwU.\
-          \n\n.romance \
+          \n\n.𝗿𝗼𝗺𝗮𝗻𝗰𝗲 \
           \nInfo: Generate anime genre romance.\
-          \n\n.slice \
+          \n\n.𝘀𝗹𝗶𝗰𝗲 \
           \nInfo: Generate anime genre slice of life.\
-          \n\n.mecha \
+          \n\n.𝗺𝗲𝗰𝗵𝗮 \
           \nInfo: Generate anime genre mecha.\
-          \n\n.isekai \
+          \n\n.𝗶𝘀𝗲𝗸𝗮𝗶 \
           \nInfo: Generate anime genre isekai."
           
     })
