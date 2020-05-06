@@ -4,6 +4,8 @@
 <h4 align="center">Based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
 <h4 align="center">...or rather, it's modified OUB enriched with kangness</h4>
 <p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
 <h1 align="center"> Disclaimer</h1>
 
 ### No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
@@ -12,9 +14,7 @@
    ```
 
 /**
-
-    ⚠️Kang at your own risk⚠️
-          
+    ⚠️Kang at your own risk⚠️          
     Your Telegram account may get banned.
     I am not responsible for any improper use of this bot
     This bot is intended for the purpose of having fun with memes,
@@ -28,12 +28,10 @@
     for getting your account deleted?
     We will be rolling on the floor laughing at you.
     Yes! you heard it right.
-    
 /**
 ```
 
-<p align="center">&nbsp;</p>
-<p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
+
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
