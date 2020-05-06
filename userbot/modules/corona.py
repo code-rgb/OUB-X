@@ -7,7 +7,7 @@ from userbot.events import register
 
 #@borg.on(admin_cmd(pattern="coronavirus (.*)"))
 #async def _(event):
-@register(outgoing=True, pattern="^.cod19 (.*)")
+@register(outgoing=True, pattern="^.corona (.*)")
 async def cv(event):
     covid = Covid()
     data = covid.get_data()
@@ -26,6 +26,6 @@ def get_country_data(country, world):
     
     
     CMD_HELP.update({
-    "cod": ".cod19 <country> \
+    "corona": ".𝗰𝗼𝗿𝗼𝗻𝗮 <𝗰𝗼𝘂𝗻𝘁𝗿𝘆>\
     \nUsage: CoronaVirus LookUp for specified country if available."
 })
