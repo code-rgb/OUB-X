@@ -1,4 +1,4 @@
-https://travis-ci.com/code-rgb/OUB-X.svg?branch=sql-extended
+<img src ="https://travis-ci.com/code-rgb/OUB-X.svg?branch=sql-extended">
 <p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
 <h1></h1>
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
