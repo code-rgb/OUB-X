@@ -945,7 +945,7 @@ async def get_bots(show):
   
 
 CMD_HELP.update({
-    "admin":
+    "𝙖𝙙𝙢𝙞𝙣":
     ".promote <username/reply> <custom rank (optional)>\
 \nUsage: Provides admin rights to the person in the chat.\
 \n\n.demote <username/reply>\
