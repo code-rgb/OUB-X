@@ -1,9 +1,29 @@
 
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 
-<h2 align="center"> ⚠️Kang at your own risk⚠️</br></br>
+### ⚠️Kang at your own risk⚠️</br></br>
+```
+Disclaimer
+/**
 No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
-<p align="center">&nbsp;</p>
+<p align="center"></br>
+    Your Telegram account may get banned.
+    I am not responsible for any improper use of this bot
+    This bot is intended for the purpose of having fun with memes,
+    as well as efficiently managing groups.
+    It can help you with managing yourself as well.
+    You ended up spamming groups, getting reported left and right,
+    and then you ended up in a Final Battle with Telegram
+    and at the end the Telegram Team
+    deleted your account?
+    And after that, you pointed your fingers at us
+    for getting your account deleted?
+    We will be rolling on the floor laughing at you.
+    Yes! you heard it right.
+/**
+```
+
+&nbsp;</p>
 <h1 align="center">Project OUB-X</h1>
 
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
