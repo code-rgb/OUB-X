@@ -45,7 +45,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">Updates and Support</h2>
 <p align="center">Join <a href="https://t.me/OUBspam">OpenUserBot's</a> support group</p>
-<p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420">Hashire</a></p>
+<p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420">Syntax Error</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Documentation</h2>
 <p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU LICENSE</a> | <a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">LICENSE</p>
