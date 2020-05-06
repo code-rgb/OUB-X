@@ -7,6 +7,7 @@
 
 <p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
 <p align="center">&nbsp;</p>
+<h1></h1>
 <h1 align="center"> Disclaimer</h1>
 
 ### No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
