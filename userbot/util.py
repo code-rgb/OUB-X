@@ -1,6 +1,6 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
-
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import re
 import math
@@ -20,6 +20,8 @@ else:
 
 
 def admin_cmd(**args):
+    args["func"] = lambda e: e.via_bot_id is None
+    
     pattern = args.get("pattern", None)
     allow_sudo = args.get("allow_sudo", False)
 
