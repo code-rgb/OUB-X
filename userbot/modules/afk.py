@@ -264,11 +264,11 @@ async def afk_on_pm(sender):
 
 
 CMD_HELP.update({
-    "𝙖𝙛𝙠":
-    ".afk [Optional Reason]\
+    "afk":
+    ".𝗮𝗳𝗸 [Optional Reason]\
 \nUsage: Sets you as afk.\nReplies to anyone who tags/PM's \
 \nyou telling them that you are AFK(reason).\
-\n\n.unafk\
+\n\n.𝘂𝗻𝗮𝗳𝗸\
 \nUsage: Back from afk state\
 "
 })
