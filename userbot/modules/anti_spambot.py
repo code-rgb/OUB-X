@@ -181,6 +181,6 @@ async def ANTI_SPAMBOT(welcm):
 CMD_HELP.update({
     'anti_spambot':
     "If enabled in config.env or env var,\
-        \nthis module will ban(or inform the admins of the group about) the\
-        \nspammer(s) if they match the userbot's anti-spam algorithm."
+        \nthis module will 𝗯𝗮𝗻(𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺 𝘁𝗵𝗲 𝗮𝗱𝗺𝗶𝗻𝘀 𝗼𝗳 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽 𝗮𝗯𝗼𝘂𝘁) the\
+        \n𝘀𝗽𝗮𝗺𝗺𝗲𝗿(𝘀) if they match the userbot's anti-spam algorithm."
 })
