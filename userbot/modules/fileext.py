@@ -26,7 +26,6 @@ async def _(event):
         await event.edit("https://www.fileext.com/ responded with {} for query: {}".format(status_code, input_str))
 
  CMD_HELP.update({
-    "fileext":
-    ".fileext <extenstion>\
-    \nUsage: find information about file extenstion.\"
-})       
+"fileext": ".fileext\
+    \nUsage: Type .fileext <extention> to get info about that."
+})
