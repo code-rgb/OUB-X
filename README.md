@@ -1,5 +1,5 @@
 <p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
-<h1></h1></br>
+<h1></h1>
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
 <h4 align="center">Based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
