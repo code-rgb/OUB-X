@@ -1,6 +1,6 @@
 #"""D Plugin for @UniBorg
 #Syntax: .meaning <word>"""
-
+#ported by @deleteduser420
 import requests
 from telethon import events
 #from uniborg.util import admin_cmd
