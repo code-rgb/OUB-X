@@ -151,14 +151,14 @@ async def amireallyalive(alive):
          "⠄⠄⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁⠄⠄⠄⠄⠄⢀ \n"
          "⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⣠⣴⣿ \n"
        f"--------------------------------------------------------\n"
-        "    𝕀'𝕄 𝔸𝕋 𝕐𝕆𝕌ℝ 𝕊𝔼ℝ𝕍𝕀ℂ𝔼 \n"
-        f"𝗛𝗔𝗥𝗘𝗠 𝗞𝗜𝗡𝗚: {DEFAULTUSER} \n"
+        "𝕀'𝕄 𝔸𝕋 𝕐𝕆𝕌ℝ 𝕊𝔼ℝ𝕍𝕀ℂ𝔼 \n"
+        f"🤴 𝗛𝗔𝗥𝗘𝗠 𝗞𝗜𝗡𝗚: {DEFAULTUSER} \n"
   f"============================\n"
       
-        f"🔧`>Telethon: v{version.__version__}<` \n"
-        f"🐍`>Python: v{python_version()}<` \n"
-        f"🤙`>Owner:` @DeletedUser420`<` \n"
-        f"✴️`>Userbot: `[OUB-X](https://github.com/code-rgb/OUB-X)<\n"               
+        f"🔧` Telethon: v{version.__version__}` \n"
+        f"🐍` Python:   v{python_version()}` \n"
+        f"🤙` Owner:`   @DeletedUser420 \n"
+        f"✴️` Userbot:` [OUB-X](https://github.com/code-rgb/OUB-X)<\n"               
         f"============================\n"
         
         )
