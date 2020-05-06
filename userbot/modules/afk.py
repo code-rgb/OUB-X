@@ -1,6 +1,5 @@
 
 # Copyright (C) 2019 The Raphielscape Company LLC.
-#
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 # All Credits to https://t.me/azrim89 for timestamp.
@@ -169,7 +168,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
-                        \n**Because my King is** `{AFKREASON}`")
+                        \n**Because ** `{AFKREASON}`")
                 else:
                     await mention.reply(f"●{DEFAULTUSER} is **afk Since** {afk_since}.\nand Master has left a word for you only: \n{AFKSK}\n`.` ")
                 USERS.update({mention.sender_id: 1})
@@ -178,7 +177,7 @@ async def mention_afk(mention):
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await mention.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
-                            \n**Because my King is** `{AFKREASON}`")
+                            \n**Because ** `{AFKREASON}`")
                     else:
                         await mention.reply(f"● {DEFAULTUSER} is **afk Since** {afk_since}.\nand Master has left a word for you only: \n{AFKSK}\n`.` ")
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
@@ -245,7 +244,7 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
-                        \n**Because my King is** `{AFKREASON}`")
+                        \n**Because ** `{AFKREASON}`")
                 else:
                     await sender.replyf(f"● {DEFAULTUSER}  is **afk Since** {afk_since}.\nand Master has left a word for you only: \n{AFKSK}\n`.` ")
                 USERS.update({sender.sender_id: 1})
@@ -254,7 +253,7 @@ async def afk_on_pm(sender):
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
-                            \n**Because my King is** `{AFKREASON}`")
+                            \n**Because ** `{AFKREASON}`")
                     else:
                         await sender.reply(f"● {DEFAULTUSER} is **afk Since** {afk_since}.\nand My Master has left a word for you only: \n{AFKSK}\n`.` ")
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
@@ -265,7 +264,7 @@ async def afk_on_pm(sender):
 
 
 CMD_HELP.update({
-    "afk":
+    "𝙖𝙛𝙠":
     ".afk [Optional Reason]\
 \nUsage: Sets you as afk.\nReplies to anyone who tags/PM's \
 \nyou telling them that you are AFK(reason).\
