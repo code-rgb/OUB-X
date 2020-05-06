@@ -55,7 +55,7 @@ async def magnet_download(event):
 
 CMD_HELP.update({
     "aria2":
-    ".url [URL]\
+    ".𝘂𝗿𝗹 [𝗨𝗥𝗟]\
     \nUsage: Downloads the file into your userbot server storage.\
     \nUsing ariav2."
 })
