@@ -5,10 +5,13 @@
 
 ### No personal support will be provided and if you really need help ask in <a href="#updates-and-support">Support Group</a></h2>
 <p align="center"></br>
-###</br></br>
-```
+           
+           
+   ```
+
 /**
-           ⚠️Kang at your own risk⚠️
+          ⚠️Kang at your own risk⚠️
+          
     Your Telegram account may get banned.
     I am not responsible for any improper use of this bot
     This bot is intended for the purpose of having fun with memes,
@@ -24,7 +27,6 @@
     Yes! you heard it right.
 /**
 ```
-
 &nbsp;</p>
 <h1 align="center">Project OUB-X</h1>
 
