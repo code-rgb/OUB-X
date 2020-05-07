@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/code-rgb/OUB-X.svg?branch=sql-extended)](https://travis-ci.com/code-rgb/OUB-X)
-<p align="center"><a href="#disclaimer">Disclaimer</a> | <a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#Documentation">Documentation</a></p>
+<p align="center"><a href="#disclaimer">Disclaimer</a> | <a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
 <h1></h1>
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
@@ -47,7 +47,7 @@
 <p align="center">Join <a href="https://t.me/OUBspam">OpenUserBot's</a> support group</p>
 <p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420">Syntax Error</a></p>
 <p align="center">&nbsp;</p>
-<h2 align="center">Documentation</h2>
+<h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.d, February 2020</p>
 <p align="center">&nbsp;</p>
 
