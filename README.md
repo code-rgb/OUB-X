@@ -48,7 +48,7 @@
 <p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420">Syntax Error</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Documentation</h2>
-<p align="center"><a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU LICENSE</a> | <a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">LICENSE</p>
+<p align="center"><a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.d, February 2020</p>
 <p align="center">&nbsp;</p>
 
 
