@@ -1,7 +1,7 @@
 {
   "name": "Telegram Open User Bot",
-  "description": "[OpenUserBot] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
-  "logo": "https://telegra.ph/file/d04a1724c6dd8a957bd0e.png",
+  "description": "[OUB-X] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
+  "logo": "https://telegra.ph/file/fd4f9734af0d59cd94e0d.png",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/mkaraniya/OpenUserBot",
+  "repository": "https://github.com/code-rgb/OUB-X",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
   "success_url": "https://t.me/PPE_Support",
   "stack": "container",
@@ -138,7 +138,7 @@
     },
     "TELEGRAPH_SHORT_NAME": {
       "description": "add your desired TELEGRAPH_SHORT_NAME.",
-      "value": "@Mayur_Karaniya"
+      "value": "DeletedUser420"
     },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
@@ -170,7 +170,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "[PM = Report Spam] I ❤ ️@OpenUserBot",
+      "value": "[PM = Report Spam] I ❤ ️OUB-X",
       "required": false
     },
     "ALIVE_NAME": {
