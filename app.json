@@ -1,5 +1,5 @@
 {
-  "name": "Telegram Open User Bot",
+  "name": "Open User Bot-Xtreme",
   "description": "[OUB-X] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
   "logo": "https://telegra.ph/file/fd4f9734af0d59cd94e0d.png",
   "keywords": [
