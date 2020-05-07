@@ -1,4 +1,4 @@
-#ported to OUB by x0rzavi
+#credits to x0rzavi
 """
 #command: .url 
 
