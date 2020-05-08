@@ -41,5 +41,5 @@ async def amireallydbs(dbs):
                      
                      
 CMD_HELP.update(
-    {"db": ".dbs\n"
+    {"dbs": ".dbs\n"
      "Usage: Shows database related info."})
