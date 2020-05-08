@@ -1,4 +1,5 @@
 #made by @deletedUser420
+#© 2020 GitHub, Inc.
 import asyncio
 import re
 import time
@@ -325,4 +326,4 @@ CMD_HELP.update({
     '.fl\
         \nUsage: Rick roll :p.'
 })
-© 2020 GitHub, Inc.
+
