@@ -522,7 +522,7 @@ async def get_full_user(event):
             
             
 CMD_HELP.update({
-    "tools":
+    "remixmemes":
     ".app\
 \nUsage: type .app name and get app details.\
 \n\n.undlt\
