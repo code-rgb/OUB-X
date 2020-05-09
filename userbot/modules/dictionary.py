@@ -9,12 +9,13 @@ from userbot import CMD_HELP, bot
 
 
 @register(outgoing=True, pattern="^.meaning(?: |$)(.*)")
+
 async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
     input_url = "https://bots.shrimadhavuk.me/dictionary/?s={}".format(input_str)
-    headers = {"USER-AGENT": "Uniborg"}
+    headers = {"USER-AGENT": "UniBorg"}
     caption_str = f"Meaning of __{input_str}__\n"
     try:
         response = requests.get(input_url, headers=headers).json()
@@ -44,6 +45,7 @@ async def _(event):
     except:
         pass
     await event.edit(caption_str)
+          
     
     CMD_HELP.update({
         "dictionary": 
