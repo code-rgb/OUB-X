@@ -25,7 +25,13 @@ def get_country_data(country, world):
     return {"Status": "No information yet about this country!"}
     
     
+<<<<<<< HEAD:userbot/modules/corona.py
     CMD_HELP.update({
     "corona": ".𝗰𝗼𝗿𝗼𝗻𝗮 <𝗰𝗼𝘂𝗻𝘁𝗿𝘆>\
+=======
+CMD_HELP.update({
+    "cod":
+    ".cod19 <country> \
+>>>>>>> 75cbd1203de031edb640d650d46065dec45d7341:userbot/modules/cod.py
     \nUsage: CoronaVirus LookUp for specified country if available."
 })
