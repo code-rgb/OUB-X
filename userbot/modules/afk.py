@@ -252,13 +252,10 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-<<<<<<< HEAD
-                        await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
-                            \n**Because ** `{AFKREASON}`")
-=======
+
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is {AFKREASON}.\
                             \n**Since** `{afk_since}`")
->>>>>>> 75cbd1203de031edb640d650d46065dec45d7341
+
                     else:
                         await sender.reply(f"● {DEFAULTUSER} is **afk Since** {afk_since}.\nand My Master has left a word for you only: \n{AFKSK}\n`.` ")
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
@@ -270,10 +267,10 @@ async def afk_on_pm(sender):
 
 CMD_HELP.update({
     "afk":
-    ".𝗮𝗳𝗸 [Optional Reason]\
+    ".afk [Optional Reason]\
 \nUsage: Sets you as afk.\nReplies to anyone who tags/PM's \
 \nyou telling them that you are AFK(reason).\
-\n\n.𝘂𝗻𝗮𝗳𝗸\
+\n\n.unafk\
 \nUsage: Back from afk state\
 "
 })
