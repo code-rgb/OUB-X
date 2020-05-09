@@ -65,6 +65,5 @@ pyfiglet
 jotquote
 csvfaker
 PyLyrics
-wget
 pymongo[srv]
 
