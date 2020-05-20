@@ -67,8 +67,5 @@ jotquote
 csvfaker
 PyLyrics
 pymongo[srv]
-<<<<<<< HEAD
-
-=======
 youtube_search
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
+
