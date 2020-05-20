@@ -63,8 +63,34 @@ async def waifu(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
+    
+    
+    
+    @register(outgoing=True, pattern="^.memex(?: |$)(.*)")
 
-CMD_HELP.update(
-    {"waifu":
-    "`.waifu`  text\
-    \nUsage:for custom stickers."})
+async def memex(xmemes):
+     
+    text = xmemes.pattern_match.group(1)
+    if not text:
+        if xmemes.is_reply:
+            text = (await xmemes.get_reply_message()).message
+        else:
+            await xmemes.answer("`No text given, please try again")
+            return
+    choose =  [6, 8, 12, 30, 38, 51, 59, 3, 7, 45]
+    sticcers = await bot.inline_query(
+        "stickerizerbot", f"#{random.choice(choose)}{(deEmojify(text))}")
+    await sticcers[0].click(xmemes.chat_id,
+                            reply_to=xmemes.reply_to_msg_id,
+                            silent=True if xmemes.is_reply else False,
+                            hide_via=True)
+    await xmemes.delete()
+    
+    
+
+CMD_HELP.update({
+    "waifu":
+    ".waifu [text]\
+\nUsage: for custom anime girl stickers. \
+\n\n.memex\
+\nUsage: for custom meme stickers."})
