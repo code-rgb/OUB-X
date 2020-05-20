@@ -167,6 +167,9 @@ PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
 # Terminal alias
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "OUB-X")
 
+# Youtube API key
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
