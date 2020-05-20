@@ -508,7 +508,7 @@ PROSTR = [
 ]
 
 NUBSTR = [
-<<<<<<< HEAD
+
     "`Haha noob trying to act pro`",
     "`Hi Nub what'sup`",
     "`Only i and you know that ur a noob and trying to act like pro`",
@@ -523,12 +523,6 @@ BYESTR = [
     "`I'm off!`",
     "`Great to see you,bye`",
     "`See you soon`",
-=======
-    "`Only few here were Pro and then you join the Party`",
-    "`Only few here were Pro and then you join the Party`",
-    "`Only few here were Pro and then you join the Party`",
-    "`Only few here were Pro and then you join the Party`",
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
 ]
 
 SHGS = [
