@@ -16,7 +16,7 @@ PARSE_ORIGIN="$(git config --get remote.origin.url)"
 COMMIT_POINT="$(git log --pretty=format:'%h : %s' -1)"
 COMMIT_HASH="$(git rev-parse --verify HEAD)"
 COMMIT_AUTHOR="$(git log -1 --format='%an <%ae>')"
-REVIEWERS="@Mayur_Karaniya"
+REVIEWERS="@Deleteduser420"
 LINT_ALLOWED_BRANCHES="staging"
 TELEGRAM_TOKEN=${BOT_API_KEY}
 export BOT_API_KEY PARSE_BRANCH PARSE_ORIGIN COMMIT_POINT TELEGRAM_TOKEN
@@ -45,7 +45,7 @@ tg_senderror() {
     fi
     tg_sendinfo "<code>Build Throwing Error(s)</code>" \
         "${REVIEWERS} please look in!" \
-        "Logs: https://github.com/mkaraniya/OpenUserBot"
+        "Logs: https://github.com/code-rgb/OUB-X"
 
     [ -n "${STATUS}" ] &&
     exit "${STATUS}" ||
@@ -56,8 +56,8 @@ lint() {
   if [ ! -z "$PULL_REQUEST_NUMBER" ]; then
     exit 0
   fi
-  git config --global user.email "mkaraniya@gmail.com"
-  git config --global user.name "mkaraniya"
+  git config --global user.email "hssharma1220@gmail.com"
+  git config --global user.name "code-rgb"
 
 RESULT=`yapf -d -r -p userbot`
 
