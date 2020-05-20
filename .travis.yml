@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 language: python
 python:
   - "3.8"
@@ -5,3 +6,15 @@ python:
 install:
   - pip install -r requirements.txt
 script: echo overide build
+=======
+language: minimal
+
+dist: focal
+
+script:
+  - bash init/Merge.sh
+
+branches:
+  only:
+  - sql-extended
+>>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
