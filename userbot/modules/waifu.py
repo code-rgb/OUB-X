@@ -7,11 +7,7 @@ import random
 from os import execl
 import time
 from telethon import events
-<<<<<<< HEAD
-from userbot import CMD_HELP, bot
-=======
 from userbot import bot
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
 from collections import deque
 import requests
 import sys
@@ -20,11 +16,8 @@ import io
 import html
 import json
 from PIL import ImageEnhance, ImageOps
-<<<<<<< HEAD
-=======
 
 from userbot import CMD_HELP
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 
@@ -62,11 +55,7 @@ async def waifu(animu):
         else:
             await animu.answer("`No text given, hence the waifu ran away.`")
             return
-<<<<<<< HEAD
     animus = [20, 32, 33, 40, 41, 42, 58]
-=======
-    animus = [1, 3, 7, 9, 13, 22, 34, 35, 36, 37, 43, 44, 45, 52, 53, 55]
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
     sticcers = await bot.inline_query(
         "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}")
     await sticcers[0].click(animu.chat_id,
@@ -74,17 +63,8 @@ async def waifu(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
-    
-<<<<<<< HEAD
 
 CMD_HELP.update(
     {"waifu":
-    ".waifu\
-    \nUsage:to stickerize your text with beautiful Anime girl templates."})
-=======
-    
-    CMD_HELP.update({
-    'waifu':
-    ".waitfu : enjoy your text with anime."
-})
->>>>>>> 8f60c10828a8415c1e8df82e7ea3d08034fd5c67
+    "`.waifu`  text\
+    \nUsage:for custom stickers."})
