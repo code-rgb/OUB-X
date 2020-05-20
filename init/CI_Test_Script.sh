@@ -70,7 +70,7 @@ RESULT=`yapf -d -r -p userbot`
             git reset HEAD~1
             git add .
             git commit -m "[AUTO-LINT]: ${message}" --author="${COMMIT_AUTHOR}" --signoff
-            git remote set-url origin https://${GH_USERNAME}:${GH_PERSONAL_TOKEN}@github.com/mkaraniya/OpenUserBot.git
+            git remote set-url origin https://${GH_USERNAME}:${GH_PERSONAL_TOKEN}@github.com/code-rgb/OUB-X.git
             git push -f origin $PARSE_BRANCH
             tg_sendinfo "<code>Code has been linted and force pushed!</code>"
       else
