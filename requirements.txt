@@ -68,4 +68,4 @@ csvfaker
 PyLyrics
 pymongo[srv]
 youtube_search
-
+instantmusic
