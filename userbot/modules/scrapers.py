@@ -498,8 +498,44 @@ async def yt_search(video_q):
     results = json.loads(YoutubeSearch(str(args), max_results=8).to_json())
     text = ""
     for i in results["videos"]:
-           text += f"<i>◍ {i['title']}</i>\nhttps://www.youtube.com{i['link']}\n\n"
+           text += f"**◍ {i['title']}**\nhttps://www.youtube.com{i['link']}\n\n"
     await video_q.edit(text)
+
+
+async def youtube_search(query,
+                         order="relevance",
+                         token=None,
+                         location=None,
+                         location_radius=None):
+    """ Do a YouTube search. """
+    youtube = build('youtube',
+                    'v3',
+                    developerKey=YOUTUBE_API_KEY,
+                    cache_discovery=False)
+    search_response = youtube.search().list(
+        q=query,
+        type="video",
+        pageToken=token,
+        order=order,
+        part="id,snippet",
+        maxResults=10,
+        location=location,
+        locationRadius=location_radius).execute()
+
+    videos = []
+
+    for search_result in search_response.get("items", []):
+        if search_result["id"]["kind"] == "youtube#video":
+            videos.append(search_result)
+    try:
+        nexttok = search_response["nextPageToken"]
+        return (nexttok, videos)
+    except HttpError:
+        nexttok = "last_page"
+        return (nexttok, videos)
+    except KeyError:
+        nexttok = "KeyError, try again."
+        return (nexttok, videos)
 
 
 @register(outgoing=True, pattern=r".rip(audio|video) (.*)")
@@ -644,28 +680,47 @@ def deEmojify(inputString):
     return get_emoji_regexp().sub(u'', inputString)
 
 
+
 CMD_HELP.update({
-    "scrappers":
-    "`.img` <search_query>\
-\nUsage: Does an image search on Google and shows 5 images.\
-\n\n`.currency` <amount> <from> <to>\
-\nUsage: Converts various currencies for you.\
-\n\n`.carbon` <text> [or reply]\
-\nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code.\
-\n\n`.google` <query>\
-\nUsage: Does a search on Google.\
-\n\n`.wiki` <query>\
-\nUsage: Does a search on Wikipedia.\
-\n\n`.ud` <query>\
-\nUsage: Usage: Does a search on Urban Dictionary.\
-\n\n`.tts` <text> [or reply]\
-\nUsage:Translates text to speech for the language which is set.\nUse .lang tts <language code> to set language for tts. (Default is English.)\
-\n\n`.trt` <text> [or reply]\
-\nUsage: Translates text to the language which is set.\nUse .lang trt <language code> to set language for trt. (Default is English)\
-\n\n`.yt` <text>\
-\nUsage: Does a YouTube search.\
-\n\n`.imdb` <movie-name>\
-\nUsage:Shows movie info and other stuff.\
-\n\n`.ripaudio` <url> or ripvideo <url>\
-\nUsage: Download videos and songs from YouTube (and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html))."
-})  
+    'img':
+    '.img <search_query>\
+        \nUsage: Does an image search on Google and shows 5 images.'
+})
+CMD_HELP.update({
+    'currency':
+    '.currency <amount> <from> <to>\
+        \nUsage: Converts various currencies for you.'
+})
+CMD_HELP.update({
+    'carbon':
+    '.carbon <text> [or reply]\
+        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code.'
+})
+CMD_HELP.update(
+    {'google': '.google <query>\
+        \nUsage: Does a search on Google.'})
+CMD_HELP.update(
+    {'wiki': '.wiki <query>\
+        \nUsage: Does a search on Wikipedia.'})
+CMD_HELP.update(
+    {'ud': '.ud <query>\
+        \nUsage: Does a search on Urban Dictionary.'})
+CMD_HELP.update({
+    'tts':
+    '.tts <text> [or reply]\
+        \nUsage: Translates text to speech for the language which is set.\nUse .lang tts <language code> to set language for tts. (Default is English.)'
+})
+CMD_HELP.update({
+    'trt':
+    '.trt <text> [or reply]\
+        \nUsage: Translates text to the language which is set.\nUse .lang trt <language code> to set language for trt. (Default is English)'
+})
+CMD_HELP.update({'yt': '.yt <text>\
+        \nUsage: Does a YouTube search.'})
+CMD_HELP.update(
+    {"imdb": ".imdb <movie-name>\nShows movie info and other stuff."})
+CMD_HELP.update({
+    'rip':
+    '.ripaudio <url> or ripvideo <url>\
+        \nUsage: Download videos and songs from YouTube (and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html)).'
+})
