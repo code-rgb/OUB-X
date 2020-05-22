@@ -183,19 +183,19 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)}s`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f" **{DEFAULTUSER}** Is still **afk since** {afk_since}.\
-                            \n**Because ** `{AFKREASON}`")
+                    await mention.reply(f" **{DEFAULTUSER}** Is **afk since** {afk_since}.\
+                            \n**Reason : ** `{AFKREASON}`")
                 else:
-                    await mention.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nBecause : \n{AFKSK}\n`.` ")
+                    await mention.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nReason :  \n{AFKSK}\n`.` ")
                 USERS.update({mention.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f" **{DEFAULTUSER}** Is still **afk since** {afk_since}.\
-                            \n**Because ** `{AFKREASON}`")
+                        await mention.reply(f" **{DEFAULTUSER}** Is **afk since** {afk_since}.\
+                            \n**Reason : ** `{AFKREASON}`")
                     else:
-                        await mention.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nBecause : \n{AFKSK}\n`.` ")
+                        await mention.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nReason :  \n{AFKSK}\n`.` ")
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
                 else:
@@ -261,18 +261,18 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(f" **{DEFAULTUSER}** is **afk since** {afk_since}.\
-                        \n**Because ** `{AFKREASON}`")
+                        \n**Reason : ** `{AFKREASON}`")
                 else:
-                    await sender.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nBecause : \n{AFKSK}\n`.` ")
+                    await sender.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nReason :  \n{AFKSK}\n`.` ")
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await sender.reply(f" **{DEFAULTUSER}** Is **still afk since** {afk_since}.\
-                            \n**Because ** `{AFKREASON}`")
+                            \n**Reason : ** `{AFKREASON}`")
                     else:
-                        await sender.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nBecause : \n{AFKSK}\n`.` ")
+                        await sender.reply(f"  {DEFAULTUSER}  is **afk Since** {afk_since}.\nReason :  \n{AFKSK}\n`.` ")
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
                 else:
