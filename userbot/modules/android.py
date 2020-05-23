@@ -74,7 +74,7 @@ async def twrp(request):
 CMD_HELP.update({
     "android":
     ".magisk\
-\nGet latest Magisk releases\
+\nGet latest Magisk releases.\
 \n\n.twrp <codename>\
 \nUsage: Get latest twrp download for android device."
 })
