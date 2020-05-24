@@ -50,5 +50,5 @@ async def _(event):
     CMD_HELP.update({
         "dictionary": 
         ".meaning <word>"
-        "\nUsage: A dedicated Dictionary for OUB-X.\n"
+        "\nUsage: Atleast it works :p\n"
     })
