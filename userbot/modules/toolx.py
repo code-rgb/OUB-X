@@ -1,6 +1,6 @@
 #thanks to oub-remix for this.
 # clone ported by @deleteduser420
-#imported from github.com/ravana69/PornHub to userbot by @heyworld 
+ 
 import requests
 import bs4 
 import re
