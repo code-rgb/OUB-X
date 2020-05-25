@@ -52,7 +52,7 @@ async def magisk(request):
 
 
 @register(outgoing=True, pattern="^.pixeldl(?: |$)(.*)")
-async def download_api(dl):
+async def test(dl):
     await dl.edit("`Collecting information...`")
     URL = dl.pattern_match.group(1)
     URL_MSG = await dl.get_reply_message()
