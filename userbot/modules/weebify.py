@@ -13,6 +13,9 @@ normiefont = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', '
 weebyfont = ['卂', '乃', '匚', '刀', '乇', '下', '厶', '卄', '工', '丁', '长', '乚', '从', '𠘨', '口', '尸', '㔿', '尺', '丂', '丅', '凵',
              'リ', '山', '乂', '丫', '乙']
 
+boldfont = ['𝗮', '𝗯', '𝗰', '𝗱', '𝗲', '𝗳', '𝗴', '𝗵', '𝗶', '𝗷', '𝗸', '𝗹', '𝗺', '𝗻', '𝗼', '𝗽', '𝗾', '𝗿', '𝘀', '𝘁', '𝘂',
+              '𝘃', '𝘄', '𝘅', '𝘆', '𝘇']
+
 @register(outgoing=True, pattern="^.weeb(?: |$)(.*)")
 async def weebify(event):
 
@@ -30,10 +33,30 @@ async def weebify(event):
             string = string.replace(normiecharacter, weebycharacter)
     await event.edit(string)
     
+   @register(outgoing=True, pattern="^.bold(?: |$)(.*)")
+async def thicc(bolded):
+
+    args = bolded.pattern_match.group(1)
+    if not args:
+        get = await bolded.get_reply_message()
+        args = get.text   
+    if not args:
+        await bolded.edit("`What I am Supposed to bold for U Dumb`")
+        return
+    string = '  '.join(args).lower()
+    for normiecharacter in string:
+        if normiecharacter in normiefont:
+            boldcharacter = boldfont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, boldcharacter)
+    await bolded.edit(string)
+    
+    
     
     
     CMD_HELP.update({
-    "weeb":
+    "text_transform":
     "`.weeb` Weebify a text\
-\nUsage: .weeb <text>"
+    \nUsage: .weeb <text>\
+    \n`.bold` make text bold.\
+    \nUsage: .bold <text>"
 })
