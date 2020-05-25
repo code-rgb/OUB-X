@@ -1,4 +1,3 @@
-# ported to OUB by x0rzavi
 """
 Random Anime Chooser Plugin for Userbot
 Info = .{anime_genre} number of times(integer) 
