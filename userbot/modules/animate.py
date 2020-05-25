@@ -1,4 +1,4 @@
-#kanged freshly by @deleteduser420
+#ported and modifiled from uniborg by @deleteduser420
 from telethon import events
 from userbot import bot, CMD_HELP
 import asyncio
@@ -419,15 +419,13 @@ async def _(event):
             
 CMD_HELP.update({
     "animate":
-    
-    "\nUsage: Some animated memes see yourself lul\
+    "\nHey! try the below commands.\
      \n\n.load\
      \n.square\
-   \n.up\
+     \n.up\
      \n.round\
      \n.heart\
      \n.anim\
      \n.monkey\
      \n.hand"
-    
 })
