@@ -170,6 +170,9 @@ TERM_ALIAS = os.environ.get("TERM_ALIAS", "OUB-X")
 # Youtube API key
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
+# JustWatch Country
+WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY","IN")
+
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
