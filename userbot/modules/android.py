@@ -1,21 +1,29 @@
-# Copyright (C) 2020 The Raphielscape Company LLC.
+# Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module containing commands related to android"""
 
+import asyncio
 import re
-import json
+import os
+import time
+import math
+
 from requests import get
 from bs4 import BeautifulSoup
-import asyncio
-from userbot import CMD_HELP
+
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
+from userbot.utils import (
+    chrome, humanbytes, time_formatter, md5, human_to_bytes
+)
 
 GITHUB = 'https://github.com'
-DEVICES_DATA = 'https://raw.githubusercontent.com/androidtrackers/' \
-               'certified-android-devices/master/devices.json'
+DEVICES_DATA = ('https://raw.githubusercontent.com/androidtrackers/'
+                'certified-android-devices/master/by_device.json')
+
 
 
 @register(outgoing=True, pattern="^.magisk$")
@@ -39,37 +47,12 @@ async def magisk(request):
                     f'[Uninstaller]({data["uninstaller"]["link"]})\n'
     await request.edit(releases)
 
-@register(outgoing=True, pattern=r"^.twrp(?: |$)(\S*)")
-async def twrp(request):
-    """ get android device twrp """
-    textx = await request.get_reply_message()
-    device = request.pattern_match.group(1)
-    if device:
-        pass
-    elif textx:
-        device = textx.text.split(' ')[0]
-    else:
-        await request.edit("`Usage: .twrp <codename>`")
-        return
-    url = get(f'https://dl.twrp.me/{device}/')
-    if url.status_code == 404:
-        reply = f"`Couldn't find twrp downloads for {device}!`\n"
-        await request.edit(reply)
-        return
-    page = BeautifulSoup(url.content, 'lxml')
-    download = page.find('table').find('tr').find('a')
-    dl_link = f"https://dl.twrp.me{download['href']}"
-    dl_file = download.text
-    size = page.find("span", {"class": "filesize"}).text
-    date = page.find("em").text.strip()
-    reply = f'**Latest TWRP for {device}:**\n' \
-        f'[{dl_file}]({dl_link}) - __{size}__\n' \
-        f'**Updated:** __{date}__\n'
-    await request.edit(reply)
-    
-    
-    @register(outgoing=True, pattern="^.pixeldl(?: |$)(.*)")
-async def downzz(dl):
+
+
+
+
+@register(outgoing=True, pattern="^.pixeldl(?: |$)(.*)")
+async def download_api(dl):
     await dl.edit("`Collecting information...`")
     URL = dl.pattern_match.group(1)
     URL_MSG = await dl.get_reply_message()
@@ -151,7 +134,7 @@ async def downzz(dl):
             f" @ {humanbytes(speed)}`\n"
             f"`ETA` -> {time_formatter(eta)}"
         )
-        if round(diff % 15.00) == 0 and display_message != current_message or (
+        if round(diff % 10.00) == 0 and display_message != current_message or (
           downloaded == file_size):
             await dl.edit(current_message)
             display_message = current_message
@@ -177,12 +160,39 @@ async def downzz(dl):
 
 
 
+@register(outgoing=True, pattern=r"^.twrp(?: |$)(\S*)")
+async def twrp(request):
+    """ get android device twrp """
+    textx = await request.get_reply_message()
+    device = request.pattern_match.group(1)
+    if device:
+        pass
+    elif textx:
+        device = textx.text.split(' ')[0]
+    else:
+        return await request.edit("`Usage: .twrp <codename>`")
+    url = get(f'https://dl.twrp.me/{device}/')
+    if url.status_code == 404:
+        reply = f"`Couldn't find twrp downloads for {device}!`\n"
+        return await request.edit(reply)
+    page = BeautifulSoup(url.content, 'lxml')
+    download = page.find('table').find('tr').find('a')
+    dl_link = f"https://dl.twrp.me{download['href']}"
+    dl_file = download.text
+    size = page.find("span", {"class": "filesize"}).text
+    date = page.find("em").text.strip()
+    reply = f'**Latest TWRP for {device}:**\n' \
+        f'[{dl_file}]({dl_link}) - __{size}__\n' \
+        f'**Updated:** __{date}__\n'
+    await request.edit(reply)
+
+
 CMD_HELP.update({
     "android":
-    ".magisk\
-\nGet latest Magisk releases.\
-\n\n>`.pixeldl` **<download.pixelexperience.org>**\
-\nUsage: Download pixel experience ROM into your userbot server.\
-\n\n.twrp <codename>\
-\nUsage: Get latest twrp download for android device."
+    ".magisk"
+    "\nGet latest Magisk releases"
+    "\n\n.pixeldl **<download.pixelexperience.org>**"
+    "\nUsage: Download pixel experience ROM into your userbot server."
+    "\n\n.twrp <codename>"
+    "\nUsage: Get latest twrp download for android device."
 })
