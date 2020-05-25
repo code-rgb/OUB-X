@@ -149,10 +149,7 @@
       "description": "Enter Your Client ID for Google Drive.",
       "required": false
     },
-    "GDRIVE_FOLDER_ID": {
-            "description": "Google Drive upload folder.",
-            "required": false
-    },
+   
     "LASTFM_API": {
       "description": "API Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
       "required": false
@@ -187,6 +184,10 @@
       "required": false
     },
     "G_DRIVE_AUTH_TOKEN_DATA": {
+      "description": "Enter the Google Drive authentication data, as a JSON structure.",
+      "required": false
+    },
+    "G_DRIVE_DATA": {
       "description": "Enter the Google Drive authentication data, as a JSON structure.",
       "required": false
     },
