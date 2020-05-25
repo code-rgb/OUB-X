@@ -173,6 +173,11 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 # JustWatch Country
 WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY","IN")
 
+# Send .chatid in any group with all your administration bots (added)
+G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", None)
+if G_BAN_LOGGER_GROUP:
+        G_BAN_LOGGER_GROUP = int(G_BAN_LOGGER_GROUP)
+
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
