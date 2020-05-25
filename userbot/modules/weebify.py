@@ -24,7 +24,7 @@ async def weebify(event):
     if not args:
         await event.edit("`What I am Supposed to Weebify U Dumb`")
         return
-    string = '  '.join(args).lower()
+    string = ''.join(args).lower()
     for normiecharacter in string:
         if normiecharacter in normiefont:
             weebycharacter = weebyfont[normiefont.index(normiecharacter)]
@@ -45,7 +45,7 @@ async def thicc(bolded):
     if not args:
         await bolded.edit("`What I am Supposed to bold for U Dumb`")
         return
-    string = ''.join(args).lower()
+    string = ' '.join(args).lower()
     for normiecharacter in string:
         if normiecharacter in normiefont:
             boldcharacter = boldfont[normiefont.index(normiecharacter)]
