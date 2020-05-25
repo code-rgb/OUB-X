@@ -32,6 +32,8 @@ async def weebify(event):
             weebycharacter = weebyfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, weebycharacter)
     await event.edit(string)
+     return
+
     
    @register(outgoing=True, pattern="^.bold(?: |$)(.*)")
 async def thicc(bolded):
@@ -49,6 +51,8 @@ async def thicc(bolded):
             boldcharacter = boldfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, boldcharacter)
     await bolded.edit(string)
+     return
+
     
     
     
