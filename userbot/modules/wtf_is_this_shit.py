@@ -124,18 +124,13 @@ async def _(event):
             )
             os.remove("UniBorg.png")
             await event.delete()
-            
-#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 CMD_HELP.update({
-    "wtf"
-    "\nUsage: most retard modules out there\
-     \n\n.color\
-     \nUsage: Syntax: .color #<hex_color_code>\
-     \n\n.chu\
-    \nUsage: useless"
-    
+    "retarded":
+    ".color\
+    \nUsage: color #<hex color code>\
+    \n\n.chu\
+    \nUsage: this is a stupid module."
+   
 })
-
 
