@@ -129,13 +129,12 @@ async def _(event):
 #-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 CMD_HELP.update({
-    "garabage":
-    ".garabage\
-    \nUsage: Some of the most retard modules out there\
+    "wtf"
+    "\nUsage: most retard modules out there\
      \n\n.color\
      \nUsage: Syntax: .color #<hex_color_code>\
      \n\n.chu\
-    \nUsage: You are about to witness the best module ever"
+    \nUsage: useless"
     
 })
 
