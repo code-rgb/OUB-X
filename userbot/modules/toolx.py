@@ -1,6 +1,4 @@
-#thanks to oub-remix for this.
-# clone ported by @deleteduser420
- 
+#thanks oub-remix and @heyworld
 import requests
 import bs4 
 import re
@@ -14,6 +12,7 @@ import patoolib
 import shutil
 import subprocess
 from io import BytesIO
+from justwatch import JustWatch
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from telethon import *
 from userbot.events import register 
@@ -32,7 +31,7 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.tl.types import DocumentAttributeFilename
-from userbot.modules.upload_download import progress, humanbytes, time_formatter
+from userbot.utils import progress, humanbytes, time_formatter
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.errors import PhotoInvalidDimensionsError
@@ -100,7 +99,38 @@ async def _(event):
         await asyncio.sleep(3)
         await event.delete()
         
-
+@register(outgoing=True, pattern="^.calc(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    input = event.pattern_match.group(1) #get input
+    exp = "Given expression is " + input #report back input
+    #lazy workaround to add support for two digits
+    final_input = tuple(input)
+    term1part1 = final_input[0]
+    term1part2 = final_input[1]
+    term1 = str(term1part1) + str(term1part2)
+    final_term1 = (int(term1))
+    operator = str(final_input[2])
+    term2part1 = final_input[3]
+    term2part2 = final_input[4]
+    term2 = str(term2part1) + str(term2part2)
+    final_term2 = (int(term2))
+    #actual calculations go here
+    if input == "help":
+        await event.edit("Syntax .calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max)")
+    elif operator == "*":
+        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 * final_term2))
+    elif operator == "-":
+        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 - final_term2))
+    elif operator == "+":
+        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 + final_term2))
+    elif operator == "/":
+        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 / final_term2))
+    elif operator == "%":
+        await event.edit("Solution -->\n" + exp + "\n" + str(final_term1 % final_term2))
+    else:
+        await event.edit("use .calc help")
         
 @register(outgoing=True, pattern="^.xcd(?: |$)(.*)")
 async def _(event):
@@ -450,7 +480,7 @@ async def _(event):
     #message_id_to_reply = event.message.reply_to_msg_id
     #if not message_id_to_reply:
     #    message_id_to_reply = event.message.id
-    #await borg.send_message(
+    #await bot.send_message(
     #  event.chat_id,
     #  "Hey ? Whats Up !",
     #  reply_to=message_id_to_reply,
@@ -516,28 +546,129 @@ async def get_full_user(event):
             except Exception as e:
                 return None, e
             
-            
+
+def get_stream_data(query):
+    stream_data = {}
+
+    # Compatibility for Current Userge Users
+    try:
+        country = Config.WATCH_COUNTRY
+    except Exception:
+        country = "IN"
+
+    # Cooking Data
+    just_watch = JustWatch(country = country)
+    results = just_watch.search_for_item(query = query)
+    movie = results['items'][0]
+    stream_data['title'] = movie['title']
+    stream_data['movie_thumb'] = "https://images.justwatch.com"+movie['poster'].replace("{profile}","")+"s592"
+    stream_data['release_year'] = movie['original_release_year']
+    try:
+        print(movie['cinema_release_date'])
+        stream_data['release_date'] = movie['cinema_release_date']
+    except KeyError:
+        try:
+            stream_data['release_date'] = movie['localized_release_date']
+        except KeyError:
+            stream_data['release_date'] = None
+
+    stream_data['type'] = movie['object_type']
+
+    available_streams = {}
+    for provider in movie['offers']:
+        provider_ = get_provider(provider['urls']['standard_web'])
+        available_streams[provider_] = provider['urls']['standard_web']
+    
+    stream_data['providers'] = available_streams
+
+    scoring = {}
+    for scorer in movie['scoring']:
+        if scorer['provider_type']=="tmdb:score":
+            scoring['tmdb'] = scorer['value']
+
+        if scorer['provider_type']=="imdb:score":
+            scoring['imdb'] = scorer['value']
+    stream_data['score'] = scoring
+    return stream_data
+
+#Helper Functions
+def pretty(name):
+    if name=="play":
+        name = "Google Play Movies" 
+    return name[0].upper()+name[1:]
+
+def get_provider(url):
+    url = url.replace("https://www.","")
+    url = url.replace("https://","")
+    url = url.replace("http://www.","")
+    url = url.replace("http://","")
+    url = url.split(".")[0]
+    return url
+
+@register(outgoing=True, pattern="^.watch(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    query = event.pattern_match.group(1)
+    await event.edit("Finding Sites...")
+    streams = get_stream_data(query)
+    title = streams['title']
+    thumb_link = streams['movie_thumb']
+    release_year = streams['release_year']
+    release_date = streams['release_date']
+    scores = streams['score']
+    try:
+        imdb_score = scores['imdb']
+    except KeyError:
+        imdb_score = None
+    
+    try:
+        tmdb_score = scores['tmdb']
+    except KeyError:
+        tmdb_score = None
+        
+    stream_providers = streams['providers']
+    if release_date is None:
+        release_date = release_year
+
+    output_ = f"**Movie:**\n`{title}`\n**Release Date:**\n`{release_date}`"
+    if imdb_score:
+        output_ = output_ + f"\n**IMDB: **{imdb_score}"
+    if tmdb_score:
+        output_ = output_ + f"\n**TMDB: **{tmdb_score}"
+
+    output_ = output_ + "\n\n**Available on:**\n"
+    for provider,link in stream_providers.items():
+        if 'sonyliv' in link:
+            link = link.replace(" ","%20")
+        output_ += f"[{pretty(provider)}]({link})\n"
+    
+    await bot.send_file(event.chat_id, caption=output_, file=thumb_link,force_document=False,allow_cache=False, silent=True)
+    await event.delete()            
 
             
             
             
 CMD_HELP.update({
     "toolx":
-    ".app\
+    "`.app`\
 \nUsage: type .app name and get app details.\
-\n\n.undlt\
+\n\n`.undlt`\
 \nUsage: undo deleted message but u need admin permission.\
-\n\n.remove\
+\n\n`.calc`\
+\nUsage:.calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max).\
+\n\n`.remove`\
 \nUsage:.remove d or y or m or w or o or q or r.\n(d=deletedaccount y=userstatsempty m=userstatsmonth w=userstatsweek o=userstatsoffline q=userstatsonline r=userstatsrecently).\
-\n\n.xcd\
+\n\n`.xcd`\
 \nUsage: type xcd <query>.ps:i have no damm idea how it works 🤷\
-\n\n.grab <count>\
+\n\n`.grab` <count>\
 \nUsage:replay .grab or .grab <count> to grab profile picture.\
-\n\n.rnupload filename.extenstion\
+\n\n`.rnupload` filename.extenstion\
 \nusage:reply to a sticker and type .rnupload xyz.jpg\
-\n\n.clone @username\
+\n\n`.clone` @username\
 \nusage: clone you whole freking account except username so stay safe\
-\n\n.res\
+\n\n`.res`\
 \nusage: type account,channel,group or bot username and reply with .res and check restriction\
-\n\n\n PS: I will add more xD" 
+\n\n`.watch` <movie/tv> show\
+\nusage:know details about particular movie/show."         
 })
