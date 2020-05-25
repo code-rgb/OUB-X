@@ -69,3 +69,4 @@ PyLyrics
 pymongo[srv]
 youtube_search
 instantmusic
+justwatch
