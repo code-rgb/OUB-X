@@ -34,10 +34,10 @@ async def all(event):
 
     
     
-CMD_HELP.update({
-    "all":
-    ".all\
-\nUsage: A Plugin to tagall in the chat."
-})    
+# CMD_HELP.update({
+#     "all":
+#     ".all\
+# \nUsage: A Plugin to tagall in the chat."
+# })  
 
  
