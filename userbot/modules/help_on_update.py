@@ -29,14 +29,8 @@ async def usit(e):
 @register(outgoing=True, pattern="^.varoub$")
 async def var(m):
     await m.edit(
-        f"Here's a list of VARS for {DEFAULTUSER} on **OpenUserBot**:\n"
-        "\n[HEROKU VARS](https://raw.githubusercontent.com/mkaraniya/OpenUserBot/sql-extended/bin/vars%20for%20oub.txt)")
+        f"Here's a list of VARS for {DEFAULTUSER} on **OUB-X**:\n"
+        "\n[HEROKU VARS](https://raw.githubusercontent.com/code-rgb/OUB-X/sql-extended/bin/vars%20for%20oub.txt)")
     
     
-CMD_HELP.update({
-    "useitoub":
-    ".useitoub\
-\nUsage: Provide links to update repo guides while you keep your changes on the floor.\
-\n.varoub\
-\nUsage: Provide vars to cross check for you."
-})
+
