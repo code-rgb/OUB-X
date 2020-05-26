@@ -224,24 +224,24 @@ async def action(event):
     msg_str = msg_str.replace('"',"")
     await event.edit("**"+msg_str+"**")                   
     
-CMD_HELP.update({
-        "anime":  \
-        "Anime random generator \
-        \nUsage: .(𝗴𝗲𝗻𝗿𝗲) 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗶𝗺𝗲𝘀 (𝗶𝗻𝘁𝗲𝗿𝗴𝗲𝗿) \
-        \n\nAvailable commands: \
-        \n.action \
-          \nInfo: Generate anime genre action.\
-          \n\n.adventure \
-          \nInfo: Generate anime genre adventure.\
-          \n\n.harem \
-          \nInfo: Generate anime genre harem UwU.\
-          \n\n.romance \
-          \nInfo: Generate anime genre romance.\
-          \n\n.slice \
-          \nInfo: Generate anime genre slice of life.\
-          \n\n.mecha \
-          \nInfo: Generate anime genre mecha.\
-          \n\n.isekai \
-          \nInfo: Generate anime genre isekai."
-          
-    })
+# CMD_HELP.update({
+#         "anime":  \
+#         "Anime random generator \
+#         \nUsage: .(𝗴𝗲𝗻𝗿𝗲) 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗶𝗺𝗲𝘀 (𝗶𝗻𝘁𝗲𝗿𝗴𝗲𝗿) \
+#         \n\nAvailable commands: \
+#         \n.action \
+#           \nInfo: Generate anime genre action.\
+#           \n\n.adventure \
+#           \nInfo: Generate anime genre adventure.\
+#           \n\n.harem \
+#           \nInfo: Generate anime genre harem UwU.\
+#           \n\n.romance \
+#           \nInfo: Generate anime genre romance.\
+#           \n\n.slice \
+#           \nInfo: Generate anime genre slice of life.\
+#           \n\n.mecha \
+#           \nInfo: Generate anime genre mecha.\
+#           \n\n.isekai \
+#           \nInfo: Generate anime genre isekai."
+#     })
+
