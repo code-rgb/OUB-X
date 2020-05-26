@@ -414,18 +414,18 @@ async def _(event):
 
             await event.edit(animation_chars[i % 13])
             
+# CMD_HELP.update({
+#     "animate":
+#     "\nHey! try the below commands.\
+#      \n\n.load\
+#      \n.square\
+#      \n.up\
+#      \n.round\
+#      \n.heart\
+#      \n.anim\
+#      \n.monkey\
+#      \n.hand"
+# })
+            
+            
 
-            
-            
-CMD_HELP.update({
-    "animate":
-    "\nHey! try the below commands.\
-     \n\n.load\
-     \n.square\
-     \n.up\
-     \n.round\
-     \n.heart\
-     \n.anim\
-     \n.monkey\
-     \n.hand"
-})
