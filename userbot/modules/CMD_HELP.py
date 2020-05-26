@@ -788,7 +788,7 @@ CMD_HELP.update({
     })
 
 #remove_bg.py
- CMD_HELP.update({
+CMD_HELP.update({
     "rbg":
     ".rbg <Link to Image> or reply to any image (Warning: does not work on stickers.)\
 \nUsage: Removes the background of images, using remove.bg API"
