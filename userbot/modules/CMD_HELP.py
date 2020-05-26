@@ -478,13 +478,6 @@ CMD_HELP.update({
 \n\nInstructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku vars First\
 \n\n.gcommit reply_to_any_plugin can be any type of file too. but for plugin must be in .py ."})
 
-#hash.py
-CMD_HELP.update({"base64": "Find the base64 encoding of the given string"})
-
-CMD_HELP.update({
-    "hash":
-    "Find the md5, sha1, sha256, sha512 of the string when written into a txt file."
-})
 
 #hazmat.py
 CMD_HELP.update({
