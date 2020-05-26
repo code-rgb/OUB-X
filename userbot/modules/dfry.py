@@ -10,7 +10,7 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot.events import register
-from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
+from userbot import bot, TEMP_DOWNLOAD_DIRECTORY
 
 
 @register(outgoing=True, pattern=r'^.dfry(:? |$)(\d)?')
@@ -75,9 +75,9 @@ async def _(fry):
     return os.remove(downloaded_file_name)
 
 
-CMD_HELP.update({
-    "dfry":
-    ".dfry or .dfry [level(1-8)]"
-    "\nUsage: deepfry image/sticker from the reply."
-    "\n@image_deepfrybot"
-})
+# CMD_HELP.update({
+#     "dfry":
+#     ".dfry or .dfry [level(1-8)]"
+#     "\nUsage: deepfry image/sticker from the reply."
+#     "\n@image_deepfrybot"
+# })

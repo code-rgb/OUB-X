@@ -38,7 +38,7 @@ from telethon.tl.types import DocumentAttributeFilename
 
 from userbot.events import register 
 from telethon import events
-from userbot import CMD_HELP, bot
+from userbot import bot
 
 
 
@@ -132,7 +132,7 @@ async def check_media(reply_message):
     else:
         return data
         
-CMD_HELP.update({
-"deepfry": ".deepfry\
-    \nUsage: Reply .deepfry 1-5 to an image or sticker to deep fry it!. "
-})   
+# CMD_HELP.update({
+# "deepfry": ".deepfry\
+#     \nUsage: Reply .deepfry 1-5 to an image or sticker to deep fry it!. "
+# })   

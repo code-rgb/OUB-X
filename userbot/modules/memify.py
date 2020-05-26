@@ -143,8 +143,8 @@ async def silently_send_message(conv, text):
     await conv.mark_read(message=response)
     return response
 
-CMD_HELP.update({
-    "memify": 
-        "`.mmf` texttop ; textbottom\
-        \nUsage: Reply a sticker/image/gif and send with cmd."
-})
+# CMD_HELP.update({
+#     "memify": 
+#         "`.mmf` texttop ; textbottom\
+#         \nUsage: Reply a sticker/image/gif and send with cmd."
+# })

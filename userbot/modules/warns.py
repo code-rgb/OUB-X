@@ -4,7 +4,7 @@ import logging
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
-from userbot import CMD_HELP, bot
+from userbot import bot
 from userbot.events import register
 import userbot.modules.sql_helper.warns_sql as sql
 

@@ -7,7 +7,7 @@ import datetime
 import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.events import register
-from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
+from userbot import bot, TEMP_DOWNLOAD_DIRECTORY
 
 
 @register(outgoing=True, pattern=r'^.hz(:? |$)(.*)?')
@@ -80,8 +80,8 @@ async def _(hazmat):
     return os.remove(downloaded_file_name)
 
 
-CMD_HELP.update({
-    "hazmat":
-    "`.hz` or `.hz [flip, x2, rotate (degree), background (number), black]`"
-    "\nUsage: Reply to a image / sticker to suit up!"
-})
+# CMD_HELP.update({
+#     "hazmat":
+#     "`.hz` or `.hz [flip, x2, rotate (degree), background (number), black]`"
+#     "\nUsage: Reply to a image / sticker to suit up!"
+# })

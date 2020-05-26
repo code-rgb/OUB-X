@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 #from uniborg.util import admin_cmd
 from userbot.events import register 
-from userbot import CMD_HELP, bot
+from userbot import bot
 
 
 @register(outgoing=True, pattern="^.fileext(?: |$)(.*)")

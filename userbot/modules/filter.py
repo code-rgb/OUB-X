@@ -7,7 +7,7 @@
 
 from asyncio import sleep
 from re import fullmatch, IGNORECASE, escape
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import BOTLOG, BOTLOG_CHATID
 from userbot.events import register
 
 
@@ -141,16 +141,16 @@ async def filters_active(event):
     await event.edit(transact)
 
 
-CMD_HELP.update({
-    "filter":
-    ".filters\
-    \nUsage: Lists all active userbot filters in a chat.\
-    \n\n.filter <keyword> <reply text> or reply to a message with .filter <keyword>\
-    \nUsage: Saves the replied message as a reply to the 'keyword'.\
-    \nThe bot will reply to the message whenever 'keyword' is mentioned.\
-    \nWorks with everything from files to stickers.\
-    \n\n.stop <filter>\
-    \nUsage: Stops the specified filter.\
-    \n\n.rmbotfilters <marie/rose>\
-    \nUsage: Removes all filters of admin bots (Currently supported: Marie, Rose and their clones.) in the chat."
-})
+# CMD_HELP.update({
+#     "filter":
+#     ".filters\
+#     \nUsage: Lists all active userbot filters in a chat.\
+#     \n\n.filter <keyword> <reply text> or reply to a message with .filter <keyword>\
+#     \nUsage: Saves the replied message as a reply to the 'keyword'.\
+#     \nThe bot will reply to the message whenever 'keyword' is mentioned.\
+#     \nWorks with everything from files to stickers.\
+#     \n\n.stop <filter>\
+#     \nUsage: Stops the specified filter.\
+#     \n\n.rmbotfilters <marie/rose>\
+#     \nUsage: Removes all filters of admin bots (Currently supported: Marie, Rose and their clones.) in the chat."
+# })

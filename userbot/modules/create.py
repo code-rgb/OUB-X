@@ -3,7 +3,7 @@
 
 from telethon.tl import functions, types
 from userbot.events import register
-from userbot import CMD_HELP
+
 
 
 @register(outgoing=True, pattern="^.create (b|g|c)(?: |$)(.*)")
@@ -48,14 +48,14 @@ async def telegraphs(grop):
             except Exception as e:  # pylint:disable=C0103,W0703
                 await grop.edit(str(e))
 
-CMD_HELP.update({
-    "create": "\
-Create\
-\nUsage: Create Channel, Group & Group With Bot.\
-\n\n.create g <group name>\
-\nUsage: Create a Private Group.\
-\n\n.create b <group name>\
-\nUsage: Create a Group with Bot.\
-\n\n.create c <channel name>\
-\nUsage: Create a Channel.\
-"})
+# CMD_HELP.update({
+#     "create": "\
+# Create\
+# \nUsage: Create Channel, Group & Group With Bot.\
+# \n\n.create g <group name>\
+# \nUsage: Create a Private Group.\
+# \n\n.create b <group name>\
+# \nUsage: Create a Group with Bot.\
+# \n\n.create c <channel name>\
+# \nUsage: Create a Channel.\
+# "})

@@ -5,7 +5,7 @@ import requests
 from telethon import events
 #from uniborg.util import admin_cmd
 from userbot.events import register 
-from userbot import CMD_HELP, bot
+from userbot import bot
 
 
 @register(outgoing=True, pattern="^.meaning(?: |$)(.*)")
@@ -47,8 +47,8 @@ async def _(event):
     await event.edit(caption_str)
           
     
-    CMD_HELP.update({
-        "dictionary": 
-        ".meaning <word>"
-        "\nUsage: Atleast it works :p\n"
-    })
+    # CMD_HELP.update({
+    #     "dictionary": 
+    #     ".meaning <word>"
+    #     "\nUsage: Atleast it works :p\n"
+    # })

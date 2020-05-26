@@ -72,12 +72,12 @@ async def _(event):
           await bot.send_read_acknowledge(event.chat_id)
  
  
-CMD_HELP.update({
-    "song":
-        "`.song` <song name> "
-        "\nUsage: Finding and uploading song.\n"
-        "`.smd` <song tittle> "
-        "\nUsage: Download music from spotify"
-})
+# CMD_HELP.update({
+#     "song":
+#         "`.song` <song name> "
+#         "\nUsage: Finding and uploading song.\n"
+#         "`.smd` <song tittle> "
+#         "\nUsage: Download music from spotify"
+# })
  
 

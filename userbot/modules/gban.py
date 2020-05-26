@@ -6,7 +6,7 @@ Available Commands:
 from telethon import events
 import asyncio
 from userbot.events import register 
-from userbot import  CMD_HELP, bot, G_BAN_LOGGER_GROUP, ALIVE_NAME
+from userbot import bot, G_BAN_LOGGER_GROUP, ALIVE_NAME
 #imported from uniborg by @heyworld
 
 # ================= CONSTANT =================
@@ -57,10 +57,10 @@ async def _(event):
     asyncio.sleep(3.5)
     await event.reply(f"user ungbanned by @{DEFAULTUSER}")
     
-CMD_HELP.update({
-    "gban": "\
-`.gban reason`\
-\nUsage: Globally Ban users from all the Group Administrations bots where you are SUDO.\
-\n\n`.ungban reason`\
-\nUsage: Globally unBan users from all the Group Administrations bots where you are SUDO"
-})
+# CMD_HELP.update({
+#     "gban": "\
+# `.gban reason`\
+# \nUsage: Globally Ban users from all the Group Administrations bots where you are SUDO.\
+# \n\n`.ungban reason`\
+# \nUsage: Globally unBan users from all the Group Administrations bots where you are SUDO"
+# })

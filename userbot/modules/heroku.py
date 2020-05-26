@@ -10,7 +10,7 @@ import os
 import requests
 import math
 from platform import python_version, uname
-from userbot import CMD_HELP, HEROKU_APP_NAME, HEROKU_API_KEY, ALIVE_NAME
+from userbot import HEROKU_APP_NAME, HEROKU_API_KEY, ALIVE_NAME
 from userbot.events import register
 from userbot.prettyjson import prettyjson
 
@@ -152,17 +152,17 @@ async def dyno_usage(dyno):
                            )
 
 
-CMD_HELP.update({
-    "heroku":
-    ">.`usage`"
-    "\nUsage: Check your heroku dyno hours remaining"
-    "\n\n>`.set var <NEW VAR> <VALUE>`"
-    "\nUsage: add new variable or update existing value variable"
-    "\n!!! WARNING !!!, after setting a variable the bot will restarted"
-    "\n\n>`.get var or .get var <VAR>`"
-    "\nUsage: get your existing varibles, use it only on your private group!"
-    "\nThis returns all of your private information, please be caution..."
-    "\n\n>`.del var <VAR>`"
-    "\nUsage: delete existing variable"
-    "\n!!! WARNING !!!, after deleting variable the bot will restarted"
-})
+# CMD_HELP.update({
+#     "heroku":
+#     ">.`usage`"
+#     "\nUsage: Check your heroku dyno hours remaining"
+#     "\n\n>`.set var <NEW VAR> <VALUE>`"
+#     "\nUsage: add new variable or update existing value variable"
+#     "\n!!! WARNING !!!, after setting a variable the bot will restarted"
+#     "\n\n>`.get var or .get var <VAR>`"
+#     "\nUsage: get your existing varibles, use it only on your private group!"
+#     "\nThis returns all of your private information, please be caution..."
+#     "\n\n>`.del var <VAR>`"
+#     "\nUsage: delete existing variable"
+#     "\n!!! WARNING !!!, after deleting variable the bot will restarted"
+# })

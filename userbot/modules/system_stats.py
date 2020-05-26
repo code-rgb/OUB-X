@@ -13,7 +13,7 @@ from shutil import which
 from os import remove
 from telethon import version
 
-from userbot import CMD_HELP, ALIVE_NAME
+from userbot import ALIVE_NAME
 from userbot.events import register
 
 # ================= CONSTANT =================
@@ -189,20 +189,20 @@ async def amireallyalivereset(ureset):
     await ureset.edit("`" "Successfully reset user for alive!" "`")
 
 
-CMD_HELP.update(
-    {"sysd": ".sysd\
-    \nUsage: Shows system information using neofetch."})
-CMD_HELP.update({"botver": ".botver\
-    \nUsage: Shows the userbot version."})
-CMD_HELP.update(
-    {"pip": ".pip <module(s)>\
-    \nUsage: Does a search of pip modules(s)."})
-CMD_HELP.update({
-    "alive":
-    ".alive\
-    \nUsage: Type .alive to see wether your bot is working or not.\
-    \n\n.aliveu <text>\
-    \nUsage: Changes the 'user' in alive to the text you want.\
-    \n\n.resetalive\
-    \nUsage: Resets the user to default."
-})
+# CMD_HELP.update(
+#     {"sysd": ".sysd\
+#     \nUsage: Shows system information using neofetch."})
+# CMD_HELP.update({"botver": ".botver\
+#     \nUsage: Shows the userbot version."})
+# CMD_HELP.update(
+#     {"pip": ".pip <module(s)>\
+#     \nUsage: Does a search of pip modules(s)."})
+# CMD_HELP.update({
+#     "alive":
+#     ".alive\
+#     \nUsage: Type .alive to see wether your bot is working or not.\
+#     \n\n.aliveu <text>\
+#     \nUsage: Changes the 'user' in alive to the text you want.\
+#     \n\n.resetalive\
+#     \nUsage: Resets the user to default."
+# })

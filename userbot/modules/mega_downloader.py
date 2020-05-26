@@ -31,7 +31,7 @@ import errno
 from pySmartDL import SmartDL
 from urllib.error import HTTPError
 
-from userbot import CMD_HELP, LOGS
+from userbot import LOGS
 from userbot.events import register
 from userbot.modules.upload_download import humanbytes
 
@@ -152,10 +152,10 @@ async def decrypt_file(file_name, temp_file_name,
     return
 
 
-CMD_HELP.update({
-    "mega":
-    ".mega <mega url>\n"
-    "Usage: Reply to a mega link or paste your mega link to\n"
-    "download the file into your userbot server\n\n"
-    "Only support for *FILE* only."
-})
+# CMD_HELP.update({
+#     "mega":
+#     ".mega <mega url>\n"
+#     "Usage: Reply to a mega link or paste your mega link to\n"
+#     "download the file into your userbot server\n\n"
+#     "Only support for *FILE* only."
+# })

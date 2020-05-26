@@ -12,7 +12,7 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterDocument
 from userbot.events import register 
-from userbot import CMD_HELP, bot
+from userbot import bot
 
 
 @register(outgoing=True, pattern="^.un(?: |$)(.*)")
@@ -81,7 +81,7 @@ async def get_font_file(client, channel_id):
     # download and return the file path
     return await client.download_media(font_file_message)
     
-CMD_HELP.update({
-"sticklet_un": ".un\
-    \nUsage: Type .un text and generate rgb sticker. "
-})    
+# CMD_HELP.update({
+# "sticklet_un": ".un\
+#     \nUsage: Type .un text and generate rgb sticker. "
+# })    

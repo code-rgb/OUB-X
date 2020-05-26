@@ -13,8 +13,6 @@ from random import choice
 import requests
 from bs4 import BeautifulSoup
 from humanize import naturalsize
-
-from userbot import CMD_HELP
 from userbot.events import register
 
 
@@ -320,12 +318,12 @@ def useragent():
     return user_agent.text
 
 
-CMD_HELP.update({
-    "direct":
-    ".direct <url>\n"
-    "Usage: Reply to a link or paste a URL to\n"
-    "generate a direct download link\n\n"
-    "List of supported URLs:\n"
-    "`Google Drive - Cloud Mail - Yandex.Disk - AFH - "
-    "ZippyShare - MediaFire - SourceForge - OSDN - GitHub`"
-})
+# CMD_HELP.update({
+#     "direct":
+#     ".direct <url>\n"
+#     "Usage: Reply to a link or paste a URL to\n"
+#     "generate a direct download link\n\n"
+#     "List of supported URLs:\n"
+#     "`Google Drive - Cloud Mail - Yandex.Disk - AFH - "
+#     "ZippyShare - MediaFire - SourceForge - OSDN - GitHub`"
+# })

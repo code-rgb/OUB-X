@@ -10,7 +10,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 from sqlalchemy.exc import IntegrityError
 
-from userbot import (COUNT_PM, CMD_HELP, BOTLOG, BOTLOG_CHATID, PM_AUTO_BAN,
+from userbot import (COUNT_PM, BOTLOG, BOTLOG_CHATID, PM_AUTO_BAN,
                      LASTMSG, LOGS)
 
 from userbot.events import register
@@ -278,19 +278,19 @@ async def unblockpm(unblock):
         )
 
 
-CMD_HELP.update({
-    "pmpermit":
-    "\
-.approve\
-\nUsage: Approves the mentioned/replied person to PM.\
-\n\n.disapprove\
-\nUsage: Disapproves the mentioned/replied person to PM.\
-\n\n.block\
-\nUsage: Blocks the person.\
-\n\n.unblock\
-\nUsage: Unblocks the person so they can PM you.\
-\n\n.notifoff\
-\nUsage: Clears/Disables any notifications of unapproved PMs.\
-\n\n.notifon\
-\nUsage: Allows notifications for unapproved PMs."
-})
+# CMD_HELP.update({
+#     "pmpermit":
+#     "\
+# .approve\
+# \nUsage: Approves the mentioned/replied person to PM.\
+# \n\n.disapprove\
+# \nUsage: Disapproves the mentioned/replied person to PM.\
+# \n\n.block\
+# \nUsage: Blocks the person.\
+# \n\n.unblock\
+# \nUsage: Unblocks the person so they can PM you.\
+# \n\n.notifoff\
+# \nUsage: Clears/Disables any notifications of unapproved PMs.\
+# \n\n.notifon\
+# \nUsage: Allows notifications for unapproved PMs."
+# })

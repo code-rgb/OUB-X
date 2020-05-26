@@ -13,7 +13,7 @@ from shutil import which
 
 from telethon import version
 
-from userbot import CMD_HELP, is_mongo_alive, is_redis_alive, ALIVE_NAME
+from userbot import is_mongo_alive, is_redis_alive, ALIVE_NAME
 from userbot.events import register
 
 # ================= CONSTANT =================
@@ -40,6 +40,6 @@ async def amireallydbs(dbs):
                      
                      
                      
-CMD_HELP.update(
-    {"dbs": ".dbs\n"
-     "Usage: Shows database related info."})
+# CMD_HELP.update(
+#     {"dbs": ".dbs\n"
+#      "Usage: Shows database related info."})

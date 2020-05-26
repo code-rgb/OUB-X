@@ -21,7 +21,7 @@ from userbot.modules.sql_helper.lydia_sql import get_s, get_all_s, add_s, remove
 from time import time
 import coffeehouse
 from userbot import LYDIA_API_KEY
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 from telethon import events
 from coffeehouse.lydia import LydiaAI
@@ -101,13 +101,13 @@ async def user(event):
         return
 
       
-CMD_HELP.update({
-    "lydia":
-    ".addcf <username/reply>\
-\nUsage: add's lydia auto chat request in the chat.\
-\n\n.remcf <username/reply>\
-\nUsage: remove's lydia auto chat request in the chat.\
-\n\n.repcf <username/reply>\
-\nUsage: starts lydia repling to perticular person in the chat.\
-\n Note:  get your value from https://coffeehouse.intellivoid.info/dashboard."
-})
+# CMD_HELP.update({
+#     "lydia":
+#     ".addcf <username/reply>\
+# \nUsage: add's lydia auto chat request in the chat.\
+# \n\n.remcf <username/reply>\
+# \nUsage: remove's lydia auto chat request in the chat.\
+# \n\n.repcf <username/reply>\
+# \nUsage: starts lydia repling to perticular person in the chat.\
+# \n Note:  get your value from https://coffeehouse.intellivoid.info/dashboard."
+# })

@@ -45,7 +45,7 @@ from telethon.tl.types import (
     InputStickerSetShortName,
     MessageMediaPhoto
 )
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 
 
@@ -251,10 +251,10 @@ def get_markdown(reply):
         markdown.append(md_item)
     return markdown
 
-CMD_HELP.update({
-        "quotly": 
-        ".q reply_message. \
-          \nUsage: Enhance ur text to sticker. \
-          \nNote: please add API_TOKEN and API_URL in Heroku vars. \
-          \n you can get those from http://antiddos.systems/. "
-    })
+# CMD_HELP.update({
+#         "quotly": 
+#         ".q reply_message. \
+#           \nUsage: Enhance ur text to sticker. \
+#           \nNote: please add API_TOKEN and API_URL in Heroku vars. \
+#           \n you can get those from http://antiddos.systems/. "
+#     })

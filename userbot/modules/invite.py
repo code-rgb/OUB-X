@@ -1,6 +1,6 @@
 from asyncio import sleep
 from telethon import functions
-from userbot import CMD_HELP
+
 from userbot.events import register
 
 @register(outgoing=True, pattern="^.invite(?: |$)(.*)")
@@ -41,8 +41,8 @@ async def _(event):
             await sleep(2)
             await event.delete()
             
-CMD_HELP.update({
-    'invite':
-    '.invite <username> \
-        \nUsage: Invite some user or bots if u want.'
-})
+# CMD_HELP.update({
+#     'invite':
+#     '.invite <username> \
+#         \nUsage: Invite some user or bots if u want.'
+# })

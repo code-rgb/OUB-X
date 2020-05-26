@@ -77,17 +77,17 @@ async def spammer(e):
             "DelaySpam was executed successfully")
 
 
-CMD_HELP.update({
-    "spam":
-    ".cspam <text>\
-\nUsage: Spam the text letter by letter.\
-\n\n.spam <count> <text>\
-\nUsage: Floods text in the chat !!\
-\n\n.wspam <text>\
-\nUsage: Spam the text word by word.\
-\n\n.picspam <count> <link to image/gif>\
-\nUsage: As if text spam was not enough !!\
-\n\n.delayspam <delay> <count> <text>\
-\nUsage: .bigspam but with custom delay.\
-\n\n\nNOTE : Spam at your own risk !!"
-})
+# CMD_HELP.update({
+#     "spam":
+#     ".cspam <text>\
+# \nUsage: Spam the text letter by letter.\
+# \n\n.spam <count> <text>\
+# \nUsage: Floods text in the chat !!\
+# \n\n.wspam <text>\
+# \nUsage: Spam the text word by word.\
+# \n\n.picspam <count> <link to image/gif>\
+# \nUsage: As if text spam was not enough !!\
+# \n\n.delayspam <delay> <count> <text>\
+# \nUsage: .bigspam but with custom delay.\
+# \n\n\nNOTE : Spam at your own risk !!"
+# })

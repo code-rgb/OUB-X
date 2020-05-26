@@ -3,7 +3,7 @@
 from userbot.modules.sql_helper.mute_sql import is_muted, mute, unmute
 import asyncio
 from userbot.events import register 
-from userbot import CMD_HELP, bot
+from userbot import bot
 
 
 @register(outgoing=True, pattern=r"^.pmute ?(\d+)?")
@@ -175,11 +175,11 @@ async def hehehe(event):
             pmpermit_sql.approve(chat.id, "supreme lord ehehe")
             await bot.send_message(chat, "`This inbox has been blessed by my master. Consider yourself lucky.`\n**Increased Stability and Karma** (づ￣ ³￣)づ")
             
-CMD_HELP.update({
-    "nopm":
-    "`.pmute`\
-\nUsage: Reply .pmute and it will mute that person in pm  \
-\n\n.`punmute`\
-\nUsage:Reply .punmute and it will unmute that person in pm \
-"
-})
+# CMD_HELP.update({
+#     "nopm":
+#     "`.pmute`\
+# \nUsage: Reply .pmute and it will mute that person in pm  \
+# \n\n.`punmute`\
+# \nUsage:Reply .punmute and it will unmute that person in pm \
+# "
+# })

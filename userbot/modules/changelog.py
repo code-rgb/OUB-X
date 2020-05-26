@@ -13,7 +13,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import CMD_HELP, bot, HEROKU_MEMEZ, HEROKU_API_KEY, HEROKU_APP_NAME
+from userbot import bot, HEROKU_MEMEZ, HEROKU_API_KEY, HEROKU_APP_NAME
 from userbot.events import register
 
 
@@ -112,10 +112,10 @@ async def chtream(ch):
     exit()
 
 
-CMD_HELP.update({
-    'update':
-    ".chl\
-\nUsage: Checks if the main userbot repository has any updates and shows a changelog if so.\
-\n\n.update\
-\nUsage: Updates your userbot, if there are any updates in the main userbot repository."
-})
+# CMD_HELP.update({
+#     'update':
+#     ".chl\
+# \nUsage: Checks if the main userbot repository has any updates and shows a changelog if so.\
+# \n\n.update\
+# \nUsage: Updates your userbot, if there are any updates in the main userbot repository."
+# })

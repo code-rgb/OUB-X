@@ -17,7 +17,7 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from telethon import *
 from userbot.events import register 
 from pySmartDL import SmartDL
-from userbot import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY
+from userbot import bot, TEMP_DOWNLOAD_DIRECTORY
 from telethon import events
 from telethon.tl import functions, types
 from urllib.parse import quote
@@ -649,26 +649,26 @@ async def _(event):
             
             
             
-CMD_HELP.update({
-    "toolx":
-    "`.app`\
-\nUsage: type .app name and get app details.\
-\n\n`.undlt`\
-\nUsage: undo deleted message but u need admin permission.\
-\n\n`.calc`\
-\nUsage:.calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max).\
-\n\n`.remove`\
-\nUsage:.remove d or y or m or w or o or q or r.\n(d=deletedaccount y=userstatsempty m=userstatsmonth w=userstatsweek o=userstatsoffline q=userstatsonline r=userstatsrecently).\
-\n\n`.xcd`\
-\nUsage: type xcd <query>.ps:i have no damm idea how it works 🤷\
-\n\n`.grab` <count>\
-\nUsage:replay .grab or .grab <count> to grab profile picture.\
-\n\n`.rnupload` filename.extenstion\
-\nusage:reply to a sticker and type .rnupload xyz.jpg\
-\n\n`.clone` @username\
-\nusage: clone you whole freking account except username so stay safe\
-\n\n`.res`\
-\nusage: type account,channel,group or bot username and reply with .res and check restriction\
-\n\n`.watch` <movie/tv> show\
-\nusage:know details about particular movie/show."         
-})
+# CMD_HELP.update({
+#     "toolx":
+#     "`.app`\
+# \nUsage: type .app name and get app details.\
+# \n\n`.undlt`\
+# \nUsage: undo deleted message but u need admin permission.\
+# \n\n`.calc`\
+# \nUsage:.calc <term1><operator><term2>\nFor eg .calc 02*02 or 99*99 (the zeros are important) (two terms and two digits max).\
+# \n\n`.remove`\
+# \nUsage:.remove d or y or m or w or o or q or r.\n(d=deletedaccount y=userstatsempty m=userstatsmonth w=userstatsweek o=userstatsoffline q=userstatsonline r=userstatsrecently).\
+# \n\n`.xcd`\
+# \nUsage: type xcd <query>.ps:i have no damm idea how it works 🤷\
+# \n\n`.grab` <count>\
+# \nUsage:replay .grab or .grab <count> to grab profile picture.\
+# \n\n`.rnupload` filename.extenstion\
+# \nusage:reply to a sticker and type .rnupload xyz.jpg\
+# \n\n`.clone` @username\
+# \nusage: clone you whole freking account except username so stay safe\
+# \n\n`.res`\
+# \nusage: type account,channel,group or bot username and reply with .res and check restriction\
+# \n\n`.watch` <movie/tv> show\
+# \nusage:know details about particular movie/show."         
+# })

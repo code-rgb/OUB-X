@@ -31,8 +31,8 @@ async def corona(event):
     await event.edit(f"Corona Virus Info in {country}:\n\n{output_text}")
 
 
-CMD_HELP.update({
-        "covid": 
-        ".covid <country>"
-        "\nUsage: Get an information about data covid-19 in your country.\n"
-    })
+# CMD_HELP.update({
+#         "covid": 
+#         ".covid <country>"
+#         "\nUsage: Get an information about data covid-19 in your country.\n"
+#     })

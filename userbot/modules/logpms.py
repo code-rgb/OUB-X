@@ -3,7 +3,7 @@
 this will now log chat msgs to your botlog chat id.
 if you don't want chat logs than use `.nolog` , for opposite use `.log`. Default is .log enabled.
 enjoy this now.
-Thanks to @heyworld for a small correction"""
+"""
 
 import asyncio
 import os
@@ -13,7 +13,7 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from telethon import events
 from telethon.tl import functions, types
-from userbot import NC_LOG_P_M_S, PM_LOGGR_BOT_API_ID, CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY
+from userbot import NC_LOG_P_M_S, PM_LOGGR_BOT_API_ID, bot, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 
 
@@ -66,10 +66,10 @@ async def approve_p_m(event):
                 await asyncio.sleep(3)
                 await event.delete()
 
-CMD_HELP.update({
-    "logpms":
-    "If you don't want chat logs than use `.nolog` , for opposite use `.log`. Default is .log enabled\
-\nUsage: This will now log chat msgs to your PM_LOGGR_BOT_API_ID.\
-\nnotice: now you can totally disable pm logs by adding heroku vars PM_LOGGR_BOT_API_ID by providing a valid group ID and NC_LOG_P_M_S True or False,\
-\nwhere False means no pm logs at all..enjoy.. update and do add above mentioned vars."
-})    
+# CMD_HELP.update({
+#     "logpms":
+#     "If you don't want chat logs than use `.nolog` , for opposite use `.log`. Default is .log enabled\
+# \nUsage: This will now log chat msgs to your PM_LOGGR_BOT_API_ID.\
+# \nnotice: now you can totally disable pm logs by adding heroku vars PM_LOGGR_BOT_API_ID by providing a valid group ID and NC_LOG_P_M_S True or False,\
+# \nwhere False means no pm logs at all..enjoy.. update and do add above mentioned vars."
+# })    

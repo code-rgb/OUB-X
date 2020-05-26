@@ -1,7 +1,7 @@
 import asyncio
 import pyfiglet
 from telethon import events, functions
-from userbot import CMD_HELP
+
 from userbot.events import register
 import sys
  
@@ -31,8 +31,8 @@ async def figlet(event):
     await event.respond("‌‌‎`{}`".format(result))
     await event.delete()
 
-CMD_HELP.update({
-        "figlet": 
-        ".figlet \
-          \nUsage: Enhance ur text to strip line with anvil.\n"
-    })
+# CMD_HELP.update({
+#         "figlet": 
+#         ".figlet \
+#           \nUsage: Enhance ur text to strip line with anvil.\n"
+#     })

@@ -9,7 +9,7 @@ import asyncio
 from getpass import getuser
 from os import remove
 from sys import executable
-from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, bot
+from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 
 
@@ -189,8 +189,8 @@ async def terminal_runner(term):
         )
 
 
-CMD_HELP.update({"eval": ".eval 2 + 3\nUsage: Evalute mini-expressions."})
-CMD_HELP.update(
-    {"exec": ".exec print('hello')\nUsage: Execute small python scripts."})
-CMD_HELP.update(
-    {"term": ".term ls\nUsage: Run bash commands and scripts on your server."})
+# CMD_HELP.update({"eval": ".eval 2 + 3\nUsage: Evalute mini-expressions."})
+# CMD_HELP.update(
+#     {"exec": ".exec print('hello')\nUsage: Execute small python scripts."})
+# CMD_HELP.update(
+#     {"term": ".term ls\nUsage: Run bash commands and scripts on your server."})

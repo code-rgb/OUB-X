@@ -13,7 +13,7 @@ from selenium import webdriver
 from asyncio import sleep
 from selenium.webdriver.chrome.options import Options
 from userbot.events import register
-from userbot import GOOGLE_CHROME_BIN, CHROME_DRIVER, CMD_HELP
+from userbot import GOOGLE_CHROME_BIN, CHROME_DRIVER
 
 
 @register(outgoing=True, pattern="^.ss(?: |$)(.*)", disable_errors=True)
@@ -67,10 +67,10 @@ async def capture(url):
                                    reply_to=message_id)
 
 
-CMD_HELP.update({
-    "ss":
-    ".ss <url>\
-    \nUsage: Takes a screenshot of a website and sends the screenshot.\
-    \nExample of a valid URL : `https://www.google.com`"
-})
+# CMD_HELP.update({
+#     "ss":
+#     ".ss <url>\
+#     \nUsage: Takes a screenshot of a website and sends the screenshot.\
+#     \nExample of a valid URL : `https://www.google.com`"
+# })
 

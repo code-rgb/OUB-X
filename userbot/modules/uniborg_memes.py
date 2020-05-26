@@ -6,7 +6,7 @@ from telethon import events
 import asyncio
 
 from userbot.events import register 
-from userbot import  CMD_HELP, bot
+from userbot import bot
 from collections import deque
 
 
@@ -1011,39 +1011,39 @@ async def _(event):
 
             await event.edit(animation_chars[i % 19])
 
-CMD_HELP.update({
-    "uniborg_memes":
-    ".eye\
-\nUsage: see it yourself.\
-\n\n.earth\
-\nusage: spins like earth 🌎🌎\
-\n\n.bombs\
-\nUsage: For bombing tg 🤣🤣\
-\n\n.gift\
-\nUsage: Well it's a gift i can't say what's inside 😁😁!\
-\n\n.police\
-\nUsage: Time to go to jail 😔😔.\
-\n\n.kill\
-\nUsage: For killing your enemies 🔫🔫 !!\
-\n\n.os\
-\nUsage: see it yourself 🤐🤐.\
-\n\n.isro\
-\nUsage: For calling aliens 👽👽 :P\
-\n\n.gangstar\
-\nUsage:U becum gengstar 🤠🤠.\
-\n\n.hack\
-\nUsage: For hacking telegram🖥️🖥️.\
-\n\n.hypno\
-\nUsage: Oh fek my eyes 👀\
-\n\n.whatsapp\
-\nUsage: Now you can hack whatsapp too 😂😂 \
-\n\n.solar\
-\nUsage: Our beautiful solar system 🌞🌞\
-\n\n.quickheal or .sqh or .vquickheal\
-\nUsage: Virus found ...Remove it using this 😂😂.\
-\n\n.plane\
-\nUsage: For travelling from one place to another ✈️✈️\
-\n\n.jio\
-\nUsage: Your network slow?? Boost it using this 🤣🤣\
-\n\n\nWARNING⚠️⚠️: All this cmds will spam group recents.\nUse it in OT groups/Spam groups OR GET YOU A** KICKED😂😂."
-})		
+# CMD_HELP.update({
+#     "uniborg_memes":
+#     ".eye\
+# \nUsage: see it yourself.\
+# \n\n.earth\
+# \nusage: spins like earth 🌎🌎\
+# \n\n.bombs\
+# \nUsage: For bombing tg 🤣🤣\
+# \n\n.gift\
+# \nUsage: Well it's a gift i can't say what's inside 😁😁!\
+# \n\n.police\
+# \nUsage: Time to go to jail 😔😔.\
+# \n\n.kill\
+# \nUsage: For killing your enemies 🔫🔫 !!\
+# \n\n.os\
+# \nUsage: see it yourself 🤐🤐.\
+# \n\n.isro\
+# \nUsage: For calling aliens 👽👽 :P\
+# \n\n.gangstar\
+# \nUsage:U becum gengstar 🤠🤠.\
+# \n\n.hack\
+# \nUsage: For hacking telegram🖥️🖥️.\
+# \n\n.hypno\
+# \nUsage: Oh fek my eyes 👀\
+# \n\n.whatsapp\
+# \nUsage: Now you can hack whatsapp too 😂😂 \
+# \n\n.solar\
+# \nUsage: Our beautiful solar system 🌞🌞\
+# \n\n.quickheal or .sqh or .vquickheal\
+# \nUsage: Virus found ...Remove it using this 😂😂.\
+# \n\n.plane\
+# \nUsage: For travelling from one place to another ✈️✈️\
+# \n\n.jio\
+# \nUsage: Your network slow?? Boost it using this 🤣🤣\
+# \n\n\nWARNING⚠️⚠️: All this cmds will spam group recents.\nUse it in OT groups/Spam groups OR GET YOU A** KICKED😂😂."
+# })		

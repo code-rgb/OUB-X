@@ -26,7 +26,7 @@ from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
                                MessageEntityMentionName, MessageMediaPhoto,
                                ChannelParticipantsBots)
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 
 
@@ -56,11 +56,11 @@ async def userid(event):
     
     
 
-CMD_HELP.update({
-   "listmyusernames":
-  "\ndo this in your private group for security purpose.\
-   \n-listmyusernames \
-\nUsage: Provides all titles according to the usernames reserved by you.\
-  -listmychatids \
-\nUsage: Provides all Chat IDs reserved by you."
-})
+# CMD_HELP.update({
+#    "listmyusernames":
+#   "\ndo this in your private group for security purpose.\
+#    \n-listmyusernames \
+# \nUsage: Provides all titles according to the usernames reserved by you.\
+#   -listmychatids \
+# \nUsage: Provides all Chat IDs reserved by you."
+# })

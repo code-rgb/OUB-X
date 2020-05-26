@@ -28,7 +28,7 @@ async def _(event):
              await event.delete()   
              await bot.send_message(event.chat_id, response.message)
 
-CMD_HELP.update({
-"nhentai": 
-".nhentai <link / code> \
-\nUsage: view nhentai in telegra.ph XD\n"})
+# CMD_HELP.update({
+# "nhentai": 
+# ".nhentai <link / code> \
+# \nUsage: view nhentai in telegra.ph XD\n"})

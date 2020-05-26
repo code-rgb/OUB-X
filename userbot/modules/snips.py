@@ -5,7 +5,7 @@
 """ Userbot module containing commands for keeping global notes. """
 
 from userbot.events import register
-from userbot import CMD_HELP, BOTLOG_CHATID
+from userbot import BOTLOG_CHATID
 
 
 @register(outgoing=True,
@@ -112,16 +112,16 @@ async def on_snip_delete(event):
         await event.edit(f"`Couldn't find snip:` **{name}**")
 
 
-CMD_HELP.update({
-    "snips":
-    "\
-$<snip_name>\
-\nUsage: Gets the specified snip, anywhere.\
-\n\n.snip <name> <data> or reply to a message with .snip <name>\
-\nUsage: Saves the message as a snip (global note) with the name. (Works with pics, docs, and stickers too!)\
-\n\n.snips\
-\nUsage: Gets all saved snips.\
-\n\n.remsnip <snip_name>\
-\nUsage: Deletes the specified snip.\
-"
-})
+# CMD_HELP.update({
+#     "snips":
+#     "\
+# $<snip_name>\
+# \nUsage: Gets the specified snip, anywhere.\
+# \n\n.snip <name> <data> or reply to a message with .snip <name>\
+# \nUsage: Saves the message as a snip (global note) with the name. (Works with pics, docs, and stickers too!)\
+# \n\n.snips\
+# \nUsage: Gets all saved snips.\
+# \n\n.remsnip <snip_name>\
+# \nUsage: Deletes the specified snip.\
+# "
+# })

@@ -5,7 +5,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.events import register
-from userbot import bot, CMD_HELP
+from userbot import bot
 
 @register(outgoing=True, pattern="^.sg(?: |$)(.*)")
 async def _(event):
@@ -38,8 +38,8 @@ async def _(event):
              await event.edit(f"{response.message.message}")
 
 
-CMD_HELP.update({
-        "sangmata": 
-        ".sg \
-          \nUsage: View user history.\n"
-    })
+# CMD_HELP.update({
+#         "sangmata": 
+#         ".sg \
+#           \nUsage: View user history.\n"
+#     })

@@ -62,9 +62,9 @@ async def memex(xmemes):
     
     
     
-    CMD_HELP.update({
-    "waifu":
-    ".waifu [text]\
-\nUsage: for custom anime girl stickers. \
-\n\n.memex\
-\nUsage: for custom meme stickers."})
+#     CMD_HELP.update({
+#     "waifu":
+#     ".waifu [text]\
+# \nUsage: for custom anime girl stickers. \
+# \n\n.memex\
+# \nUsage: for custom meme stickers."})

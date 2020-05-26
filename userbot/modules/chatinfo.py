@@ -14,7 +14,7 @@ from telethon.tl.functions.messages import GetHistoryRequest, CheckChatInviteReq
 from telethon.tl.types import MessageActionChannelMigrateFrom, ChannelParticipantsAdmins
 from telethon.errors import (ChannelInvalidError, ChannelPrivateError, ChannelPublicGroupNaError, InviteHashEmptyError, InviteHashExpiredError, InviteHashInvalidError)
 from telethon.utils import get_input_location
-from userbot import CMD_HELP
+
 from userbot.events import register
 
 @register(pattern=".chatinfo(?: |$)(.*)", outgoing=True)
@@ -229,10 +229,10 @@ async def _(event):
                     await event.reply(str(e))
             await event.edit("Invited Successfully")
 
-CMD_HELP.update({
-        "chatinfo":
-        ".chatinfo [optional: <reply/tag/chat id/invite link>]\
-            \nUsage: Gets info of a chat. Some info might be limited due to missing permissions.\
-            \n\n.invite\
-            \nUsage:Invites users to a chat, not to a private message."
-})
+# CMD_HELP.update({
+#         "chatinfo":
+#         ".chatinfo [optional: <reply/tag/chat id/invite link>]\
+#             \nUsage: Gets info of a chat. Some info might be limited due to missing permissions.\
+#             \n\n.invite\
+#             \nUsage:Invites users to a chat, not to a private message."
+# })

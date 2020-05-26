@@ -1,6 +1,6 @@
 from io import BytesIO
 from userbot.events import register
-from userbot import CMD_HELP
+
 from telethon import types
 from asyncio import sleep
 from telethon.errors import PhotoInvalidDimensionsError
@@ -40,6 +40,6 @@ async def on_file_to_photo(pics):
     except PhotoInvalidDimensionsError:
         return
         
-CMD_HELP.update({
-    "pics": ".pic reply any document image\nUsage : Convert any Document Image to Full Size Image"
-})
+# CMD_HELP.update({
+#     "pics": ".pic reply any document image\nUsage : Convert any Document Image to Full Size Image"
+# })

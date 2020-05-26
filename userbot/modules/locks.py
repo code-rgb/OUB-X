@@ -6,7 +6,6 @@
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 from telethon.tl.types import ChatBannedRights
 
-from userbot import CMD_HELP
 from userbot.events import register
 
 
@@ -186,11 +185,11 @@ async def rem_locks(event):
         return
 
 
-CMD_HELP.update({
-    "locks":
-    ".lock <all (or) type(s)> or .unlock <all (or) type(s)>\
-\nUsage: Allows you to lock/unlock some common message types in the chat.\
-[NOTE: Requires proper admin rights in the chat !!]\
-\n\nAvailable message types to lock/unlock are: \
-\n`all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`"
-})
+# CMD_HELP.update({
+#     "locks":
+#     ".lock <all (or) type(s)> or .unlock <all (or) type(s)>\
+# \nUsage: Allows you to lock/unlock some common message types in the chat.\
+# [: Requires proper admin rights in the chat !!]\
+# \n\nAvailable message types to lock/unlock are: \
+# \n`all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`"
+# })

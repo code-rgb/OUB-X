@@ -43,7 +43,7 @@ async def _(event):
           			await event.edit(f"`Antivirus scan was completed.`\n**covid19 will end with the end of April-2020 from the globe.**\n`YAH, I got dem final results.`\n {response.message.message}")
 
 
-CMD_HELP.update({
-"Antivirus": ".scan\
-    \nUsage: Type .scan to remove virus"
-})
+# CMD_HELP.update({
+# "Antivirus": ".scan\
+#     \nUsage: Type .scan to remove virus"
+# })

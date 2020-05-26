@@ -17,7 +17,6 @@ import html
 import json
 from PIL import ImageEnhance, ImageOps
 
-from userbot import CMD_HELP
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 
@@ -67,9 +66,9 @@ async def waifu(animu):
     
     
 
-CMD_HELP.update({
-    "waifu":
-    ".waifu [text]\
-\nUsage: for custom anime girl stickers. \
-\n\n.memex\
-\nUsage: for custom meme stickers."})
+# CMD_HELP.update({
+#     "waifu":
+#     ".waifu [text]\
+# \nUsage: for custom anime girl stickers. \
+# \n\n.memex\
+# \nUsage: for custom meme stickers."})

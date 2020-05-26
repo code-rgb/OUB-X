@@ -8,7 +8,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.events import register
-from userbot import CMD_HELP
+
 
 
 @register(outgoing=True, pattern="^.corona (.*)")
@@ -33,6 +33,6 @@ async def _(event):
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
 
-CMD_HELP.update(
-    {"corona": ".corona [country]\n"
-     "Usage: Corona Virus stats."})
+# CMD_HELP.update(
+#     {"corona": ".corona [country]\n"
+#      "Usage: Corona Virus stats."})

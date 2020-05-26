@@ -10,7 +10,7 @@ import io
 import asyncio
 import time
 from userbot.events import register 
-from userbot import CMD_HELP, bot
+from userbot import bot
 from userbot import TEMP_DOWNLOAD_DIRECTORY
 
 
@@ -42,8 +42,8 @@ async def _(event):
     stdout, stderr = await process.communicate()
     await event.edit(f"{stdout.decode()}")
     
-CMD_HELP.update({
-        "webupload": 
-        "\n.webupload --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)\
-         \nUsage: reply .webupload --anonfiles or .webupload --filebin and the file will be uploaded to that website. "
-    })
+# CMD_HELP.update({
+#         "webupload": 
+#         "\n.webupload --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)\
+#          \nUsage: reply .webupload --anonfiles or .webupload --filebin and the file will be uploaded to that website. "
+#     })

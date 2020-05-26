@@ -1,7 +1,7 @@
 #ported by @deleteduser420 for absolutely no reason at all
 from telethon import events
 import asyncio
-from userbot import CMD_HELP, bot
+from userbot import bot
 from userbot.events import register 
 import os
 from PIL import Image, ImageColor
@@ -125,12 +125,12 @@ async def _(event):
             os.remove("UniBorg.png")
             await event.delete()
 
-CMD_HELP.update({
-    "retarded":
-    ".color\
-    \nUsage: color #<hex color code>\
-    \n\n.chu\
-    \nUsage: this is a stupid module."
+# CMD_HELP.update({
+#     "retarded":
+#     ".color\
+#     \nUsage: color #<hex color code>\
+#     \n\n.chu\
+#     \nUsage: this is a stupid module."
    
-})
+# })
 

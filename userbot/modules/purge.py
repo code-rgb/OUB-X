@@ -9,7 +9,7 @@ from asyncio import sleep
 
 from telethon.errors import rpcbaseerrors
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import BOTLOG, BOTLOG_CHATID
 from userbot.events import register
 
 
@@ -125,30 +125,30 @@ async def selfdestruct(destroy):
                                           "sd query done successfully")
 
 
-CMD_HELP.update({
-    'purge':
-    '.purge\
-        \nUsage: Purges all messages starting from the reply.'
-})
+# CMD_HELP.update({
+#     'purge':
+#     '.purge\
+#         \nUsage: Purges all messages starting from the reply.'
+# })
 
-CMD_HELP.update({
-    'purgeme':
-    '.purgeme <x>\
-        \nUsage: Deletes x amount of your latest messages.'
-})
+# CMD_HELP.update({
+#     'purgeme':
+#     '.purgeme <x>\
+#         \nUsage: Deletes x amount of your latest messages.'
+# })
 
-CMD_HELP.update({"del": ".del\
-\nUsage: Deletes the message you replied to."})
+# CMD_HELP.update({"del": ".del\
+# \nUsage: Deletes the message you replied to."})
 
-CMD_HELP.update({
-    'edit':
-    ".edit <newmessage>\
-\nUsage: Replace your last message with <newmessage>."
-})
+# CMD_HELP.update({
+#     'edit':
+#     ".edit <newmessage>\
+# \nUsage: Replace your last message with <newmessage>."
+# })
 
-CMD_HELP.update({
-    'sd':
-    '.sd <x> <message>\
-\nUsage: Creates a message that selfdestructs in x seconds.\
-\nKeep the seconds under 100 since it puts your bot to sleep.'
-})
+# CMD_HELP.update({
+#     'sd':
+#     '.sd <x> <message>\
+# \nUsage: Creates a message that selfdestructs in x seconds.\
+# \nKeep the seconds under 100 since it puts your bot to sleep.'
+# })

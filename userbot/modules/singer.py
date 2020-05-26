@@ -7,7 +7,7 @@ from telethon import events
 import asyncio
 from PyLyrics import *
 from userbot.events import register 
-from userbot import CMD_HELP
+
 
 @register(outgoing=True, pattern="^.singer(?: |$)(.*)")
 async def _(event):
@@ -34,7 +34,7 @@ async def _(event):
     except ValueError:
         await event.edit("Song not found")
 
-CMD_HELP.update({
-"singer": ".singer\
-    \nUsage: Type Usage: .singer Duman - Haberin Yok Ölüyorum"
-})
+# CMD_HELP.update({
+# "singer": ".singer\
+#     \nUsage: Type Usage: .singer Duman - Haberin Yok Ölüyorum"
+# })
