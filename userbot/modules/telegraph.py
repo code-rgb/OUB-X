@@ -86,10 +86,3 @@ def resize_image(image):
     im.save(image, "PNG")
 
 
-CMD_HELP.update({
-    "telegraph": ".tg media as reply to a media \
-        \n & .tg text as reply to a large text \
-        \nUsage: Upload text & media on Telegraph.\
-        \nNotice: you are required to set TELEGRAPH_SHORT_NAME in Heroku vars so that your bot remains alive \
-        \nor else your bot will die."
-})
