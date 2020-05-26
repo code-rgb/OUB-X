@@ -1,7 +1,6 @@
 from userbot import CMD_HELP
 
 #admin.py
-
 CMD_HELP.update({
     "admin":
     ".promote <username/reply> <custom rank (optional)>\
@@ -45,7 +44,6 @@ you telling them that you are AFK(reason).\n\nSwitches off AFK when you type bac
 })
   
 #memes.py
-
 CMD_HELP.update({
     "memes":
     ".cowsay\
@@ -130,3 +128,63 @@ CMD_HELP.update({
 \n.rain ; .earth ; .iwi ; .sayhi\
 \n\n\nThanks to BottomBextBot (@NotAMemeBot) for some of these."
 })
+
+#android.py
+CMD_HELP.update({
+    "android":
+    ".magisk"
+    "\nGet latest Magisk releases"
+    "\n\n.pixeldl **<download.pixelexperience.org>**"
+    "\nUsage: Download pixel experience ROM into your userbot server."
+    "\n\n.twrp <codename>"
+    "\nUsage: Get latest twrp download for android device."
+})
+
+#animate.py
+CMD_HELP.update({
+    "animate":
+    "\nHey! try the below commands.\
+     \n`\n.load`\
+     \n`.square`\
+     \n`.up`\
+     \n`.round`\
+     \n`.heart`\
+     \n`.anim`\
+     \n`.monkey`\
+     \n`.hand`"
+})
+
+#all.py
+CMD_HELP.update({
+    "all":
+    ".all\
+\nUsage: A Plugin to tagall in the chat."
+})  
+
+
+#anime_chooser.py
+CMD_HELP.update({
+        "anime":  \
+        "Anime random generator \
+        \nUsage: .(genre) number of times(interger)\
+        \n\nAvailable commands: \
+        \n.action \
+          \nInfo: Generate anime genre action.\
+          \n\n.adventure \
+          \nInfo: Generate anime genre adventure.\
+          \n\n.harem \
+          \nInfo: Generate anime genre harem UwU.\
+          \n\n.romance \
+          \nInfo: Generate anime genre romance.\
+          \n\n.slice \
+          \nInfo: Generate anime genre slice of life.\
+          \n\n.mecha \
+          \nInfo: Generate anime genre mecha.\
+          \n\n.isekai \
+          \nInfo: Generate anime genre isekai."
+          
+    })
+
+
+
+
