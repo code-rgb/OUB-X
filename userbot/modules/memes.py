@@ -1036,9 +1036,7 @@ async def Oem(e):
 
 
 
-@register(outgoing=True, pattern="^.dart$")
-async def iqless(e):
-    await e.edit("🎯")
+
 
 @register(outgoing=True, pattern="^.Oem$")
 async def Oem(e):
