@@ -1,7 +1,7 @@
 from userbot.events import register
 from telethon import events
 import asyncio
-from telethon import events, functions
+
 
 @register(outgoing=True, pattern="^.helpx$")
 async def helpx(e):
