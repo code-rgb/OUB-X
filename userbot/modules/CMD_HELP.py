@@ -1137,6 +1137,10 @@ CMD_HELP.update({
     "Find the md5, sha1, sha256, sha512 of the string when written into a txt file."
 })
 
+#stats.py
+CMD_HELP.update(
+    {"stats": ".stats\
+    \nUsage: Count the Number of Dialogs you have in your Telegram Account."})
 
 
 
