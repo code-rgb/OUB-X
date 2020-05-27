@@ -1,5 +1,4 @@
-  
-# Copyright (C) 2020 The Raphielscape Company LLC.
+# Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,9 +19,7 @@ async def help(event):
         else:
             await event.edit("**Module doesn't exist or Module name is invalid**😔")
     else:
-        await event.edit("**All modules are listed below**😎\
-            \nUsage: Type `.help <module name>` to know how it works✌️")
-        string = "\nAvailable Modules:"
+        await event.edit("\nAvailable Modules:"
 "\n\n• 𝗔𝗱𝗺𝗶𝗻: `admin`, `blacklist`, `chat`, `gban`, `locks`"
 "\n• 𝗨𝗽𝗱𝗮𝘁𝗲𝗿: `update`"
 "\n• 𝗠𝗲𝗺𝗲𝘀: `memes`,`animate`, `anime`, `deepfry`, `dfry`, `dice`, `basketball`, `dart`,  `hazmat`, `waifu`, `memify`, `random`, `nhentai`, `uniborg_memes`, `fgban`, `carbon`,"
@@ -41,6 +38,5 @@ async def help(event):
 "\n• 𝗖𝗼𝘃𝗶𝗱: `corona`, `covid`"
 "\n• 𝗨𝘀𝗲𝗿𝗯𝗼𝘁: `useitoub`, `sleep`, `shutdown`, `restart`, `anti_spambot`,  `sysd`, `botver`, , `alive`, `dbs`,  `creator`,  `readme`, `time`, `date`" 
 "\n• 𝗦𝘁𝗶𝗰𝗸𝗲𝗿𝘀: `stickers`"  
-"\n• 𝗠𝘂𝘀𝗶𝗰: `song`, `singer`"
+"\n• 𝗠𝘂𝘀𝗶𝗰: `song`, `singer`")
         
-        await event.reply(string)
