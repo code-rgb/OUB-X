@@ -1278,15 +1278,15 @@ async def stfu(e):
 @register(outgoing=True, pattern="^.gtfo$")
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n███████████████████████████████ `" 
-                     "`\n█▀▀▀▀▀▀▀█▀▀▀▀▀▀█▀▀▀▀▀▀▀█▀▀▀▀▀▀█ `" 
-                     "`\n█───────█──────█───────█──────█ `" 
-                     "`\n█──███──███──███──███▄▄█──██──█ `" 
-                     "`\n█──███▄▄███──███─────███──██──█ `" 
-                     "`\n█──██───███──███──██████──██──█ `" 
-                     "`\n█──▀▀▀──███──███──██████──────█ `" 
-                     "`\n█▄▄▄▄▄▄▄███▄▄███▄▄██████▄▄▄▄▄▄█ `" 
-                     "`\n███████████████████████████████ `")  
+        await e.edit("\nAvailable Modules:"
+"\n• Uniborg configuration placeholder"
+"\n• Raphielgang Configuration Placeholder"
+"\n• Settings: `addalias, addtrnsl, blacklist,`"
+  "\n`blacklistuser, cleardb, cleartrnsl, delalias`,"
+  "\n`setlang, setprefix, unblacklist, unblacklistuser`"
+"\n• Python: `eval, exec`"
+"\n• Logger")
+
                                   
 
 @register(outgoing=True, pattern="^.nih$")
