@@ -3,7 +3,7 @@ from telethon import events
 import asyncio
 
 
-@register(outgoing=True, pattern="^.helpx$")
+@register(outgoing=True, pattern="^.help$")
 async def helpx(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("\nAvailable Modules:"
