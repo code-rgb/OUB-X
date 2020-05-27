@@ -1,3 +1,6 @@
+from userbot import CMD_HELP
+from userbot.events import register
+
 @register(outgoing=True, pattern="^.mlist(?: |$)(.*)")
 async def help(event):
     """ For .help command,"""
