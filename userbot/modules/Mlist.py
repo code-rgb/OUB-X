@@ -26,10 +26,7 @@ async def help(event):
             )
     else:
         string = ""
-        for i in CMD_HELP.values():
+        for i in CMD_HELP():
             string += f"`{str(i[0])}`, "
         string = string[:-2]
-        await event.edit(
-            "Please specify which module you want help for!\n\n"
-            f"{string}"
-        )
+        await event.reply(string)
