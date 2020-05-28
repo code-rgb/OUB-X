@@ -8,13 +8,13 @@
 from userbot import CMD_HELP
 from userbot.events import register
 
-
 @register(outgoing=True, pattern="^.mlist$")
-async def help(event):
-await event.edit("**Installed Modules**😎\
-\nUsage: Type `.help <module name>` to know how it works✌️")
-string = ""
+async def lol(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("**Installed Modules**")
+        string = ""
 for i in CMD_HELP:
 string += "`" + str(i)
 string += "`  -  "
-await event.reply(string)
+await event.reply(string) 
+ 
