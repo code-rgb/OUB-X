@@ -11,14 +11,10 @@ from userbot.events import register
 
 @register(outgoing=True, pattern="^.mlist$")
 async def help(event):
-    """ For .help command,"""
-    args = event.pattern_match.group(1).lower()
-    if args:
-        if args in CMD_HELP:
-            await event.edit("**Installed Modules**😎\
-            \nUsage: Type `.help <module name>` to know how it works✌️")
-        string = ""
-        for i in CMD_HELP:
-            string += "`" + str(i)
-            string += "`  -  "
-        await event.reply(string)
+await event.edit("**Installed Modules**😎\
+\nUsage: Type `.help <module name>` to know how it works✌️")
+string = ""
+for i in CMD_HELP:
+string += "`" + str(i)
+string += "`  -  "
+await event.reply(string)
