@@ -46,87 +46,80 @@ you telling them that you are AFK(reason).\n\nSwitches off AFK when you type bac
 #memes.py
 CMD_HELP.update({
     "memes":
-    ".cowsay\
+    "`.cowsay`\
 \n𝙐𝙨𝙖𝙜𝙚: cow which says things.\
-\n\n:/\
+\n\n`:/`\
 \n𝙐𝙨𝙖𝙜𝙚: Check yourself ;)\
-\n\n-_-\
+\n\n`-_-`\
 \n𝙐𝙨𝙖𝙜𝙚: Ok...\
-\n\n;_;\
+\n\n`;_;`\
 \n𝙐𝙨𝙖𝙜𝙚: Like `-_-` but crying.\
-\n\n.lol\
-\n\n.pickup\
-\n\n.earth\
-\n𝙐𝙨𝙖𝙜𝙚:type .earth\
-\n𝙐𝙨𝙖𝙜𝙚: Reply .lol for funny lol text\
-\n\n.cp\
+\n\n`.cp`\
 \n𝙐𝙨𝙖𝙜𝙚: Copypasta the famous meme\
-\n\n.vapor\
+\n\n`.vapor`\
 \n𝙐𝙨𝙖𝙜𝙚: Vaporize everything!\
-\n\n.str\
+\n\n`.str`\
 \n𝙐𝙨𝙖𝙜𝙚: Stretch it.\
-\n\n.10iq\
-\n𝙐𝙨𝙖𝙜𝙚: You retard !!\
-\n\n.zal\
+\n\n`.zal`\
 \n𝙐𝙨𝙖𝙜𝙚: Invoke the feeling of chaos.\
-\n\nOem\
-\n𝙐𝙨𝙖𝙜𝙚: Oeeeem\
-\n\nOof\
+\n\n`Oof`\
 \n𝙐𝙨𝙖𝙜𝙚: Ooooof\
-\n\n.fp\
-\n𝙐𝙨𝙖𝙜𝙚: Facepalm :P\
-\n\n.moon\
+\n\n`.moon`\
 \n𝙐𝙨𝙖𝙜𝙚: kensar moon animation.\
-\n\n.clock\
+\n\n`.clock`\
 \n𝙐𝙨𝙖𝙜𝙚: kensar clock animation.\
-\n\n.hi\
+\n\n`.hi`\
 \n𝙐𝙨𝙖𝙜𝙚: Greet everyone!\
-\n\n.coinflip <heads/tails>\
+\n\n`.coinflip` <heads/tails>\
 \n𝙐𝙨𝙖𝙜𝙚: Flip a coin !!\
-\n\n.owo\
+\n\n`.owo`\
 \n𝙐𝙨𝙖𝙜𝙚: UwU\
+\n\n`.react`\
+\n𝙐𝙨𝙖𝙜𝙚: Make your userbot react to everything.\
 \n\n.pro or .nub or .bye\
 \n𝙐𝙨𝙖𝙜𝙚: see it yourself\
-\n\n.react\
-\n𝙐𝙨𝙖𝙜𝙚: Make your userbot react to everything.\
-\n\n.slap\
+\n\n`.pickup`\
+\n𝙐𝙨𝙖𝙜𝙚: Cringe & Thirsty pickup lines\
+\n\n`.slap`\
 \n𝙐𝙨𝙖𝙜𝙚: reply to slap them with random objects !!\
-\n\n.cry\
+\n\n`.cry`\
 \n𝙐𝙨𝙖𝙜𝙚: y u du dis, i cri.\
-\n\n.shg\
+\n\n`.shg`\
 \n𝙐𝙨𝙖𝙜𝙚: Shrug at it !!\
-\n\n.run\
+\n\n`.gn` or `.gm`\
+\n𝙐𝙨𝙖𝙜𝙚: Says goodnight and  godmorning\
+\n\n`.run`\
 \n𝙐𝙨𝙖𝙜𝙚: Let Me Run, run, RUNNN!\
-\n\n.chase\
+\n\n`.chase`\
 \n𝙐𝙨𝙖𝙜𝙚: You better start running\
-\n\n.metoo\
+\n\n`.metoo`\
 \n𝙐𝙨𝙖𝙜𝙚: Haha yes\
-\n\n.dorime\
-\n𝙐𝙨𝙖𝙜𝙚: pray\
-\n\n.mock\
+\n\n`.mock`\
 \n𝙐𝙨𝙖𝙜𝙚: Do it and find the real fun.\
-\n\n.clap\
+\n\n`.clap`\
 \n𝙐𝙨𝙖𝙜𝙚: Praise people!\
-\n\n.f <emoji/character>\
+\n\n`.f` <emoji/character>\
 \n𝙐𝙨𝙖𝙜𝙚: Pay Respects.\
-\n\n.men\
-\n𝙐𝙨𝙖𝙜𝙚: reply .men text and mention ur friends with custom text.\
-\n\n.bt\
+\n\n`.bt`\
 \n𝙐𝙨𝙖𝙜𝙚: Believe me, you will find this useful.\
-\n\n.type\
+\n\n`.type`\
 \n𝙐𝙨𝙖𝙜𝙚: Just a small command to make your keyboard become a typewriter!\
-\n\n.lfy <query>\
+\n\n`.lfy` <query>\
 \n𝙐𝙨𝙖𝙜𝙚: Let me Google that for you real quick !!\
-\n\n.decide [Alternates: (.yes, .no, .maybe)]\
+\n\n`.boobs`\
+\n𝙐𝙨𝙖𝙜𝙚: Get b00bs imej\
+\n\n`.butts`\
+\n𝙐𝙨𝙖𝙜𝙚: Get 🅱️utts imej\
+\n\n`.decide` [Alternates: (`.yes`, `.no`, `.maybe`)]\
 \n𝙐𝙨𝙖𝙜𝙚: Make a quick decision.\
-\n\n.scam <action> <time>\
-\n[Available Actions: (typing, contact, game, location, voice, round, video, photo, document, cancel)]\
+\n\n`.scam` <action> <time>\
+\n[Available Actions: (`typing`, `contact`, `game`, `location`, `voice`, `round`, `video`, `photo`, `document`, `cancel`)]\
 \n𝙐𝙨𝙖𝙜𝙚: Create fake chat actions, for fun. (Default action: typing)\
-\n\nAnd many more\
-\n.nou ; .bot ; .gey ; .gey ; .tf ; .paw ; .taco ; .nih ;\
-\n.fag ; .gtfo ; .stfu ; .lol ; .lols ; .lool ; .fail ; .love\
-\n.rain ; .earth ; .iwi ; .sayhi\
-\n\n\nThanks to BottomBextBot (@NotAMemeBot) for some of these."
+\n\n...𝑨𝒏𝒅 𝒎𝒂𝒏𝒚 𝒎𝒐𝒓𝒆.\
+\n| `.nou` | `.bot` | `.gay` | `.gey` | `.tf` | `.paw` | `.taco` | `.nih` |\
+\n| `.fag` | `.gtfo` | `.stfu` | `.lol` | `.lols` | `.lool` | `.fail` | `.love` |\
+\n| `.rain` | `.earth` | `.ii` | `.tolol` |\
+\n\n\nThanks to 🅱️ottom🅱️ext🅱️ot (@NotAMemeBot) for some of these."
 })
 
 #android.py
