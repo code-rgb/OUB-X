@@ -1,5 +1,6 @@
 # This is a troll indeed ffs *facepalm*
 #Ported from xtra-telegram by @heyworld
+#smol fix by code-rgb
 import asyncio
 from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
