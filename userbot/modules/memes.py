@@ -683,11 +683,11 @@ CRI = [
     "༼ ༎ຶ ෴ ༎ຶ༽",
 ]
 
-SLAP_TEMPLATES_EN = [
+SLAP_TEMPLATES = [
     "{hits} {victim} with a {item}.",
     "{hits} {victim} in the face with a {item}.",
     "{hits} {victim} around a bit with a {item}.",
-    "{throws} a {item} at {victim}.",
+    "`{throws} a {item} at {victim}.`",
     "grabs a {item} and {throws} it at {victim}'s face.",
     "{hits} a {item} at {victim}.", "{throws} a few {item} at {victim}.",
     "grabs a {item} and {throws} it in {victim}'s face.",
@@ -700,7 +700,7 @@ SLAP_TEMPLATES_EN = [
     "holds {victim} down and repeatedly {hits} them with a {item}.",
     "prods {victim} with a {item}.",
     "picks up a {item} and {hits} {victim} with it.",
-    "ties {victim} to a chair and {throws} a {item} at them.",
+    "`ties {victim} to a chair and {throws} a {item} at them.`",
     "{hits} {victim} {where} with a {item}.",
     "ties {victim} to a pole and whips them {where} with a {item}."
     "gave a friendly push to help {victim} learn to swim in lava.",
@@ -716,7 +716,7 @@ SLAP_TEMPLATES_EN = [
     "slaps {victim} with a DMCA takedown request!"
 ]
 
-ITEMS_EN = [
+ITEMS = [
     "cast iron skillet",
     "large trout",
     "baseball bat",
@@ -755,15 +755,14 @@ ITEMS_EN = [
     "ton of bricks",
 ]
 
-THROW_EN = [
+THROW = [
     "throws",
     "flings",
     "chucks",
     "hurls",
 ]
 
-HIT_EN = [
-    "yeets"
+HIT = [
     "hits",
     "whacks",
     "slaps",
@@ -771,123 +770,7 @@ HIT_EN = [
     "bashes",
 ]
 
-WHERE_EN = ["in the chest", "on the head", "on the butt", "on the crotch"]
-
-# ID translation by @yincen
-SLAP_TEMPLATES_ID = [
-    "{hits} {victim} dengan {item}.",
-    "{throws} sebuah  {item} kepada {victim}.",
-    "mengambil  {item} dan {hits} {victim} .",
-    "Mengambil Sebuah {item} dan {hits} {victim} Dengan itu.",
-    "Menjatuhkan {victim} Ke Lava.",
-    "Mengirimkan {victim} ke Kawah.",
-    "Membuang {victim} Ke Laut.",
-    "Mengeluarkan {victim} Dari Bumi.",
-    "Melempar {victim} Ke luar angkasa.",
-    "Menaruh {victim} di Pluto.",
-    "Melemparkan sebuah {item} ke {victim}.",
-    "Melemparkan {item} kepada {victim}.",
-    "Menampar {victim} menggunakan {item}.",
-    "Membuang {victim} Ke udara.",
-    "Menghapus {victim} Dari Daftar Teman.",
-    "Melemparkan {item} {where} {victim}.",
-    "Meletakan {item} {where} {victim}.",
-    "Menyerang {victim} menggunakan {anime}.",
-    "Mengehack Seluruh akun {victim}"
-]
-
-ITEMS_ID = [
-    "Tabung Gas",
-    "Televisi 42 In",
-    "Raket",
-    "Raket Nyamuk",
-    "Kaca",
-    "Buku",
-    "Linggis",
-    "Telur",
-    "Jarum",
-    "Monitor Tabung",
-    "Obeng",
-    "Almunium",
-    "Emas",
-    "Printer",
-    "Speaker",
-    "Gas Lpg",
-    "Tangki Bensin",
-    "Tandon Air",
-    "Bola Boling",
-    "Laptop",
-    "Hardisk Rusak",
-    "Wajan Panas",
-    "Virus Corona",
-    "Meja Kantor",
-    "Meja Arsip",
-    "Lemari",
-    "Ember Besi",
-    "Besi Beton",
-    "Timah Panas",
-    "Harimau",
-    "Batu Krikil",
-    "Makanan Basi",
-    "Pesawat AirBus",
-    "Roket Nasa",
-    "Satelit Nasa",
-    "Matahari",
-    "Meteor",
-    "Berkas Kantor",
-    "Beton panas",
-    "Cermin",
-    "Batu Giok",
-    "Botol",
-    "Nezuko",
-    "Kaset Pita",
-    "Tiang Jemuran",
-    "Pisau Lipat",
-    "Bongkahan Es ",
-    "Asteroid",
-]
-
-THROW_ID = [
-    "Melempar",
-    "Melemparkan",
-    "Mematak",
-]
-
-HIT_ID = [
-    "Memukul",
-    "melemparkan",
-    "Memukuli",
-    "Membogem",
-]
-
-WHERE_ID = ["di pipi", "di kepala", "di bokong", "di badan"]
-
-
-SLAP_TEMPLATES_Jutsu = [
-    "Menyerang {victim} Menggunakan {hits}.",
-    "Menyerang {victim} Menggunakan {item}.",
-    "Melemparkan {throws} kepada {victim} .",
-    "Melemparkan {throws} {where} {victim}."
-]
-
-ITEMS_Jutsu = [
-     "KAA MEE HAA MEE HAA",
-     "Chibaku Tensei",
-     "Amaterasu",
-]
-
-THROW_Jutsu = [
-    "Futon Rasen Shuriken",
-    "Shuriken",
-]
-
-HIT_Jutsu = [
-    "Rasengan",
-    "Chidori",
-]
-
-
-WHERE_Jutsu = ["Di Pipi", "Di Kepala", "Di Bokong", "Di Badan ,Di Pantat"]
+WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
 
 # ===========================================
 
@@ -974,31 +857,12 @@ async def slap(replied_user, event):
         slapped = "@{}".format(username)
     else:
         slapped = f"[{first_name}](tg://user?id={user_id})"
-    slap_str = event.pattern_match.group(1)
-    if slap_str == "en":
-       temp = choice(SLAP_TEMPLATES_EN)
-       item = choice(ITEMS_EN)
-       hit = choice(HIT_EN)
-       throw = choice(THROW_EN)
-       where = choice(WHERE_EN)
-    elif slap_str == "id":
-       temp = choice(SLAP_TEMPLATES_ID)
-       item = choice(ITEMS_ID)
-       hit = choice(HIT_ID)
-       throw = choice(THROW_ID)
-       where = choice(WHERE_ID)
-    elif slap_str == "jutsu":
-       temp = choice(SLAP_TEMPLATES_Jutsu)
-       item = choice(ITEMS_Jutsu)
-       hit = choice(HIT_Jutsu)
-       throw = choice(THROW_Jutsu)
-       where = choice(WHERE_Jutsu)
-    else:
-       temp = choice(SLAP_TEMPLATES_EN)
-       item = choice(ITEMS_EN)
-       hit = choice(HIT_EN)
-       throw = choice(THROW_EN)
-       where = choice(WHERE_EN)
+
+    temp = choice(SLAP_TEMPLATES)
+    item = choice(ITEMS)
+    hit = choice(HIT)
+    throw = choice(THROW)
+    where = choice(WHERE)
 
     caption = "..." + temp.format(
         victim=slapped, item=item, hits=hit, throws=throw, where=where)
