@@ -205,13 +205,7 @@ CMD_HELP.update({
     \n𝙐𝙨𝙖𝙜𝙚: Shows progress of the on-going downloads."
 })
 
-#ariav2.py
-CMD_HELP.update({
-    "aria2":
-    ".url [url]\
-    \n𝙐𝙨𝙖𝙜𝙚: Downloads the file into your userbot server storage.\
-    \nUsing ariav2."
-})
+
 
 #blacklist.py
 CMD_HELP.update({
