@@ -1029,8 +1029,12 @@ CMD_HELP.update({
     "download":
     "`.download` <link|filename> or reply to media\
 \n𝙐𝙨𝙖𝙜𝙚: Downloads file to the server.\
-\n\n`.upload` <path in server>\
-\n𝙐𝙨𝙖𝙜𝙚: Uploads a locally stored file to the chat."
+\n\n`.upload` <File path in server>\
+\n𝙐𝙨𝙖𝙜𝙚: Uploads a locally stored file to the chat.\
+\n\n`.uploadas(stream|vn|all)` <path in server>\
+\n𝙐𝙨𝙖𝙜𝙚: Allows you to specify some arguments for upload.\
+ \n\n`.uploadir` <Folder path in server>\
+\n𝙐𝙨𝙖𝙜𝙚: Allows you to upload everything from a folder in the server."
 })
 
 #w3m.py
