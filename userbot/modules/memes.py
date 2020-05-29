@@ -19,8 +19,8 @@ from collections import deque
 import urllib
 import requests
 import io
-import os execl
 import os
+from os import execl
 from bs4 import BeautifulSoup
 from cowpy import cow
 from userbot import bot, LOGS
