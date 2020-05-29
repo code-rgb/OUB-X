@@ -2,34 +2,28 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
-#more meme added by @deleteduser420 
+#
 """ Userbot module for having some fun with people. """
 
 from asyncio import sleep
 from random import choice, getrandbits, randint
 from re import sub
-from random import randint
-from os import execl
+from PIL import Image
+from telethon.tl.functions.account import UpdateNotifySettingsRequest
+from telethon.tl.types import MessageMediaPhoto
+import re
+from urllib.request import urlopen
 import time
-from telethon import events
-from userbot import bot
-
-
-
-
+import datetime
 from collections import deque
-
+import urllib
 import requests
-import sys
-import os
 import io
-import html
-
-import json
-
+import os
+from bs4 import BeautifulSoup
 from cowpy import cow
 
-from userbot import CMD_HELP
+from userbot import bot, CMD_HELP, LOGS
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 
@@ -254,24 +248,93 @@ INSULT_STRINGS = [
     "You can be the first person to step on sun. Have a try.",
 ]
 
-UWUS = [
-    "(・`ω´・)",
-    ";;w;;",
-    "owo",
-    "UwU",
-    ">w<",
-    "^w^",
-    r"\(^o\) (/o^)/",
-    "( ^ _ ^)∠☆",
-    "(ô_ô)",
-    "~:o",
-    ";-;",
-    "(*^*)",
-    "(>_",
-    "(♥_♥)",
-    "*(^O^)*",
-    "((+_+))",
+BYESTR = [
+    "`Nice talking with you`",
+    "`I've gotta go!`",
+    "`I've gotta run!`",
+    "`I've gotta split`",
+    "`I'm off!`",
+    "`Great to see you,bye`",
+    "`See you soon`",
+    "`Farewell!`",
 ]
+
+GDNIGHT = [
+    "`Good night keep your dreams alive`",
+    "`Night, night, to a dear friend! May you sleep well!`",
+    "`May the night fill with stars for you. May counting every one, give you contentment!`",
+    "`Wishing you comfort, happiness, and a good night’s sleep!`",
+    "`Now relax. The day is over. You did your best. And tomorrow you’ll do better. Good Night!`",
+    "`Good night to a friend who is the best! Get your forty winks!`",
+    "`May your pillow be soft, and your rest be long! Good night, friend!`",
+    "`Let there be no troubles, dear friend! Have a Good Night!`",
+    "`Rest soundly tonight, friend!`",
+    "`Have the best night’s sleep, friend! Sleep well!`",
+    "`Have a very, good night, friend! You are wonderful!`",
+    "`Relaxation is in order for you! Good night, friend!`",
+    "`Good night. May you have sweet dreams tonight.`",
+    "`Sleep well, dear friend and have sweet dreams.`",
+    "`As we wait for a brand new day, good night and have beautiful dreams.`",
+    "`Dear friend, I wish you a night of peace and bliss. Good night.`",
+    "`Darkness cannot last forever. Keep the hope alive. Good night.`",
+    "`By hook or crook you shall have sweet dreams tonight. Have a good night, buddy!`",
+    "`Good night, my friend. I pray that the good Lord watches over you as you sleep. Sweet dreams.`",
+    "`Good night, friend! May you be filled with tranquility!`",
+    "`Wishing you a calm night, friend! I hope it is good!`",
+    "`Wishing you a night where you can recharge for tomorrow!`",
+    "`Slumber tonight, good friend, and feel well rested, tomorrow!`",
+    "`Wishing my good friend relief from a hard day’s work! Good Night!`",
+    "`Good night, friend! May you have silence for sleep!`",
+    "`Sleep tonight, friend and be well! Know that you have done your very best today, and that you will do your very best, tomorrow!`",
+    "`Friend, you do not hesitate to get things done! Take tonight to relax and do more, tomorrow!`",
+    "`Friend, I want to remind you that your strong mind has brought you peace, before. May it do that again, tonight! May you hold acknowledgment of this with you!`",
+    "`Wishing you a calm, night, friend! Hoping everything winds down to your liking and that the following day meets your standards!`",
+    "`May the darkness of the night cloak you in a sleep that is sound and good! Dear friend, may this feeling carry you through the next day!`",
+    "`Friend, may the quietude you experience tonight move you to have many more nights like it! May you find your peace and hold on to it!`",
+    "`May there be no activity for you tonight, friend! May the rest that you have coming to you arrive swiftly! May the activity that you do tomorrow match your pace and be all of your own making!`",
+    "`When the day is done, friend, may you know that you have done well! When you sleep tonight, friend, may you view all the you hope for, tomorrow!`",
+    "`When everything is brought to a standstill, friend, I hope that your thoughts are good, as you drift to sleep! May those thoughts remain with you, during all of your days!`",
+    "`Every day, you encourage me to do new things, friend! May tonight’s rest bring a new day that overflows with courage and exciting events!`",
+]
+
+GDMORNING = [
+    "`Life is full of uncertainties. But there will always be a sunrise after every sunset. Good morning!`",
+    "`It doesn’t matter how bad was your yesterday. Today, you are going to make it a good one. Wishing you a good morning!`",
+    "`If you want to gain health and beauty, you should wake up early. Good morning!`",
+    "`May this morning offer you new hope for life! May you be happy and enjoy every moment of it. Good morning!`",
+    "`May the sun shower you with blessings and prosperity in the days ahead. Good morning!`",
+    "`Every sunrise marks the rise of life over death, hope over despair and happiness over suffering. Wishing you a very enjoyable morning today!`",
+    "`Wake up and make yourself a part of this beautiful morning. A beautiful world is waiting outside your door. Have an enjoyable time!`",
+    "`Welcome this beautiful morning with a smile on your face. I hope you’ll have a great day today. Wishing you a very good morning!`",
+    "`You have been blessed with yet another day. What a wonderful way of welcoming the blessing with such a beautiful morning! Good morning to you!`",
+    "`Waking up in such a beautiful morning is a guaranty for a day that’s beyond amazing. I hope you’ll make the best of it. Good morning!`",
+    "`Nothing is more refreshing than a beautiful morning that calms your mind and gives you reasons to smile. Good morning! Wishing you a great day.`",
+    "`Another day has just started. Welcome the blessings of this beautiful morning. Rise and shine like you always do. Wishing you a wonderful morning!`",
+    "`Wake up like the sun every morning and light up the world your awesomeness. You have so many great things to achieve today. Good morning!`",
+    "`A new day has come with so many new opportunities for you. Grab them all and make the best out of your day. Here’s me wishing you a good morning!`",
+    "`The darkness of night has ended. A new sun is up there to guide you towards a life so bright and blissful. Good morning dear!`",
+    "`Wake up, have your cup of morning tea and let the morning wind freshen you up like a happiness pill. Wishing you a good morning and a good day ahead!`",
+    "`Sunrises are the best; enjoy a cup of coffee or tea with yourself because this day is yours, good morning! Have a wonderful day ahead.`",
+    "`A bad day will always have a good morning, hope all your worries are gone and everything you wish could find a place. Good morning!`",
+    "`A great end may not be decided but a good creative beginning can be planned and achieved. Good morning, have a productive day!`",
+    "`Having a sweet morning, a cup of coffee, a day with your loved ones is what sets your “Good Morning” have a nice day!`",
+    "`Anything can go wrong in the day but the morning has to be beautiful, so I am making sure your morning starts beautiful. Good morning!`",
+    "`Open your eyes with a smile, pray and thank god that you are waking up to a new beginning. Good morning!`",
+    "`Morning is not only sunrise but A Beautiful Miracle of God that defeats the darkness and spread light. Good Morning.`",
+    "`Life never gives you a second chance. So, enjoy every bit of it. Why not start with this beautiful morning. Good Morning!`",
+    "`If you want to gain health and beauty, you should wake up early. Good Morning!`",
+    "`Birds are singing sweet melodies and a gentle breeze is blowing through the trees, what a perfect morning to wake you up. Good morning!`",
+    "`This morning is so relaxing and beautiful that I really don’t want you to miss it in any way. So, wake up dear friend. A hearty good morning to you!`",
+    "`Mornings come with a blank canvas. Paint it as you like and call it a day. Wake up now and start creating your perfect day. Good morning!`",
+    "`Every morning brings you new hopes and new opportunities. Don’t miss any one of them while you’re sleeping. Good morning!`",
+    "`Start your day with solid determination and great attitude. You’re going to have a good day today. Good morning my friend!`",
+    "`Friendship is what makes life worth living. I want to thank you for being such a special friend of mine. Good morning to you!`",
+    "`A friend like you is pretty hard to come by in life. I must consider myself lucky enough to have you. Good morning. Wish you an amazing day ahead!`",
+    "`The more you count yourself as blessed, the more blessed you will be. Thank God for this beautiful morning and let friendship and love prevail this morning.`",
+    "`Wake up and sip a cup of loving friendship. Eat your heart out from a plate of hope. To top it up, a fork full of kindness and love. Enough for a happy good morning!`",
+    "`It is easy to imagine the world coming to an end. But it is difficult to imagine spending a day without my friends. Good morning.`",
+]   
+
 PICKUPS = [
 "Well, 📌 I am. 😦 are your other ✌ wishes? ",
 "Hey, my name's Microsoft. Can I crash at your 🏟 tonight?",
@@ -302,6 +365,67 @@ PICKUPS = [
 "Did the sun🔆 come out or did you just smile😎😎 at me?",
 "Do you know CPR? Because you are taking my breath away!",
 ]
+
+PROSTR = [
+    "`You is pro user.`",
+     "`Pros here -_- Time to Leave`",
+     "`Pros everywhere`",
+     "`Pro Pro Pro ; What a tragedy`",
+]
+
+NUBSTR = [
+
+    "`Haha noob trying to act pro`",
+    "`Hi Nub what'sup`",
+    "`Only i and you know that ur a noob and trying to act like pro`",
+    "`Sorry we don't appoint noobs`",
+]
+
+UWUS = [
+    "(・`ω´・)",
+    ";;w;;",
+    "owo",
+    "UwU",
+    ">w<",
+    "^w^",
+    r"\(^o\) (/o^)/",
+    "( ^ _ ^)∠☆",
+    "(ô_ô)",
+    "~:o",
+    ";-;",
+    "(*^*)",
+    "(>_",
+    "(♥_♥)",
+    "*(^O^)*",
+    "((+_+))",
+]
+
+IWIS = [
+    "┐(´д｀)┌",
+    "┐(´～｀)┌",
+    "┐(´ー｀)┌",
+    "┐(￣ヘ￣)┌",
+    "╮(╯∀╰)╭",
+    "╮(╯_╰)╭",
+    "┐(´д`)┌",
+    "┐(´∀｀)┌",
+    "ʅ(́◡◝)ʃ",
+    "┐(ﾟ～ﾟ)┌",
+    "┐('д')┌",
+    "┐(‘～`;)┌",
+    "ヘ(´－｀;)ヘ",
+    "┐( -“-)┌",
+    "ʅ（´◔౪◔）ʃ",
+    "ヽ(゜～゜o)ノ",
+    "ヽ(~～~ )ノ",
+    "┐(~ー~;)┌",
+    "┐(-。ー;)┌",
+    r"¯\_(ツ)_/¯",
+    r"¯\_(⊙_ʖ⊙)_/¯",
+    r"¯\_༼ ಥ ‿ ಥ ༽_/¯",
+    "乁( ⁰͡  Ĺ̯ ⁰͡ ) ㄏ",
+]
+
 FACEREACTS = [
     "ʘ‿ʘ",
     "ヾ(-_- )ゞ",
@@ -430,15 +554,15 @@ CHASE_STR = [
     "Where do you think you're going?",
     "Huh? what? did they get away?",
     "ZZzzZZzz... Huh? what? oh, just them again, nevermind.",
-    "`Get back here!`",
-    "`Not so fast...`",
+    "Get back here!",
+    "Not so fast...",
     "Look out for the wall!",
     "Don't leave me alone with them!!",
     "You run, you die.",
-    "`Jokes on you, I'm everywhere`",
+    "Jokes on you, I'm everywhere",
     "You're gonna regret that...",
     "You could also try /kickme, I hear that's fun.",
-    "`Go bother someone else, no-one here cares.`",
+    "Go bother someone else, no-one here cares.",
     "You can run, but you can't hide.",
     "Is that all you've got?",
     "I'm behind you...",
@@ -482,6 +606,7 @@ HELLOSTR = [
     "Hi !",
     "‘Ello, gov'nor!",
     "What’s crackin’?",
+    "‘Sup, homeslice?",
     "Howdy, howdy ,howdy!",
     "Hello, who's there, I'm talking.",
     "You know who this is.",
@@ -489,40 +614,14 @@ HELLOSTR = [
     "Whaddup.",
     "Greetings and salutations!",
     "Hello, sunshine!",
-    "`Hey, howdy, hi!`",
+    "Hey, howdy, hi!",
     "What’s kickin’, little chicken?",
     "Peek-a-boo!",
     "Howdy-doody!",
-    "`Hey there, freshman!`",
-    "`I come in peace!`",
-    "`I come for peace!`",
+    "Hey there, freshman!",
+    "I come in peace!",
     "Ahoy, matey!",
-    "`Hi !`",
-]
-
-PROSTR = [
-    "`You is pro user.`",
-     "`Pros here -_- Time to Leave`",
-     "`Pros everywhere`",
-     "`Pro Pro Pro ; What a tragedy`",
-]
-
-NUBSTR = [
-
-    "`Haha noob trying to act pro`",
-    "`Hi Nub what'sup`",
-    "`Only i and you know that ur a noob and trying to act like pro`",
-    "`Sorry we don't appoint noobs`",
-]
-
-BYESTR = [
-    "`Nice talking with you`",
-    "`I've gotta go!`",
-    "`I've gotta run!`",
-    "`I've gotta split`",
-    "`I'm off!`",
-    "`Great to see you,bye`",
-    "`See you soon`",
+    "Hiya!",
 ]
 
 SHGS = [
@@ -584,11 +683,11 @@ CRI = [
     "༼ ༎ຶ ෴ ༎ຶ༽",
 ]
 
-SLAP_TEMPLATES = [
+SLAP_TEMPLATES_EN = [
     "{hits} {victim} with a {item}.",
     "{hits} {victim} in the face with a {item}.",
     "{hits} {victim} around a bit with a {item}.",
-    "`{throws} a {item} at {victim}.`",
+    "{throws} a {item} at {victim}.",
     "grabs a {item} and {throws} it at {victim}'s face.",
     "{hits} a {item} at {victim}.", "{throws} a few {item} at {victim}.",
     "grabs a {item} and {throws} it in {victim}'s face.",
@@ -601,7 +700,7 @@ SLAP_TEMPLATES = [
     "holds {victim} down and repeatedly {hits} them with a {item}.",
     "prods {victim} with a {item}.",
     "picks up a {item} and {hits} {victim} with it.",
-    "`ties {victim} to a chair and {throws} a {item} at them.`",
+    "ties {victim} to a chair and {throws} a {item} at them.",
     "{hits} {victim} {where} with a {item}.",
     "ties {victim} to a pole and whips them {where} with a {item}."
     "gave a friendly push to help {victim} learn to swim in lava.",
@@ -617,7 +716,7 @@ SLAP_TEMPLATES = [
     "slaps {victim} with a DMCA takedown request!"
 ]
 
-ITEMS = [
+ITEMS_EN = [
     "cast iron skillet",
     "large trout",
     "baseball bat",
@@ -656,14 +755,15 @@ ITEMS = [
     "ton of bricks",
 ]
 
-THROW = [
+THROW_EN = [
     "throws",
     "flings",
     "chucks",
     "hurls",
 ]
 
-HIT = [
+HIT_EN = [
+    "yeets"
     "hits",
     "whacks",
     "slaps",
@@ -671,7 +771,123 @@ HIT = [
     "bashes",
 ]
 
-WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
+WHERE_EN = ["in the chest", "on the head", "on the butt", "on the crotch"]
+
+# ID translation by @yincen
+SLAP_TEMPLATES_ID = [
+    "{hits} {victim} dengan {item}.",
+    "{throws} sebuah  {item} kepada {victim}.",
+    "mengambil  {item} dan {hits} {victim} .",
+    "Mengambil Sebuah {item} dan {hits} {victim} Dengan itu.",
+    "Menjatuhkan {victim} Ke Lava.",
+    "Mengirimkan {victim} ke Kawah.",
+    "Membuang {victim} Ke Laut.",
+    "Mengeluarkan {victim} Dari Bumi.",
+    "Melempar {victim} Ke luar angkasa.",
+    "Menaruh {victim} di Pluto.",
+    "Melemparkan sebuah {item} ke {victim}.",
+    "Melemparkan {item} kepada {victim}.",
+    "Menampar {victim} menggunakan {item}.",
+    "Membuang {victim} Ke udara.",
+    "Menghapus {victim} Dari Daftar Teman.",
+    "Melemparkan {item} {where} {victim}.",
+    "Meletakan {item} {where} {victim}.",
+    "Menyerang {victim} menggunakan {anime}.",
+    "Mengehack Seluruh akun {victim}"
+]
+
+ITEMS_ID = [
+    "Tabung Gas",
+    "Televisi 42 In",
+    "Raket",
+    "Raket Nyamuk",
+    "Kaca",
+    "Buku",
+    "Linggis",
+    "Telur",
+    "Jarum",
+    "Monitor Tabung",
+    "Obeng",
+    "Almunium",
+    "Emas",
+    "Printer",
+    "Speaker",
+    "Gas Lpg",
+    "Tangki Bensin",
+    "Tandon Air",
+    "Bola Boling",
+    "Laptop",
+    "Hardisk Rusak",
+    "Wajan Panas",
+    "Virus Corona",
+    "Meja Kantor",
+    "Meja Arsip",
+    "Lemari",
+    "Ember Besi",
+    "Besi Beton",
+    "Timah Panas",
+    "Harimau",
+    "Batu Krikil",
+    "Makanan Basi",
+    "Pesawat AirBus",
+    "Roket Nasa",
+    "Satelit Nasa",
+    "Matahari",
+    "Meteor",
+    "Berkas Kantor",
+    "Beton panas",
+    "Cermin",
+    "Batu Giok",
+    "Botol",
+    "Nezuko",
+    "Kaset Pita",
+    "Tiang Jemuran",
+    "Pisau Lipat",
+    "Bongkahan Es ",
+    "Asteroid",
+]
+
+THROW_ID = [
+    "Melempar",
+    "Melemparkan",
+    "Mematak",
+]
+
+HIT_ID = [
+    "Memukul",
+    "melemparkan",
+    "Memukuli",
+    "Membogem",
+]
+
+WHERE_ID = ["di pipi", "di kepala", "di bokong", "di badan"]
+
+
+SLAP_TEMPLATES_Jutsu = [
+    "Menyerang {victim} Menggunakan {hits}.",
+    "Menyerang {victim} Menggunakan {item}.",
+    "Melemparkan {throws} kepada {victim} .",
+    "Melemparkan {throws} {where} {victim}."
+]
+
+ITEMS_Jutsu = [
+     "KAA MEE HAA MEE HAA",
+     "Chibaku Tensei",
+     "Amaterasu",
+]
+
+THROW_Jutsu = [
+    "Futon Rasen Shuriken",
+    "Shuriken",
+]
+
+HIT_Jutsu = [
+    "Rasengan",
+    "Chidori",
+]
+
+
+WHERE_Jutsu = ["Di Pipi", "Di Kepala", "Di Bokong", "Di Badan ,Di Pantat"]
 
 # ===========================================
 
@@ -758,19 +974,37 @@ async def slap(replied_user, event):
         slapped = "@{}".format(username)
     else:
         slapped = f"[{first_name}](tg://user?id={user_id})"
-
-    temp = choice(SLAP_TEMPLATES)
-    item = choice(ITEMS)
-    hit = choice(HIT)
-    throw = choice(THROW)
-    where = choice(WHERE)
+    slap_str = event.pattern_match.group(1)
+    if slap_str == "en":
+       temp = choice(SLAP_TEMPLATES_EN)
+       item = choice(ITEMS_EN)
+       hit = choice(HIT_EN)
+       throw = choice(THROW_EN)
+       where = choice(WHERE_EN)
+    elif slap_str == "id":
+       temp = choice(SLAP_TEMPLATES_ID)
+       item = choice(ITEMS_ID)
+       hit = choice(HIT_ID)
+       throw = choice(THROW_ID)
+       where = choice(WHERE_ID)
+    elif slap_str == "jutsu":
+       temp = choice(SLAP_TEMPLATES_Jutsu)
+       item = choice(ITEMS_Jutsu)
+       hit = choice(HIT_Jutsu)
+       throw = choice(THROW_Jutsu)
+       where = choice(WHERE_Jutsu)
+    else:
+       temp = choice(SLAP_TEMPLATES_EN)
+       item = choice(ITEMS_EN)
+       hit = choice(HIT_EN)
+       throw = choice(THROW_EN)
+       where = choice(WHERE_EN)
 
     caption = "..." + temp.format(
         victim=slapped, item=item, hits=hit, throws=throw, where=where)
 
     return caption
-
-
+                      
 @register(outgoing=True, pattern="^-_-$", ignore_unsafe=True)
 async def lol(lel):
     """ Ok... """
@@ -779,6 +1013,29 @@ async def lol(lel):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 
+@register(outgoing=True, pattern="^.boobs(?: |$)(.*)")
+async def boobs(e):
+    await e.edit("`Finding some big boobs...`")
+    await sleep(3)
+    await e.edit("`Sending some big boobs...`")
+    nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
+    urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "*.jpg")
+    os.rename('*.jpg', 'boobs.jpg')
+    await bot.send_file(e.chat_id, "boobs.jpg")
+    os.remove("boobs.jpg")
+    await e.delete()
+    
+@register(outgoing=True, pattern="^.butts(?: |$)(.*)")
+async def butts(e):
+    await e.edit("`Finding some beautiful butts...`")
+    await sleep(3)
+    await e.edit("`Sending some beautiful butts...`")
+    nsfw = requests.get('http://api.obutts.ru/noise/1').json()[0]["preview"]
+    urllib.request.urlretrieve("http://media.obutts.ru/{}".format(nsfw), "*.jpg")
+    os.rename('*.jpg', 'butts.jpg')
+    await bot.send_file(e.chat_id, "butts.jpg")
+    os.remove("butts.jpg")
+    await e.delete()
 
 @register(outgoing=True, pattern="^.(yes|no|maybe|decide)$")
 async def decide(event):
@@ -803,15 +1060,9 @@ async def fun(e):
         await e.edit(t)
 
 
-@register(outgoing=True, pattern="^.fp$")
-async def facepalm(e):
-    """ Facepalm  🤦‍♂ """
-    await e.edit("🤦‍♂")
-
-
 @register(outgoing=True, pattern="^.cry$")
 async def cry(e):
-    """ y u du dis, i cry everytime !! """
+    """ nangis aja """
     await e.edit(choice(CRI))
 
 
@@ -922,12 +1173,12 @@ async def zal(zgfy):
             continue
 
         for _ in range(0, 3):
-            randint = randint(0, 2)
+            textz = randint(0, 2)
 
-            if randint == 0:
+            if textz == 0:
                 charac = charac.strip() + \
                     choice(ZALG_LIST[0]).strip()
-            elif randint == 1:
+            elif textz == 1:
                 charac = charac.strip() + \
                     choice(ZALG_LIST[1]).strip()
             else:
@@ -944,27 +1195,6 @@ async def hoi(hello):
     """ Greet everyone! """
     await hello.edit(choice(HELLOSTR))
 
-
-@register(outgoing=True, pattern="^.pro$")
-async def pero(proo):
-    """ Greet everyone! """
-    await proo.edit(choice(PROSTR))
-                      
-@register(outgoing=True, pattern="^.pickup$")
-async def pickupline(pickit):
-    """ Greet everyone! """
-    await pickit.edit(choice(PICKUPS))
-
-
-@register(outgoing=True, pattern="^.nub$")
-async def noob(nubdo):
-    """ Greet everyone! """
-    await nubdo.edit(choice(NUBSTR))
-                      
-@register(outgoing=True, pattern="^.bye$")
-async def bhago(bhagobc):
-    """ Greet everyone! """
-    await bhagobc.edit(choice(BYESTR))
 
 @register(outgoing=True, pattern="^.owo(?: |$)(.*)")
 async def faces(owo):
@@ -995,6 +1225,26 @@ async def react_meme(react):
     await react.edit(choice(FACEREACTS))
 
 
+@register(outgoing=True, pattern="^.ii(?: |$)(.*)")
+async def faces(siwis):
+    """ IwI """
+    textx = await siwis.get_reply_message()
+    message = siwis.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await siwis.edit("` IwI no text given! `")
+        return
+
+    reply_text = sub(r"(a|i|u|e|o)", "i", message)
+    reply_text = sub(r"(A|I|U|E|O)", "I", reply_text)
+    reply_text = sub(r"\!+", " " + choice(IWIS), reply_text)
+    reply_text += " " + choice(IWIS)
+    await siwis.edit(reply_text)
+
+
 @register(outgoing=True, pattern="^.shg$")
 async def shrugger(shg):
     r""" ¯\_(ツ)_/¯ """
@@ -1019,37 +1269,35 @@ async def metoo(hahayes):
     await hahayes.edit(choice(METOOSTR))
 
 
-@register(outgoing=True, pattern="^.Oof$")
+@register(outgoing=True, pattern="^.iff$")
+async def pressf(f):
+    """Pays respects"""
+    args = f.text.split()
+    arg = (f.text.split(' ', 1))[1] if len(args) > 1 else None
+    if len(args) == 1:
+        r = randint(0, 3)
+        LOGS.info(r)
+        if r == 0:
+            await f.edit("┏━━━┓\n┃┏━━┛\n┃┗━━┓\n┃┏━━┛\n┃┃\n┗┛")
+        elif r == 1:
+            await f.edit("╭━━━╮\n┃╭━━╯\n┃╰━━╮\n┃╭━━╯\n┃┃\n╰╯")
+        else:
+            arg = "F"
+    if arg is not None:
+        out = ""
+        F_LENGTHS = [5, 1, 1, 4, 1, 1, 1]
+        for line in F_LENGTHS:
+            c = max(round(line / len(arg)), 1)
+            out += (arg * c) + "\n"
+        await f.edit("`" + out + "`")
+
+
+@register(outgoing=True, pattern="^Oof$")
 async def Oof(e):
     t = "Oof"
-    for j in range(16):
+    for j in range(15):
         t = t[:-1] + "of"
         await e.edit(t)
-
-                      
-@register(outgoing=True, pattern="^.oem$")
-async def Oem(e):
-    t = "Oem"
-    for j in range(16):
-        t = t[:-1] + "em"
-        await e.edit(t)
-
-
-
-
-
-@register(outgoing=True, pattern="^.Oem$")
-async def Oem(e):
-    t = "Oem"
-    for j in range(16):
-        t = t[:-1] + "em"
-        await e.edit(t)
-
-
-
-@register(outgoing=True, pattern="^.10iq$")
-async def iqless(e):
-    await e.edit("you low iq idiot")
 
 
 @register(outgoing=True, pattern="^.moon$")
@@ -1063,7 +1311,19 @@ async def moon(event):
     except BaseException:
         return
 
+                   
+@register(outgoing=True, pattern="^.earth$")
+async def earth(event):
+    deq = deque(list("🌏🌍🌎🌎🌍🌏🌍🌎"))
+    try:
+        for x in range(32):
+            await sleep(0.1)
+            await event.edit("".join(deq))
+            deq.rotate(1)
+    except BaseException:
+        return                              
 
+                      
 @register(outgoing=True, pattern="^.clock$")
 async def clock(event):
     deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
@@ -1075,7 +1335,31 @@ async def clock(event):
     except BaseException:
         return
 
+                      
+@register(outgoing=True, pattern="^.rain$")
+async def rain(event):
+    deq = deque(list("☀️🌤⛅️🌥☁️🌧⛈"))
+    try:
+        for x in range(32):
+            await sleep(0.1)
+            await event.edit("".join(deq))
+            deq.rotate(1)
+    except BaseException:
+        return
 
+                      
+@register(outgoing=True, pattern="^.love$")
+async def love(event):
+    deq = deque(list("❤️🧡💛💚💙💜🖤💕💞💓💗💖💘💝"))
+    try:
+        for x in range(32):
+            await sleep(0.1)
+            await event.edit("".join(deq))
+            deq.rotate(1)
+    except BaseException:
+        return
+              
+                      
 @register(outgoing=True, pattern="^.mock(?: |$)(.*)")
 async def spongemocktext(mock):
     """ Do it and find the real fun. """
@@ -1212,28 +1496,8 @@ async def typewriter(typew):
         await sleep(sleep_time)
         await typew.edit(old_text)
         await sleep(sleep_time)
-                      
 
-      
-                      
-@register(outgoing=True, pattern="^.lols$")
-async def lol(e):
-    await e.edit("😂\n😂\n😂\n😂\n😂😂😂😂\n\n   😂😂😂\n 😂         😂\n😂           😂\n 😂         😂\n   😂😂😂\n\n😂\n😂\n😂\n😂\n😂😂😂😂")
 
-@register(outgoing=True, pattern="^.men(?: |$)(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    if event.reply_to_msg_id:
-        input_str = event.pattern_match.group(1)
-        reply_msg = await event.get_reply_message()
-        caption = """<a href='tg://user?id={}'>{}</a>""".format(reply_msg.from_id, input_str)
-        await event.delete()
-        await bot.send_message(event.chat_id, caption, parse_mode="HTML")
-    else:
-        await event.edit("Reply to user with `.men <your text>`")
-                      
-                      
 @register(outgoing=True, pattern="^.fail$")  
 async def fail(e):
    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -1264,7 +1528,7 @@ async def lool(e):
 @register(outgoing=True, pattern="^.stfu$")
 async def stfu(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n██████████████████████████████`"
+        await e.edit("`\n█████████████████████████████████`"
                      "`\n██▀▀▀▀████▀▀▀▀████▀▀▀▀▀███▀▀██▀▀█`"
                      "`\n█──────██──────██───────██──██──█`"
                      "`\n█──██▄▄████──████──███▄▄██──██──█`"
@@ -1278,15 +1542,15 @@ async def stfu(e):
 @register(outgoing=True, pattern="^.gtfo$")
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("\nAvailable Modules:"
-"\n• Uniborg configuration placeholder"
-"\n• Raphielgang Configuration Placeholder"
-"\n• Settings: `addalias, addtrnsl, blacklist,`"
-  "\n`blacklistuser, cleardb, cleartrnsl, delalias`,"
-  "\n`setlang, setprefix, unblacklist, unblacklistuser`"
-"\n• Python: `eval, exec`"
-"\n• Logger")
-
+        await e.edit("`\n███████████████████████████████ `" 
+                     "`\n█▀▀▀▀▀▀▀█▀▀▀▀▀▀█▀▀▀▀▀▀▀█▀▀▀▀▀▀█ `" 
+                     "`\n█───────█──────█───────█──────█ `" 
+                     "`\n█──███──███──███──███▄▄█──██──█ `" 
+                     "`\n█──███▄▄███──███─────███──██──█ `" 
+                     "`\n█──██───███──███──██████──██──█ `" 
+                     "`\n█──▀▀▀──███──███──██████──────█ `" 
+                     "`\n█▄▄▄▄▄▄▄███▄▄███▄▄██████▄▄▄▄▄▄█ `" 
+                     "`\n███████████████████████████████ `")  
                                   
 
 @register(outgoing=True, pattern="^.nih$")
@@ -1310,7 +1574,44 @@ async def gtfo(e):
                      "`\n█       STFU FAGGOT'S`"
                      "`\n█▲▲▲▲▲`"
                      "`\n█████████`"
-                    "`\n ██   ██`")               
+                    "`\n ██   ██`")        
+                      
+                      
+
+                      
+@register(outgoing=True, pattern="^.pickup$")
+async def pickupline(pickit):
+    """ Greet everyone! """
+    await pickit.edit(choice(PICKUPS))
+
+
+@register(outgoing=True, pattern="^.gn$")
+async def night(night):
+    """ Greet everyone! """
+    await night.edit(choice(GDNIGHT))
+                      
+                      
+@register(outgoing=True, pattern="^.gm$")
+async def morning(morning):
+    """ Greet everyone! """
+    await morning.edit(choice(GDMORNING))
+
+
+@register(outgoing=True, pattern="^.pro$")
+async def pero(proo):
+    """ Greet everyone! """
+    await proo.edit(choice(PROSTR))
+
+
+@register(outgoing=True, pattern="^.nub$")
+async def noob(nubdo):
+    """ Greet everyone! """
+    await nubdo.edit(choice(NUBSTR))
+                      
+@register(outgoing=True, pattern="^.bye$")
+async def bhago(bhagobc):
+    """ Greet everyone! """
+    await bhagobc.edit(choice(BYESTR))
 
 
 @register(outgoing=True, pattern="^.taco$")  
@@ -1319,22 +1620,12 @@ async def taco(e):
         await e.edit("\n{\__/}"
                      "\n(●_●)"
                      "\n( >🌮 Want a taco?")
+                      
+@register(outgoing=True, pattern="^.lols$")
+async def lol(e):
+    await e.edit("😂\n😂\n😂\n😂\n😂😂😂😂\n\n   😂😂😂\n 😂         😂\n😂           😂\n 😂         😂\n   😂😂😂\n\n😂\n😂\n😂\n😂\n😂😂😂😂")
+     
 
-
-@register(outgoing=True, pattern="^.sayhi$")
-async def sayhi(e):
-    await e.edit(
-        "\n💰💰💰💰💰💰💰💰💰💰💰💰"
-        "\n💰🔷💰💰💰🔷💰💰🔷🔷🔷💰"
-        "\n💰🔷💰💰💰🔷💰💰💰🔷💰💰"
-        "\n💰🔷💰💰💰🔷💰💰💰🔷💰💰"
-        "\n💰🔷🔷🔷🔷🔷💰💰💰🔷💰💰"
-        "\n💰🔷💰💰💰🔷💰💰💰🔷💰💰"
-        "\n💰🔷💰💰💰🔷💰💰💰🔷💰💰"
-        "\n💰🔷💰💰💰🔷💰💰🔷🔷🔷💰"
-        "\n💰💰💰💰💰💰💰💰💰💰💰💰")
-       
-                  
 @register(outgoing=True, pattern="^.gey$")            
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -1374,57 +1665,12 @@ async def nou(e):
         await e.edit("`\n┈╭╮╭╮\n┈┃┃┃┃\n╭┻┗┻┗╮`"
                      "`\n┃┈▋┈▋┃\n┃┈╭▋━╮━╮\n┃┈┈╭╰╯╰╯╮`"
                      "`\n┫┈┈  NoU\n┃┈╰╰━━━━╯`"
-"`\n┗━━┻━┛`")      
+"`\n┗━━┻━┛`")    
                       
-                      
-@register(outgoing=True, pattern="^.iff$")
-async def pressf(f):
-    """Pays respects"""
-    args = f.text.split()
-    arg = (f.text.split(' ', 1))[1] if len(args) > 1 else None
-    if len(args) == 1:
-        r = randint(0, 3)
-        LOGS.info(r)
-        if r == 0:
-            await f.edit("┏━━━┓\n┃┏━━┛\n┃┗━━┓\n┃┏━━┛\n┃┃\n┗┛")
-        elif r == 1:
-            await f.edit("╭━━━╮\n┃╭━━╯\n┃╰━━╮\n┃╭━━╯\n┃┃\n╰╯")
-        else:
-            arg = "F"
-    if arg is not None:
-        out = ""
-        F_LENGTHS = [5, 1, 1, 4, 1, 1, 1]
-        for line in F_LENGTHS:
-            c = max(round(line / len(arg)), 1)
-            out += (arg * c) + "\n"
-        await f.edit("`" + out + "`")
-@register(outgoing=True, pattern="^.rain$")
-async def rain(event):
-    deq = deque(list("☀️🌤⛅️🌥☁️🌧⛈"))
-    try:
-        for x in range(32):
-            await sleep(0.1)
-            await event.edit("".join(deq))
-            deq.rotate(1)
-    except BaseException:
-        return
+@register(outgoing=True, pattern="^.tolol$")
+async def tolol(e):
+   if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("`\n░▀█▀░▄▀▄░█▒░░▄▀▄░█▒░`"
+                     "`\n░▒█▒░▀▄▀▒█▄▄░▀▄▀▒█▄▄`")
 
-                      
-@register(outgoing=True, pattern="^.love$")
-async def love(event):
-    deq = deque(list("❤️🧡💛💚💙💜🖤💕💞💓💗💖💘💝"))
-    try:
-        for x in range(32):
-            await sleep(0.1)
-            await event.edit("".join(deq))
-            deq.rotate(1)
-    except BaseException:
-        return                      
-                      
-
-                      
-                      
-                      
-                      
-                      
-                      
+                                                                                    
