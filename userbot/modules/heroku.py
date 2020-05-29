@@ -6,22 +6,23 @@
 
 import heroku3
 import asyncio
-import os
 import requests
 import math
-from platform import python_version, uname
-from userbot import HEROKU_APP_NAME, HEROKU_API_KEY, ALIVE_NAME
-from userbot.events import register
-from userbot.prettyjson import prettyjson
 
-# ================= CONSTANT =================
+from userbot import (
+    HEROKU_APP_NAME,
+    HEROKU_API_KEY,
+    BOTLOG,
+    BOTLOG_CHATID
+)
+
+from userbot.events import register
+
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ================= CONSTANT =================
 
-#@register(outgoing=True, pattern=r"^.(set|get|del) var(?: |$)(.*)(?: |$)")
-@register(outgoing=True, pattern=r"^.(set|get|del) var(?: |$)(.*)")
+
+@register(outgoing=True, pattern=r"^.(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)")
 async def variable(var):
     """
         Manage most of ConfigVars setting, set new var, get current var,
@@ -31,86 +32,136 @@ async def variable(var):
         app = Heroku.app(HEROKU_APP_NAME)
     else:
         return await var.edit("`[HEROKU]:"
-                              "\nPlease setup your` **HEROKU_APP_NAME**")
+                              "\nPlease setup your` **HEROKU_APP_NAME**.")
     exe = var.pattern_match.group(1)
     heroku_var = app.config()
     if exe == "get":
         await var.edit("`Getting information...`")
-        await asyncio.sleep(1.5)
         try:
-            val = var.pattern_match.group(2).split()[0]
-            if val in heroku_var:
-                return await var.edit("**Config vars**:"
-                                      f"\n\n`{val} = {heroku_var[val]}`\n")
-            else:
-                return await var.edit("**Config vars**:"
-                                      f"\n\n`Error -> {val} not exists`")
-        except IndexError:
-            configs = prettyjson(heroku_var.to_dict(), indent=2)
-            with open("configs.json", "w") as fp:
-                fp.write(configs)
-            with open("configs.json", "r") as fp:
-                result = fp.read()
-                if len(result) >= 4096:
-                    await var.client.send_file(
-                        var.chat_id,
-                        "configs.json",
-                        reply_to=var.id,
-                        caption="`Output too large, sending it as a file`",
+            variable = var.pattern_match.group(2).split()[0]
+            if variable in heroku_var:
+                if BOTLOG:
+                    await var.client.send_message(
+                        BOTLOG_CHATID, "#CONFIGVAR\n\n"
+                        "**ConfigVar**:\n"
+                        " -> `Config Variable`:\n"
+                        f"     • `{variable}`\n"
+                        " -> `Value`:\n"
+                        f"     • `{heroku_var[variable]}`\n"
                     )
+                    return await var.edit("`Received information to BOTLOG_CHATID`.")
                 else:
-                    await var.edit("`[HEROKU]` variables:\n\n"
-                                   "================================"
-                                   f"\n```{result}```\n"
-                                   "================================"
-                                   )
-            os.remove("configs.json")
-            return
+                    return await var.edit("`Can't get information, set BOTLOG to True`.")
+            else:
+                if BOTLOG:
+                    await var.client.send_message(
+                        BOTLOG_CHATID, "#CONFIGVAR\n\n"
+                        "**ConfigVar**:\n"
+                        " -> `Config Variable`:\n"
+                        f"     • `{variable}`\n"
+                        " -> `Value`:\n"
+                        "     • `ConfigVariable don't exists`\n"
+                    )
+                    return await var.edit("`Empty information...`")
+        except IndexError:
+            configvars = heroku_var.to_dict()
+            msg = ''
+            if BOTLOG:
+                for item in configvars:
+                    msg += f" • `{item}` **=** `{configvars[item]}`\n"
+                await var.client.send_message(
+                    BOTLOG_CHATID, "#CONFIGVARS\n\n"
+                    "**ConfigVars**:\n"
+                    f"{msg}"
+                )
+                return await var.edit("`Received information to BOTLOG_CHATID`.")
+            else:
+                return await var.edit("`Can't get information, set BOTLOG to True`.")
     elif exe == "set":
         await var.edit("`Setting information...`")
-        val = var.pattern_match.group(2).split()
-        try:
-            val[1]
-        except IndexError:
-            return await var.edit("`.set var <config name> <value>`")
-        await asyncio.sleep(1.5)
-        if val[0] in heroku_var:
-            await var.edit(f"**{val[0]}**  `successfully changed to`  **{val[1]}**")
+        variable = var.pattern_match.group(2)
+        if not variable:
+            return await var.edit(">`.set var <ConfigVars-name> <value>`")
+        value = var.pattern_match.group(3)
+        if not value:
+            variable = variable.split()[0]
+            try:
+                value = var.pattern_match.group(2).split()[1]
+            except IndexError:
+                return await var.edit(">`.set var <ConfigVars-name> <value>`")
+        if variable in heroku_var:
+            if BOTLOG:
+                await var.client.send_message(
+                    BOTLOG_CHATID, "#SETCONFIGVAR\n\n"
+                    "**Set ConfigVar**:\n"
+                    " -> `Config Variable`:\n"
+                    f"     • `{variable}`\n"
+                    " -> `Value`:\n"
+                    f"     • `{value}`\n\n"
+                    "`Successfully changed...`"
+                )
+            await var.edit("`Information sets...`")
+            heroku_var[variable] = value
         else:
-            await var.edit(f"**{val[0]}**  `successfully added with value: **{val[1]}**")
-        heroku_var[val[0]] = val[1]
+            if BOTLOG:
+                await var.client.send_message(
+                    BOTLOG_CHATID, "#ADDCONFIGVAR\n\n"
+                    "**Add ConfigVar**:\n"
+                    " -> `Config Variable`:\n"
+                    f"     • `{variable}`\n"
+                    " -> `Value`:\n"
+                    f"     • `{value}`\n\n"
+                    "`Successfully added...`"
+                )
+            return await var.edit("`Information added...`")
     elif exe == "del":
-        await var.edit("`Getting information to deleting vars...`")
+        await var.edit("`Getting and setting information...`")
         try:
-            val = var.pattern_match.group(2).split()[0]
+            variable = var.pattern_match.group(2).split()[0]
         except IndexError:
-            return await var.edit("`Please specify config vars you want to delete`")
-        await asyncio.sleep(1.5)
-        if val in heroku_var:
-            await var.edit(f"**{val}**  `successfully deleted`")
-            del heroku_var[val]
+            return await var.edit("`Please specify ConfigVars you want to delete`.")
+        if variable in heroku_var:
+            if BOTLOG:
+                await var.client.send_message(
+                    BOTLOG_CHATID, "#DELCONFIGVAR\n\n"
+                    "**Delete ConfigVar**:\n"
+                    " -> `Config Variable`:\n"
+                    f"     • `{variable}`\n"
+                    " -> `Value`:\n"
+                    f"     • `{value}`\n\n"
+                    "`Successfully deleted...`"
+                )
+            await var.edit("`Information deleted...`")
+            del heroku_var[variable]
         else:
-            return await var.edit(f"**{val}**  `is not exists`")
+            await var.edit(f"`Can't get information...`")
+            rsp = await var.respond(
+                "**Delete ConfigVar**:\n"
+                " -> `Config Variable`:\n"
+                f"     • `{variable}`\n\n"
+                "`Is not exists...`"
+                )
+            await asyncio.sleep(3.5)
+            await var.client.delete_messages(var.chat_id, rsp.id)
 
 
-#@register(outgoing=True, pattern=r"^.usage(?: |$)")
-@register(outgoing=True, pattern=r"^.usage(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^.usage(?: |$)")
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
     """
-    await dyno.edit("`Processing...`")
+    await dyno.edit("`Getting Information...`")
     useragent = ('Mozilla/5.0 (Linux; Android 10; SM-G975F) '
                  'AppleWebKit/537.36 (KHTML, like Gecko) '
                  'Chrome/80.0.3987.149 Mobile Safari/537.36'
                  )
-    u_id = Heroku.account().id
+    user_id = Heroku.account().id
     headers = {
      'User-Agent': useragent,
      'Authorization': f'Bearer {HEROKU_API_KEY}',
      'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
     }
-    path = "/accounts/" + u_id + "/actions/get-quota"
+    path = "/accounts/" + user_id + "/actions/get-quota"
     r = requests.get(heroku_api + path, headers=headers)
     if r.status_code != 200:
         return await dyno.edit("`Error: something bad happened`\n\n"
@@ -139,18 +190,15 @@ async def dyno_usage(dyno):
     AppHours = math.floor(AppQuotaUsed / 60)
     AppMinutes = math.floor(AppQuotaUsed % 60)
 
-    await asyncio.sleep(1.5)
-
     return await dyno.edit("**Dyno Usage**:\n\n"
-                           f" -> `Dyno usage for`  **[{DEFAULTUSER}]({HEROKU_APP_NAME})**:\n"
+                           f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
                            f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
                            f"**|**  [`{AppPercentage}`**%**]"
-                           "\n"
+                           "\n\n"
                            " -> `Dyno hours quota remaining this month`:\n"
                            f"     •  `{hours}`**h**  `{minutes}`**m**  "
                            f"**|**  [`{percentage}`**%**]"
                            )
-
 
 # CMD_HELP.update({
 #     "heroku":
