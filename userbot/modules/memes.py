@@ -19,13 +19,17 @@ from collections import deque
 import urllib
 import requests
 import io
+import os execl
 import os
 from bs4 import BeautifulSoup
 from cowpy import cow
-
-from userbot import bot, CMD_HELP, LOGS
+from userbot import bot, LOGS
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
+from telethon import events
+import sys
+import html
+import json
 
 # ================= CONSTANT =================
 METOOSTR = [
