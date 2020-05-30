@@ -1547,14 +1547,11 @@ async def tolol(e):
 @register(outgoing=True, pattern="^.shibe$")
 async def doggo(event):
 
-message_id = event.reply_to_msg_id if event.reply_to_msg_id else None
 
     r = requests.get(f"http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true").json()
     await event.delete()
     await event.client.send_message(event.chat_id,
-                                    str(r["answer"]).upper(),
-                                    reply_to=message_id,
-                                    file=r["image"])
+                                    str(r["answer"]).upper(), file=r["image"])
 
 
                                                                                     
