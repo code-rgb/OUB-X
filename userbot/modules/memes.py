@@ -881,16 +881,33 @@ async def lol(lel):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 
-@register(outgoing=True, pattern="^.boobs(?: |$)(.*)")
+@register(outgoing=True, pattern="^.boobs")
 async def boobs(e):
     await e.edit("`Finding some big boobs...`")
     await sleep(3)
     await e.edit("`Sending some big boobs...`")
     nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
-    urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "*.jpg")
-    os.rename('*.jpg', 'boobs.jpg')
-   await e.client.send_file( e.chat_id, force_document=True, file='/root/boobs.jpg', caption='My cool caption', reply_to=e.message.reply_to_msg_id )
-    await e.delete() 
+    urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "boobs.jpg")
+  
+   await e.edit("`Processing..\n75%`")
+    # Waiting for downloading
+    while not os.path.isfile("/root/boobs.jpg"):
+        await sleep(0.5)
+    await e.edit("`Processing..\n100%`")
+    file = '/root/boobs.jpg'
+    await e.edit("`Uploading..`")
+    await e.client.send_file(
+        e.chat_id,
+        file,
+        caption="test",
+        force_document=True,
+        reply_to=e.message.reply_to_msg_id,
+    )
+
+    os.remove('/root/boobs.jpg')
+    
+    # Removing carbon.png after uploading
+    await e.delete()  
 
 
 
