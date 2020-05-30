@@ -889,9 +889,24 @@ async def boobs(e):
     nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
     urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "*.jpg")
     os.rename('*.jpg', 'boobs.jpg')
-    await bot.send_file(e.chat_id, "boobs.jpg")
-    os.remove("boobs.jpg")
-    await e.delete()
+    await e.client.send_file(
+        e.chat_id,
+        Image,
+        caption="Made using [Carbon](https://carbon.now.sh/about/),\
+        \na project by [Dawn Labs](https://dawnlabs.io/)",
+        force_document=True,
+        reply_to=e.message.reply_to_msg_id,
+    )
+
+    os.remove('/root/boobs.jpg')
+    
+    
+    await e.delete()  
+
+
+
+
+
     
 @register(outgoing=True, pattern="^.butts(?: |$)(.*)")
 async def butts(e):
