@@ -889,15 +889,9 @@ async def boobs(e):
     nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
     urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), "*.jpg")
     os.rename('*.jpg', 'boobs.jpg')
-    await e.edit("`Uploading..`")
-    await e.client.send_file(
-        e.chat_id,
-        caption="test 1",
-        force_document=True,
-        reply_to=e.message.reply_to_msg_id,
-    )
-    os.remove('boobs.jpg')
+    await e.client.send_file(chat, './boobs.jpg', force_document=True)
     await e.delete() 
+
 
 
 
