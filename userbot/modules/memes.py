@@ -1543,12 +1543,18 @@ async def tolol(e):
                      "`\n░▒█▒░▀▄▀▒█▄▄░▀▄▀▒█▄▄`")
 
 
-@register(outgoing=True, pattern="^.shibe(?: |$)(.*)")
-async def dog(e):
-   
-    urllib.request.urlretrieve("http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true", "*.jpg")
-    os.rename('*.jpg', 'shibe.jpg')
-    await e.client.send_file(e.chat_id, "butts.jpg")
-    os.remove("shibe.jpg")
-    await e.delete()
+
+@register(outgoing=True, pattern="^.shibe$")
+async def doggo(event):
+
+message_id = event.reply_to_msg_id if event.reply_to_msg_id else None
+
+    r = requests.get(f"http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true").json()
+    await event.delete()
+    await event.client.send_message(event.chat_id,
+                                    str(r["answer"]).upper(),
+                                    reply_to=message_id,
+                                    file=r["image"])
+
+
                                                                                     
