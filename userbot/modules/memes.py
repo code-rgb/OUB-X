@@ -891,7 +891,7 @@ async def boobs(e):
     os.rename('*.jpg', 'boobs.jpg')
     await e.client.send_file(
         e.chat_id,
-        Image,
+        File,
         caption="Made using [Carbon](https://carbon.now.sh/about/),\
         \na project by [Dawn Labs](https://dawnlabs.io/)",
         force_document=True,
