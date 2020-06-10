@@ -30,7 +30,7 @@ async def help(event):
 "\n• 𝗡𝗼𝘁𝗲𝘀: `notes` , `filter` , `snips`"
 "\n• 𝗧𝗲𝘅𝘁-𝗧𝗿𝗮𝗻𝘀𝗳𝗼𝗿𝗺:`figlet` , `sticklet_un` , `base64` , `hash` , `textx`"
 "\n• 𝗣𝗠: `logpms` , `nopm` , `pmpermit`"
-"\n• 𝗖𝗵𝗮𝘁: `chatinfo` , `create` , `invite` , `profile` , `welcome` , `stats` `raw` , `purge` , `purgeme` , `del` , `edit` , `sd` , `whois`"  
+"\n• 𝗖𝗵𝗮𝘁: `chatinfo` , `create` , `invite` , `profile` , `welcome` , `stats`, `raw` , `purge` , `purgeme` , `del` , `edit` , `sd` , `whois`"  
 "\n• 𝗥𝗲𝘁𝗮𝗿𝗱𝗲𝗱: `lydia` , `retarded` , `repeat` ,  `spam` , `sed`"
 "\n• 𝗘𝘃𝗮𝗹𝗮𝘁𝗼𝗿𝘀: `eval` , `exec` , `term` , `pip`"
 "\n• 𝗚𝗶𝘁𝗵𝘂𝗯: `git` , `gcommit` , `heroku` , `repo`"
