@@ -21,7 +21,7 @@ async def help(event):
     else:
         await event.edit("\nAvailable Modules: "
         "\nFor more info use .help <module name>."
-"\n\n• 𝗔𝗱𝗺𝗶𝗻: `admin` , `blacklist` , `chat` , `gban` , `locks`"
+"\n\n• 𝗔𝗱𝗺𝗶𝗻: `admin`, `chat` , `gban` , `locks`"
 "\n• 𝗨𝗽𝗱𝗮𝘁𝗲𝗿: `update`"
 "\n• 𝗠𝗲𝗺𝗲𝘀: `memes` ,`animate` , `anime` , `deepfry` , `dfry` , `dice` , `basketball` , `dart` ,  `hazmat` , `waifu` , `memify` , `random` , `nhentai` , `uniborg_memes` , `fgban` , `carbon`"
 "\n• 𝗔𝗻𝗱𝗿𝗼𝗶𝗱: `android`"
