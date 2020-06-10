@@ -32,7 +32,7 @@ from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
                                MessageEntityMentionName, MessageMediaPhoto,
                                ChannelParticipantsBots)
 
-from userbot import BOTLOG, BOTLOG_CHATID, bot
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
 from telethon.tl import types, functions
 from userbot.events import register
 
@@ -1251,7 +1251,6 @@ async def on_delete_blacklist(rmbl):
         await rmbl.edit("`Blacklist` **{}** `doesn't exist.`".format(text))
     else:
         await rmbl.edit("`Blacklist` **{}** `was deleted successfully`".format(text))
-
 
 # CMD_HELP.update({
 #     "admin":
