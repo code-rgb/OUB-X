@@ -47,10 +47,10 @@
 
 <h3 align="center">How to setup Google Drive</h3>
 
+<p align="center">
+  <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
 
-  <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE" align="center"></a>
-
-
+</p>
 
 
 <p align="center">&nbsp;</p>
