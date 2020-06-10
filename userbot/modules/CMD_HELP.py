@@ -227,17 +227,7 @@ CMD_HELP.update({
 
 
 
-#blacklist.py
-CMD_HELP.update({
-    "blacklist":
-    ".listbl\
-    \n𝙐𝙨𝙖𝙜𝙚: Lists all active userbot blacklist in a chat.\
-    \n\n.addbl <keyword>\
-    \n𝙐𝙨𝙖𝙜𝙚: Saves the message to the 'blacklist keyword'.\
-    \nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
-    \n\n.rmbl <keyword>\
-    \n𝙐𝙨𝙖𝙜𝙚: Stops the specified blacklist."
-})
+
 
 #carbon.py
 CMD_HELP.update({
