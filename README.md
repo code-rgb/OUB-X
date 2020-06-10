@@ -44,12 +44,19 @@
 <p align="center">&nbsp;</p>
 
 
-<h3 align="center">How to setup Google Drive</h3>
-<hr width="25px">
-<p align="center">
+<div style="
+text-align: center;
+margin: auto;
+  width: 40%;
+  border: 1px solid rgb(161, 161, 161);
+  padding: 10px;"">
+<h3>How to setup Google Drive</h3>
+
+
   <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
 
-</p>
+
+</div>
 
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
