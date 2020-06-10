@@ -387,9 +387,11 @@ CMD_HELP.update(
 
 #figlet.py
 CMD_HELP.update({
-        "figlet": 
-        ".figlet \
-          \n𝙐𝙨𝙖𝙜𝙚: Enhance ur text to strip line with anvil.\n"
+        "figlet":
+        "`.figlet`"
+          "\n𝙐𝙨𝙖𝙜𝙚: Enhance ur text to strip line with anvil."
+          "\n\n𝗘𝘅𝗮𝗺𝗽𝗹𝗲: `.figlet TEXT.STYLE`"
+          "\n𝗦𝗧𝗬𝗟𝗘 𝗟𝗜𝗦𝗧: `slant`, `3D`, `5line`, `alpha`, `banner`, `doh`, `iso`, `letter`, `allig`, `dotm`, `bubble`, `bulb`, `digi`"
     })
 
 #fileext.py
