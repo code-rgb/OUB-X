@@ -44,14 +44,14 @@
 <p align="center">&nbsp;</p>
 
 
-<p align="center">
+<center>
 <h3>How to setup Google Drive</h3>
 
 
   <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
 
 
-</p>
+</center>
 
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
