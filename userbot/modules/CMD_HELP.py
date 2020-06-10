@@ -33,26 +33,29 @@ CMD_HELP.update({
 \n𝙐𝙨𝙖𝙜𝙚: Retrieves all (or queried) users in the chat.\
 \n\n`.setgppic` <reply to image>\
 \n𝙐𝙨𝙖𝙜𝙚: Changes the group's display picture.\
-\n\n`.warn reason`\
+\n`.setflood` value.\
+\n𝙐𝙨𝙖𝙜𝙚:Sets flood limit in the current chat.\
+\n\n`.kick` reply or userid.\
+\n𝙐𝙨𝙖𝙜𝙚: kicks user.\
+\n\n𝗧𝗼 𝗪𝗮𝗿𝗻 𝗨𝘀𝗲𝗿𝘀.\
+\n`.warn reason`\
 \n𝙐𝙨𝙖𝙜𝙚: warns users.\
+\n\n`.strongwarn` <yes/on or no/off>.\
+\n𝙐𝙨𝙖𝙜𝙚:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
 \n\n`.resetwarns`\
 \n𝙐𝙨𝙖𝙜𝙚: Reset user's warns.\
 \n\n`.getwarns`\
 \n𝙐𝙨𝙖𝙜𝙚: Shows the reason of warning.\
+\n\n`.setwarn` value.\
+\n𝙐𝙨𝙖𝙜𝙚:sets warn limit.\
+\n\n𝗧𝗵𝗲 𝗯𝗼𝘁 𝘄𝗶𝗹𝗹 𝗱𝗲𝗹𝗲𝘁𝗲 𝘁𝗼 𝘁𝗵𝗲 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘄𝗵𝗲𝗻𝗲𝘃𝗲𝗿 '𝗯𝗹𝗮𝗰𝗸𝗹𝗶𝘀𝘁 𝗸𝗲𝘆𝘄𝗼𝗿𝗱' 𝗶𝘀 𝗺𝗲𝗻𝘁𝗶𝗼𝗻𝗲𝗱.\
+\n`.addbl <keyword>`\
+\n𝙐𝙨𝙖𝙜𝙚: Saves the message to the 'blacklist keyword.\
 \n\n`.listbl`\
 \n𝙐𝙨𝙖𝙜𝙚: Lists all active userbot blacklist in a chat.\
-\n\n`.addbl <keyword>`\
-\n𝙐𝙨𝙖𝙜𝙚: Saves the message to the 'blacklist keyword.\n\nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
 \n\n`.rmbl <keyword>`\
-\n𝙐𝙨𝙖𝙜𝙚: Stops the specified blacklist.\
-\n\n`.setflood` value.\
-\n𝙐𝙨𝙖𝙜𝙚:Sets flood limit in the current chat.\
-\n\n`.strongwarn` <yes/on or no/off>.\
-\n𝙐𝙨𝙖𝙜𝙚:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
-\n\n`.kick` reply or userid.\
-\n𝙐𝙨𝙖𝙜𝙚: kicks user.\
-\n\n`.setwarn` value.\
-\n𝙐𝙨𝙖𝙜𝙚:sets warn limit."
+\n𝙐𝙨𝙖𝙜𝙚: Stops the specified blacklist."
+
 })
   
 #afk
