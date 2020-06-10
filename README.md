@@ -44,7 +44,8 @@
 <p align="center">&nbsp;</p>
 <h3 align="center">How to setup Google Drive</h3>
 <p align="center">
-[![SetGDRIVE](https://telegra.ph/file/fde15d05e4bde3448b01a.png)](https://telegra.ph/How-To-Setup-Google-Drive-04-03)
+  <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
+
 </p>
 
 <p align="center">&nbsp;</p>
