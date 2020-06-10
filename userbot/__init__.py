@@ -174,6 +174,11 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 # JustWatch Country
 WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY","IN")
 
+# Zipfile module
+ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY",
+                                         "./zips")
+
+
 # Send .chatid in any group with all your administration bots (added)
 G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", None)
 if G_BAN_LOGGER_GROUP:
