@@ -56,7 +56,7 @@ RUN apk add --no-cache=true --update \
     chromium-chromedriver \
     zlib-dev \
     w3m \
-    jpeg 
+    jpeg \
     zip \
     megatools \
     nodejs 
