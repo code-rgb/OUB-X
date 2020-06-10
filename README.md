@@ -41,9 +41,9 @@
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/843716e2e694b3505cf9e.jpg" alt="Press to Takeoff" height="600" width="600"></a>
 </p>
-## How to setup Google Drive
-[![SetGDRIVE](https://telegra.ph/file/fde15d05e4bde3448b01a.png)](https://telegra.ph/How-To-Setup-Google-Drive-04-03)
 
+### How to setup Google Drive
+[![SetGDRIVE](https://telegra.ph/file/fde15d05e4bde3448b01a.png)](https://telegra.ph/How-To-Setup-Google-Drive-04-03)
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Huge thanks to <a href="https://github.com/code-rgb/OUB-X/graphs/contributors">everyone</a> who have helped make this userbot awesome!!</p>
