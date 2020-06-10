@@ -44,6 +44,7 @@
 <p align="center">&nbsp;</p>
 <p align="center">&nbsp;</p>
 <p align="center">&nbsp;</p>
+<hr>
 <h3 align="center">How to setup Google Drive</h3>
 
 <p align="center">
