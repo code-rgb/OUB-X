@@ -42,11 +42,10 @@
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/843716e2e694b3505cf9e.jpg" alt="Press to Takeoff" height="600" width="600"></a>
 </p>
 <p align="center">&nbsp;</p>
-<p align="center">&nbsp;</p>
-<p align="center">&nbsp;</p>
-<hr>
-<h3 align="center">How to setup Google Drive</h3>
 
+
+<h3 align="center">How to setup Google Drive</h3>
+<hr width="25px">
 <p align="center">
   <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
 
