@@ -3,35 +3,35 @@ from userbot import CMD_HELP
 #admin.py
 CMD_HELP.update({
     "admin":
-    ".promote <username/reply> <custom rank (optional)>\
+    "`.promote` <username/reply> <custom rank (optional)>\
 \n𝙐𝙨𝙖𝙜𝙚: Provides admin rights to the person in the chat.\
-\n\n.demote <username/reply>\
+\n\n`.demote` <username/reply>\
 \n𝙐𝙨𝙖𝙜𝙚: Revokes the person's admin permissions in the chat.\
-\n\n.ban <username/reply> <reason (optional)>\
+\n\n`.ban` <username/reply> <reason (optional)>\
 \n𝙐𝙨𝙖𝙜𝙚: Bans the person off your chat.\
-\n\n.unban <username/reply>\
+\n\n`.unban` <username/reply>\
 \n𝙐𝙨𝙖𝙜𝙚: Removes the ban from the person in the chat.\
-\n\n.mute <username/reply> <reason (optional)>\
+\n\n`.mute` <username/reply> <reason (optional)>\
 \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in the chat, works on admins too.\
-\n\n.unmute <username/reply>\
+\n\n`.unmute` <username/reply>\
 \n𝙐𝙨𝙖𝙜𝙚: Removes the person from the muted list.\
-\n\n.gmute <username/reply> <reason (optional)>\
+\n\n`.gmute` <username/reply> <reason (optional)>\
 \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in all groups you have in common with them.\
-\n\n.ungmute <username/reply>\
+\n\n`.ungmute` <username/reply>\
 \n𝙐𝙨𝙖𝙜𝙚: Reply someone's message with .ungmute to remove them from the gmuted list.\
-\n\n.zombies\
+\n\n`.zombies`\
 \n𝙐𝙨𝙖𝙜𝙚: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
-\n\n.admins\
+\n\n`.admins`\
 \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of admins in the chat.\
-\n\n.bots\
+\n\n`.bots`\
 \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of bots in the chat.\
-\n\n.pin <reply/tag>\
+\n\n`.pin` <reply/tag>\
 \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat silently.\
-\n\n.cpin <reply/tag>\
+\n\n`.cpin` <reply/tag>\
 \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat LOUDLY.\
-\n\n.users or .users <name of member>\
+\n\n`.users` or .users <name of member>\
 \n𝙐𝙨𝙖𝙜𝙚: Retrieves all (or queried) users in the chat.\
-\n\n.setgppic <reply to image>\
+\n\n`.setgppic` <reply to image>\
 \n𝙐𝙨𝙖𝙜𝙚: Changes the group's display picture.\
 \n\n`.warn reason`\
 \n𝙐𝙨𝙖𝙜𝙚: warns users.\
