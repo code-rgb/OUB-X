@@ -1,17 +1,23 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
-# cpin courtesy Uniborg.
 """
 Userbot module to help you manage a group
 """
 
 from asyncio import sleep
 from os import remove
-from telethon import events
-from telethon.tl import functions, types
-from platform import python_version, uname
+import asyncio
+import io
+import re
+import userbot.modules.sql_helper.blacklist_sql as sql
+import html
+import logging
+import userbot.modules.sql_helper.warns_sql as sql
+from telethon import events, utils
+from userbot.utils.tools import is_admin
+
 from telethon.errors import (BadRequestError, ChatAdminRequiredError,
                              ImageProcessFailedError, PhotoCropSizeSmallError,
                              UserAdminInvalidError)
@@ -27,6 +33,7 @@ from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
                                ChannelParticipantsBots)
 
 from userbot import BOTLOG, BOTLOG_CHATID, bot
+from telethon.tl import types, functions
 from userbot.events import register
 
 # =================== CONSTANT ===================
@@ -659,31 +666,7 @@ async def pin(msg):
             f"CHAT: {msg.chat.title}(`{msg.chat_id}`)\n"
             f"LOUD: {not is_silent}")
 
-@register(outgoing=True, pattern="^.cpin(?: |$)(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    silent = True
-    input_str = event.pattern_match.group(1)
-    if input_str:
-        silent = False
-    if event.message.reply_to_msg_id is not None:
-        message_id = event.message.reply_to_msg_id
-        try:
-            await bot(functions.messages.UpdatePinnedMessageRequest(
-                event.chat_id,
-                message_id,
-                silent
-            ))
-        except Exception as e:
-            await event.edit(str(e))
-        else:
-            await event.delete()
-    else:
-        await event.edit("Reply to a message to pin the message in this Channel.")
 
-
-        
 @register(outgoing=True, pattern="^.kick(?: |$)(.*)")
 async def kick(usr):
     """ For .kick command, kicks the replied/tagged person from the group. """
@@ -815,6 +798,270 @@ async def get_user_from_id(user, event):
 
     return user_obj
 
+  
+@register(outgoing=True, pattern="^.usersdel ?(.*)")
+async def get_usersdel(show):
+    """ For .usersdel command, list all of the deleted users in a chat. """
+    info = await show.client.get_entity(show.chat_id)
+    title = info.title if info.title else "this chat"
+    mentions = 'deletedUsers in {}: \n'.format(title)
+    try:
+        if not show.pattern_match.group(1):
+            async for user in show.client.iter_participants(show.chat_id):
+                if not user.deleted:
+                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+         #       else:
+    #                mentions += f"\nDeleted Account `{user.id}`"
+        else:
+            searchq = show.pattern_match.group(1)
+            async for user in show.client.iter_participants(
+                   show.chat_id, search=f'{searchq}'):
+                if not user.deleted:
+                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+         #       else:
+      #              mentions += f"\nDeleted Account `{user.id}`"
+    except ChatAdminRequiredError as err:
+        mentions += " " + str(err) + "\n"
+    try:
+        await show.edit(mentions)
+    except MessageTooLongError:
+        await show.edit(
+            "Damn, this is a huge group. Uploading deletedusers lists as file.")
+        file = open("userslist.txt", "w+")
+        file.write(mentions)
+        file.close()
+        await show.client.send_file(
+            show.chat_id,
+            "deleteduserslist.txt",
+            caption='Users in {}'.format(title),
+            reply_to=show.id,
+        )
+        remove("deleteduserslist.txt")
+
+
+async def get_userdel_from_event(event):
+    """ Get the deleted user from argument or replied message. """
+    args = event.pattern_match.group(1).split(' ', 1)
+    extra = None
+    if event.reply_to_msg_id and not len(args) == 2:
+        previous_message = await event.get_reply_message()
+        user_obj = await event.client.get_entity(previous_message.from_id)
+        extra = event.pattern_match.group(1)
+    elif args:
+        user = args[0]
+        if len(args) == 2:
+            extra = args[1]
+
+        if user.isnumeric():
+            user = int(user)
+
+        if not user:
+            await event.edit("`Pass the deleted user's username, id or reply!`")
+            return
+
+        if event.message.entities is not None:
+            probable_user_mention_entity = event.message.entities[0]
+
+            if isinstance(probable_user_mention_entity,
+                          MessageEntityMentionName):
+                user_id = probable_user_mention_entity.user_id
+                user_obj = await event.client.get_entity(user_id)
+                return user_obj
+        try:
+            user_obj = await event.client.get_entity(user)
+        except (TypeError, ValueError) as err:
+            await event.edit(str(err))
+            return None
+
+    return user_obj, extra
+
+
+async def get_userdel_from_id(user, event):
+    if isinstance(user, str):
+        user = int(user)
+
+    try:
+        user_obj = await event.client.get_entity(user)
+    except (TypeError, ValueError) as err:
+        await event.edit(str(err))
+        return None
+
+    return user_obj
+
+@register(outgoing=True, pattern=r"^.lock ?(.*)")
+async def locks(event):
+    input_str = event.pattern_match.group(1).lower()
+    peer_id = event.chat_id
+    msg = None
+    media = None
+    sticker = None
+    gif = None
+    gamee = None
+    ainline = None
+    gpoll = None
+    adduser = None
+    cpin = None
+    changeinfo = None
+    if input_str == "msg":
+        msg = True
+        what = "messages"
+    elif input_str == "media":
+        media = True
+        what = "media"
+    elif input_str == "sticker":
+        sticker = True
+        what = "stickers"
+    elif input_str == "gif":
+        gif = True
+        what = "GIFs"
+    elif input_str == "game":
+        gamee = True
+        what = "games"
+    elif input_str == "inline":
+        ainline = True
+        what = "inline bots"
+    elif input_str == "poll":
+        gpoll = True
+        what = "polls"
+    elif input_str == "invite":
+        adduser = True
+        what = "invites"
+    elif input_str == "pin":
+        cpin = True
+        what = "pins"
+    elif input_str == "info":
+        changeinfo = True
+        what = "chat info"
+    elif input_str == "all":
+        msg = True
+        media = True
+        sticker = True
+        gif = True
+        gamee = True
+        ainline = True
+        gpoll = True
+        adduser = True
+        cpin = True
+        changeinfo = True
+        what = "everything"
+    else:
+        if not input_str:
+            await event.edit("`I can't lock nothing !!`")
+            return
+        else:
+            await event.edit(f"`Invalid lock type:` {input_str}")
+            return
+
+    lock_rights = ChatBannedRights(
+        until_date=None,
+        send_messages=msg,
+        send_media=media,
+        send_stickers=sticker,
+        send_gifs=gif,
+        send_games=gamee,
+        send_inline=ainline,
+        send_polls=gpoll,
+        invite_users=adduser,
+        pin_messages=cpin,
+        change_info=changeinfo,
+    )
+    try:
+        await event.client(
+            EditChatDefaultBannedRightsRequest(peer=peer_id,
+                                               banned_rights=lock_rights))
+        await event.edit(f"`Locked {what} for this chat !!`")
+    except BaseException as e:
+        await event.edit(
+            f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
+        return
+
+
+@register(outgoing=True, pattern=r"^.unlock ?(.*)")
+async def rem_locks(event):
+    input_str = event.pattern_match.group(1).lower()
+    peer_id = event.chat_id
+    msg = None
+    media = None
+    sticker = None
+    gif = None
+    gamee = None
+    ainline = None
+    gpoll = None
+    adduser = None
+    cpin = None
+    changeinfo = None
+    if input_str == "msg":
+        msg = False
+        what = "messages"
+    elif input_str == "media":
+        media = False
+        what = "media"
+    elif input_str == "sticker":
+        sticker = False
+        what = "stickers"
+    elif input_str == "gif":
+        gif = False
+        what = "GIFs"
+    elif input_str == "game":
+        gamee = False
+        what = "games"
+    elif input_str == "inline":
+        ainline = False
+        what = "inline bots"
+    elif input_str == "poll":
+        gpoll = False
+        what = "polls"
+    elif input_str == "invite":
+        adduser = False
+        what = "invites"
+    elif input_str == "pin":
+        cpin = False
+        what = "pins"
+    elif input_str == "info":
+        changeinfo = False
+        what = "chat info"
+    elif input_str == "all":
+        msg = False
+        media = False
+        sticker = False
+        gif = False
+        gamee = False
+        ainline = False
+        gpoll = False
+        adduser = False
+        cpin = False
+        changeinfo = False
+        what = "everything"
+    else:
+        if not input_str:
+            await event.edit("`I can't unlock nothing !!`")
+            return
+        else:
+            await event.edit(f"`Invalid unlock type:` {input_str}")
+            return
+
+    unlock_rights = ChatBannedRights(
+        until_date=None,
+        send_messages=msg,
+        send_media=media,
+        send_stickers=sticker,
+        send_gifs=gif,
+        send_games=gamee,
+        send_inline=ainline,
+        send_polls=gpoll,
+        invite_users=adduser,
+        pin_messages=cpin,
+        change_info=changeinfo,
+    )
+    try:
+        await event.client(
+            EditChatDefaultBannedRightsRequest(peer=peer_id,
+                                               banned_rights=unlock_rights))
+        await event.edit(f"`Unlocked {what} for this chat !!`")
+    except BaseException as e:
+        await event.edit(
+            f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
+        return
 #imported from uniborg by @heyworld
 @register(outgoing=True, pattern="^.warn(?: |$)(.*)")
 async def _(event):
@@ -1004,185 +1251,52 @@ async def on_delete_blacklist(rmbl):
         await rmbl.edit("`Blacklist` **{}** `doesn't exist.`".format(text))
     else:
         await rmbl.edit("`Blacklist` **{}** `was deleted successfully`".format(text))
-  
-@register(outgoing=True, pattern="^.usersdel ?(.*)")
-async def get_usersdel(show):
-    """ For .usersdel command, list all of the deleted users in a chat. """
-    info = await show.client.get_entity(show.chat_id)
-    title = info.title if info.title else "this chat"
-    mentions = 'deletedUsers in {}: \n'.format(title)
-    try:
-        if not show.pattern_match.group(1):
-            async for user in show.client.iter_participants(show.chat_id):
-                if not user.deleted:
-                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
-         #       else:
-    #                mentions += f"\nDeleted Account `{user.id}`"
-        else:
-            searchq = show.pattern_match.group(1)
-            async for user in show.client.iter_participants(
-                   show.chat_id, search=f'{searchq}'):
-                if not user.deleted:
-                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
-         #       else:
-      #              mentions += f"\nDeleted Account `{user.id}`"
-    except ChatAdminRequiredError as err:
-        mentions += " " + str(err) + "\n"
-    try:
-        await show.edit(mentions)
-    except MessageTooLongError:
-        await show.edit(
-            "Damn, this is a huge group. Uploading deletedusers lists as file.")
-        file = open("userslist.txt", "w+")
-        file.write(mentions)
-        file.close()
-        await show.client.send_file(
-            show.chat_id,
-            "deleteduserslist.txt",
-            caption='Users in {}'.format(title),
-            reply_to=show.id,
-        )
-        remove("deleteduserslist.txt")
 
-
-async def get_userdel_from_event(event):
-    """ Get the deleted user from argument or replied message. """
-    args = event.pattern_match.group(1).split(' ', 1)
-    extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
-        previous_message = await event.get_reply_message()
-        user_obj = await event.client.get_entity(previous_message.from_id)
-        extra = event.pattern_match.group(1)
-    elif args:
-        user = args[0]
-        if len(args) == 2:
-            extra = args[1]
-
-        if user.isnumeric():
-            user = int(user)
-
-        if not user:
-            await event.edit("`Pass the deleted user's username, id or reply!`")
-            return
-
-        if event.message.entities is not None:
-            probable_user_mention_entity = event.message.entities[0]
-
-            if isinstance(probable_user_mention_entity,
-                          MessageEntityMentionName):
-                user_id = probable_user_mention_entity.user_id
-                user_obj = await event.client.get_entity(user_id)
-                return user_obj
-        try:
-            user_obj = await event.client.get_entity(user)
-        except (TypeError, ValueError) as err:
-            await event.edit(str(err))
-            return None
-
-    return user_obj, extra
-
-
-async def get_userdel_from_id(user, event):
-    if isinstance(user, str):
-        user = int(user)
-
-    try:
-        user_obj = await event.client.get_entity(user)
-    except (TypeError, ValueError) as err:
-        await event.edit(str(err))
-        return None
-
-    return user_obj
-
-@register(outgoing=True, pattern="^.bots$", groups_only=True)
-async def get_bots(show):
-    """ For .bots command, list all of the bots of the chat. """
-    info = await show.client.get_entity(show.chat_id)
-    title = info.title if info.title else "this chat"
-    mentions = f'<b>Bots in {title}:</b>\n'
-    try:
-       # if isinstance(message.to_id, PeerChat):
-        #    await show.edit("`I heard that only Supergroups can have bots.`")
-         #   return
-       # else:
-            async for user in show.client.iter_participants(
-                    show.chat_id, filter=ChannelParticipantsBots):
-                if not user.deleted:
-                    link = f"<a href=\"tg://user?id={user.id}\">{user.first_name}</a>"
-                    userid = f"<code>{user.id}</code>"
-                    mentions += f"\n{link} {userid}"
-                else:
-                    mentions += f"\nDeleted Bot <code>{user.id}</code>"
-    except ChatAdminRequiredError as err:
-        mentions += " " + str(err) + "\n"
-    try:
-        await show.edit(mentions, parse_mode="html")
-    except MessageTooLongError:
-        await show.edit(
-            "Damn, too many bots here. Uploading bots list as file.")
-        file = open("botlist.txt", "w+")
-        file.write(mentions)
-        file.close()
-        await show.client.send_file(
-            show.chat_id,
-            "botlist.txt",
-            caption='Bots in {}'.format(title),
-            reply_to=show.id,
-        )
-        remove("botlist.txt")
-
-  
 
 # CMD_HELP.update({
 #     "admin":
-#     ".promote <username/reply> <custom rank (optional)>\
-# \n𝙐𝙨𝙖𝙜𝙚: Provides admin rights to the person in the chat.\
-# \n\n.demote <username/reply>\
-# \n𝙐𝙨𝙖𝙜𝙚: Revokes the person's admin permissions in the chat.\
-# \n\n.ban <username/reply> <reason (optional)>\
-# \n𝙐𝙨𝙖𝙜𝙚: Bans the person off your chat.\
-# \n\n.unban <username/reply>\
-# \n𝙐𝙨𝙖𝙜𝙚: Removes the ban from the person in the chat.\
-# \n\n.mute <username/reply> <reason (optional)>\
-# \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in the chat, works on admins too.\
-# \n\n.unmute <username/reply>\
-# \n𝙐𝙨𝙖𝙜𝙚: Removes the person from the muted list.\
-# \n\n.gmute <username/reply> <reason (optional)>\
-# \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in all groups you have in common with them.\
-# \n\n.ungmute <username/reply>\
-# \n𝙐𝙨𝙖𝙜𝙚: Reply someone's message with .ungmute to remove them from the gmuted list.\
-# \n\n.zombies\
-# \n𝙐𝙨𝙖𝙜𝙚: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
-# \n\n.admins\
-# \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of admins in the chat.\
-# \n\n.bots\
-# \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of bots in the chat.\
-# \n\n.pin <reply/tag>\
-# \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat silently.\
-# \n\n.cpin <reply/tag>\
-# \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat LOUDLY.\
-# \n\n.users or .users <name of member>\
-# \n𝙐𝙨𝙖𝙜𝙚: Retrieves all (or queried) users in the chat.\
-# \n\n.setgppic <reply to image>\
-# \n𝙐𝙨𝙖𝙜𝙚: Changes the group's display picture.\
+#     "`.promote` <username/reply> <custom rank (optional)>\
+# \nUsage: Provides admin rights to the person in the chat.\
+# \n\n`.demote` <username/reply>\
+# \nUsage: Revokes the person's admin permissions in the chat.\
+# \n\n`.ban` <username/reply> <reason (optional)>\
+# \nUsage: Bans the person off your chat.\
+# \n\n`.unban` <username/reply>\
+# \nUsage: Removes the ban from the person in the chat.\
+# \n\n`.mute` <username/reply> <reason (optional)>\
+# \nUsage: Mutes the person in the chat, works on admins too.\
+# \n\n`.unmute` <username/reply>\
+# \nUsage: Removes the person from the muted list.\
+# \n\n`.gmute` <username/reply> <reason (optional)>\
+# \nUsage: Mutes the person in all groups you have in common with them.\
+# \n\n`.ungmute` <username/reply>\
+# \nUsage: Reply someone's message with .ungmute to remove them from the gmuted list.\
+# \n\n`.zombies`\
+# \nUsage: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
+# \n\n`.admins`\
+# \nUsage: Retrieves a list of admins in the chat.\
+# \n\n`.kick`\
+# \nUsage: kick users from groups.\
+# \n\n`.users` or `.users` <name of member>\
+# \nUsage: Retrieves all (or queried) users in the chat.\
+# \n\n`.setgpic` <reply to image>\
+# \nUsage: Changes the group's display picture.\
 # \n\n`.warn reason`\
-# \n𝙐𝙨𝙖𝙜𝙚: warns users.\
+# \nUsage: warns users.\
 # \n\n`.resetwarns`\
-# \n𝙐𝙨𝙖𝙜𝙚: Reset user's warns.\
+# \nUsage: Reset user's warns.\
 # \n\n`.getwarns`\
-# \n𝙐𝙨𝙖𝙜𝙚: Shows the reason of warning.\
+# \nUsage: Shows the reason of warning.\
 # \n\n`.listbl`\
-# \n𝙐𝙨𝙖𝙜𝙚: Lists all active userbot blacklist in a chat.\
+# \nUsage: Lists all active userbot blacklist in a chat.\
 # \n\n`.addbl <keyword>`\
-# \n𝙐𝙨𝙖𝙜𝙚: Saves the message to the 'blacklist keyword.\n\nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
+# \nUsage: Saves the message to the 'blacklist keyword.\n\nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
 # \n\n`.rmbl <keyword>`\
-# \n𝙐𝙨𝙖𝙜𝙚: Stops the specified blacklist.\
+# \nUsage: Stops the specified blacklist.\
 # \n\n`.setflood` value.\
-# \n𝙐𝙨𝙖𝙜𝙚:Sets flood limit in the current chat.\
+# \nUsage:Sets flood limit in the current chat.\
 # \n\n`.strongwarn` <yes/on or no/off>.\
-# \n𝙐𝙨𝙖𝙜𝙚:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
-# \n\n`.kick` reply or userid.\
-# \n𝙐𝙨𝙖𝙜𝙚: kicks user.\
+# \nUsage:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
 # \n\n`.setwarn` value.\
-# \n𝙐𝙨𝙖𝙜𝙚:sets warn limit."
+# \nUsage:sets warn limit."
 # })
