@@ -1106,9 +1106,13 @@ CMD_HELP.update({
 
 #zipfile.py
 CMD_HELP.update({
-        "compress":
-        ".compress [optional: <reply to file >]\
+        "zipfile":
+        "`.compress` [optional: <reply to file >]\
             \n𝙐𝙨𝙖𝙜𝙚: make files to zip."
+        "\n`.addzip` <reply to file >\
+            \n𝙐𝙨𝙖𝙜𝙚: add files to zip list."
+        "\n`.upzip` [optional: <zip title>]\
+            \n𝙐𝙨𝙖𝙜𝙚: upload zip list."
 })
 
 #www.py
