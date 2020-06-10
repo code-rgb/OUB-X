@@ -26,7 +26,7 @@ from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
                                MessageEntityMentionName, MessageMediaPhoto,
                                ChannelParticipantsBots)
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 
 # =================== CONSTANT ===================
@@ -1133,56 +1133,56 @@ async def get_bots(show):
 
   
 
-CMD_HELP.update({
-    "admin":
-    ".promote <username/reply> <custom rank (optional)>\
-\nUsage: Provides admin rights to the person in the chat.\
-\n\n.demote <username/reply>\
-\nUsage: Revokes the person's admin permissions in the chat.\
-\n\n.ban <username/reply> <reason (optional)>\
-\nUsage: Bans the person off your chat.\
-\n\n.unban <username/reply>\
-\nUsage: Removes the ban from the person in the chat.\
-\n\n.mute <username/reply> <reason (optional)>\
-\nUsage: Mutes the person in the chat, works on admins too.\
-\n\n.unmute <username/reply>\
-\nUsage: Removes the person from the muted list.\
-\n\n.gmute <username/reply> <reason (optional)>\
-\nUsage: Mutes the person in all groups you have in common with them.\
-\n\n.ungmute <username/reply>\
-\nUsage: Reply someone's message with .ungmute to remove them from the gmuted list.\
-\n\n.zombies\
-\nUsage: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
-\n\n.admins\
-\nUsage: Retrieves a list of admins in the chat.\
-\n\n.bots\
-\nUsage: Retrieves a list of bots in the chat.\
-\n\n.pin <reply/tag>\
-\nUsage: pins the replied/tagged message on the top the chat silently.\
-\n\n.cpin <reply/tag>\
-\nUsage: pins the replied/tagged message on the top the chat LOUDLY.\
-\n\n.users or .users <name of member>\
-\nUsage: Retrieves all (or queried) users in the chat.\
-\n\n.setgppic <reply to image>\
-\nUsage: Changes the group's display picture.\
-\n\n`.warn reason`\
-\nUsage: warns users.\
-\n\n`.resetwarns`\
-\nUsage: Reset user's warns.\
-\n\n`.getwarns`\
-\nUsage: Shows the reason of warning.\
-\n\n`.listbl`\
-\nUsage: Lists all active userbot blacklist in a chat.\
-\n\n`.addbl <keyword>`\
-\nUsage: Saves the message to the 'blacklist keyword.\n\nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
-\n\n`.rmbl <keyword>`\
-\nUsage: Stops the specified blacklist.\
-\n\n`.setflood` value.\
-\nUsage:Sets flood limit in the current chat.\
-\n\n`.strongwarn` <yes/on or no/off>.\
-\nUsage:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
-\n\n`.kick` reply or userid.\
-\nUsage: kicks user.\
-\n\n`.setwarn` value.\
-\nUsage:sets warn limit."
-})
+# CMD_HELP.update({
+#     "admin":
+#     ".promote <username/reply> <custom rank (optional)>\
+# \n𝙐𝙨𝙖𝙜𝙚: Provides admin rights to the person in the chat.\
+# \n\n.demote <username/reply>\
+# \n𝙐𝙨𝙖𝙜𝙚: Revokes the person's admin permissions in the chat.\
+# \n\n.ban <username/reply> <reason (optional)>\
+# \n𝙐𝙨𝙖𝙜𝙚: Bans the person off your chat.\
+# \n\n.unban <username/reply>\
+# \n𝙐𝙨𝙖𝙜𝙚: Removes the ban from the person in the chat.\
+# \n\n.mute <username/reply> <reason (optional)>\
+# \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in the chat, works on admins too.\
+# \n\n.unmute <username/reply>\
+# \n𝙐𝙨𝙖𝙜𝙚: Removes the person from the muted list.\
+# \n\n.gmute <username/reply> <reason (optional)>\
+# \n𝙐𝙨𝙖𝙜𝙚: Mutes the person in all groups you have in common with them.\
+# \n\n.ungmute <username/reply>\
+# \n𝙐𝙨𝙖𝙜𝙚: Reply someone's message with .ungmute to remove them from the gmuted list.\
+# \n\n.zombies\
+# \n𝙐𝙨𝙖𝙜𝙚: Searches for deleted accounts in a group. Use .zombies clean to remove deleted accounts from the group.\
+# \n\n.admins\
+# \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of admins in the chat.\
+# \n\n.bots\
+# \n𝙐𝙨𝙖𝙜𝙚: Retrieves a list of bots in the chat.\
+# \n\n.pin <reply/tag>\
+# \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat silently.\
+# \n\n.cpin <reply/tag>\
+# \n𝙐𝙨𝙖𝙜𝙚: pins the replied/tagged message on the top the chat LOUDLY.\
+# \n\n.users or .users <name of member>\
+# \n𝙐𝙨𝙖𝙜𝙚: Retrieves all (or queried) users in the chat.\
+# \n\n.setgppic <reply to image>\
+# \n𝙐𝙨𝙖𝙜𝙚: Changes the group's display picture.\
+# \n\n`.warn reason`\
+# \n𝙐𝙨𝙖𝙜𝙚: warns users.\
+# \n\n`.resetwarns`\
+# \n𝙐𝙨𝙖𝙜𝙚: Reset user's warns.\
+# \n\n`.getwarns`\
+# \n𝙐𝙨𝙖𝙜𝙚: Shows the reason of warning.\
+# \n\n`.listbl`\
+# \n𝙐𝙨𝙖𝙜𝙚: Lists all active userbot blacklist in a chat.\
+# \n\n`.addbl <keyword>`\
+# \n𝙐𝙨𝙖𝙜𝙚: Saves the message to the 'blacklist keyword.\n\nThe bot will delete to the message whenever 'blacklist keyword' is mentioned.\
+# \n\n`.rmbl <keyword>`\
+# \n𝙐𝙨𝙖𝙜𝙚: Stops the specified blacklist.\
+# \n\n`.setflood` value.\
+# \n𝙐𝙨𝙖𝙜𝙚:Sets flood limit in the current chat.\
+# \n\n`.strongwarn` <yes/on or no/off>.\
+# \n𝙐𝙨𝙖𝙜𝙚:sets warn mode i.e <strong warn:bans user, soft warn: kicks user>.\
+# \n\n`.kick` reply or userid.\
+# \n𝙐𝙨𝙖𝙜𝙚: kicks user.\
+# \n\n`.setwarn` value.\
+# \n𝙐𝙨𝙖𝙜𝙚:sets warn limit."
+# })
