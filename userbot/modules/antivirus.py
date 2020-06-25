@@ -12,19 +12,19 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME
 @register(outgoing=True, pattern="^.scan(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     if not event.reply_to_msg_id:
        await event.edit("```Reply to any user message.```")
        return
-    reply_message = await event.get_reply_message() 
+    reply_message = await event.get_reply_message()
     if not reply_message.media:
        await event.edit("```reply to a media message```")
        return
     chat = "@DrWebBot"
     sender = reply_message.sender
-    if reply_message.sender.bot:
-       await event.edit("```Reply to actual users message.```")
-       return
+    if sender.bot:
+        await event.edit("```Reply to actual users message.```")
+        return
     await event.edit(" **covid19 will end with the end of April-2020 from the globe.** `still let me check this thing.`")
     async with bot.conversation(chat) as conv:
           try:     

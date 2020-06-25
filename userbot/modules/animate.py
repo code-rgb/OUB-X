@@ -4,16 +4,11 @@ from userbot import bot, CMD_HELP
 import asyncio
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
 
     input_str = event.pattern_match.group(1)
 
@@ -34,6 +29,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 0.1
+
+        animation_ttl = range(100)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -45,16 +44,11 @@ async def _(event):
 from telethon import events
 import asyncio
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
 
     input_str = event.pattern_match.group(1)
 
@@ -75,6 +69,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 0.1
+
+        animation_ttl = range(100)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -84,16 +82,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
 
     input_str = event.pattern_match.group(1)
 
@@ -114,6 +107,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 0.1
+
+        animation_ttl = range(100)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -121,16 +118,11 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
 
     input_str = event.pattern_match.group(1)
 
@@ -151,6 +143,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 0.1
+
+        animation_ttl = range(100)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -160,16 +156,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 7)
 
     input_str = event.pattern_match.group(1)
 
@@ -179,7 +170,7 @@ async def _(event):
 
         animation_chars = [
 
-           
+
 
             "❤️",
 
@@ -193,10 +184,14 @@ async def _(event):
             "🖤",
 
             "❤️",
-      
+
             "‎"
 
         ]
+
+        animation_interval = 1
+
+        animation_ttl = range(7)
 
         for i in animation_ttl:
 
@@ -207,16 +202,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 9)
 
     input_str = event.pattern_match.group(1)
 
@@ -234,8 +224,8 @@ async def _(event):
 
             "😢",
 
-           
- 
+
+
             "😢",
 
             "😧",
@@ -244,12 +234,16 @@ async def _(event):
 
             "😁",
 
-           
 
 
-            
+
+
 
         ]
+
+        animation_interval = 1
+
+        animation_ttl = range(9)
 
         for i in animation_ttl:
 
@@ -260,16 +254,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 1.3
-
-    animation_ttl = range(0, 7)
 
     input_str = event.pattern_match.group(1)
 
@@ -286,7 +275,7 @@ async def _(event):
             ">🙈<",
 
             ">🙊<",
-            
+
             ">🐵<",
 
             ">🙊<",
@@ -295,6 +284,10 @@ async def _(event):
             ">🖕‎🐵🖕<"
 
         ]
+
+        animation_interval = 1.3
+
+        animation_ttl = range(7)
 
         for i in animation_ttl:
 
@@ -308,16 +301,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 14)
 
     input_str = event.pattern_match.group(1)
 
@@ -355,6 +343,10 @@ async def _(event):
 
         ]
 
+        animation_interval = 1
+
+        animation_ttl = range(14)
+
         for i in animation_ttl:
 
             await asyncio.sleep(animation_interval)
@@ -363,16 +355,11 @@ async def _(event):
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
 async def _(event):
 
     if event.fwd_from:
 
         return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 13)
 
     input_str = event.pattern_match.group(1)
 
@@ -407,6 +394,10 @@ async def _(event):
             "🆘"
 
         ]
+
+        animation_interval = 1
+
+        animation_ttl = range(13)
 
         for i in animation_ttl:
 

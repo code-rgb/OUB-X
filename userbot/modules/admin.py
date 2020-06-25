@@ -90,7 +90,7 @@ async def set_group_photo(gpic):
     creator = chat.creator
     photo = None
 
-    if not admin and not creator:
+    if not (admin or creator):
         await gpic.edit(NO_ADMIN)
         return
 
@@ -125,7 +125,7 @@ async def promote(promt):
     creator = chat.creator
 
     # If not admin and not creator, also return
-    if not admin and not creator:
+    if not (admin or creator):
         await promt.edit(NO_ADMIN)
         return
 
@@ -140,9 +140,7 @@ async def promote(promt):
     user, rank = await get_user_from_event(promt)
     if not rank:
         rank = "Administrator"  # Just in case.
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     # Try to promote if current user is admin or creator
@@ -173,7 +171,7 @@ async def demote(dmod):
     admin = chat.admin_rights
     creator = chat.creator
 
-    if not admin and not creator:
+    if not (admin or creator):
         await dmod.edit(NO_ADMIN)
         return
 
@@ -182,9 +180,7 @@ async def demote(dmod):
     rank = "admeme"  # dummy rank, lol.
     user = await get_user_from_event(dmod)
     user = user[0]
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     # New rights after demotion
@@ -223,14 +219,12 @@ async def ban(bon):
     creator = chat.creator
 
     # Well
-    if not admin and not creator:
+    if not (admin or creator):
         await bon.edit(NO_ADMIN)
         return
 
     user, reason = await get_user_from_event(bon)
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     # Announce that we're going to whack the pest
@@ -276,7 +270,7 @@ async def nothanos(unbon):
     creator = chat.creator
 
     # Well
-    if not admin and not creator:
+    if not (admin or creator):
         await unbon.edit(NO_ADMIN)
         return
 
@@ -285,9 +279,7 @@ async def nothanos(unbon):
 
     user = await get_user_from_event(unbon)
     user = user[0]
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     try:
@@ -322,14 +314,12 @@ async def spider(spdr):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await spdr.edit(NO_ADMIN)
         return
 
     user, reason = await get_user_from_event(spdr)
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     self_user = await spdr.client.get_me()
@@ -373,7 +363,7 @@ async def unmoot(unmot):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await unmot.edit(NO_ADMIN)
         return
 
@@ -388,9 +378,7 @@ async def unmoot(unmot):
     await unmot.edit('```Unmuting...```')
     user = await get_user_from_event(unmot)
     user = user[0]
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     if unmute(unmot.chat_id, user.id) is False:
@@ -452,7 +440,7 @@ async def ungmoot(un_gmute):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await un_gmute.edit(NO_ADMIN)
         return
 
@@ -465,9 +453,7 @@ async def ungmoot(un_gmute):
 
     user = await get_user_from_event(un_gmute)
     user = user[0]
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     # If pass, inform and start ungmuting
@@ -495,7 +481,7 @@ async def gspider(gspdr):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await gspdr.edit(NO_ADMIN)
         return
 
@@ -507,9 +493,7 @@ async def gspider(gspdr):
         return
 
     user, reason = await get_user_from_event(gspdr)
-    if user:
-        pass
-    else:
+    if not user:
         return
 
     # If pass, inform and start gmuting
@@ -557,7 +541,7 @@ async def rm_deletedacc(show):
     creator = chat.creator
 
     # Well
-    if not admin and not creator:
+    if not (admin or creator):
         await show.edit("`I am not an admin here!`")
         return
 
@@ -631,7 +615,7 @@ async def pin(msg):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await msg.edit(NO_ADMIN)
         return
 
@@ -676,7 +660,7 @@ async def kick(usr):
     creator = chat.creator
 
     # If not admin and not creator, return
-    if not admin and not creator:
+    if not (admin or creator):
         await usr.edit(NO_ADMIN)
         return
 
@@ -753,7 +737,7 @@ async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
     args = event.pattern_match.group(1).split(' ', 1)
     extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
+    if event.reply_to_msg_id and len(args) != 2:
         previous_message = await event.get_reply_message()
         user_obj = await event.client.get_entity(previous_message.from_id)
         extra = event.pattern_match.group(1)
@@ -843,7 +827,7 @@ async def get_userdel_from_event(event):
     """ Get the deleted user from argument or replied message. """
     args = event.pattern_match.group(1).split(' ', 1)
     extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
+    if event.reply_to_msg_id and len(args) != 2:
         previous_message = await event.get_reply_message()
         user_obj = await event.client.get_entity(previous_message.from_id)
         extra = event.pattern_match.group(1)
@@ -947,11 +931,9 @@ async def locks(event):
     else:
         if not input_str:
             await event.edit("`I can't lock nothing !!`")
-            return
         else:
             await event.edit(f"`Invalid lock type:` {input_str}")
-            return
-
+        return
     lock_rights = ChatBannedRights(
         until_date=None,
         send_messages=msg,
@@ -1035,11 +1017,9 @@ async def rem_locks(event):
     else:
         if not input_str:
             await event.edit("`I can't unlock nothing !!`")
-            return
         else:
             await event.edit(f"`Invalid unlock type:` {input_str}")
-            return
-
+        return
     unlock_rights = ChatBannedRights(
         until_date=None,
         send_messages=msg,
@@ -1072,11 +1052,11 @@ async def _(event):
     creator = chat.creator
     warn_reason = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
-    
-    if not admin and not creator:
+
+    if not (admin or creator):
         await event.edit("`Bruh I Am Not Admin Here`")
         return
-    
+
     if await is_admin(event.chat_id, reply_message.from_id):
         return await event.edit("`User is an admin`")
 
@@ -1123,7 +1103,7 @@ async def set_warn_strength(event):
     creator = chat.creator
     args = event.pattern_match.group(1)
 
-    if not admin and not creator:
+    if not (admin or creator):
         await event.edit("`Bruh I Am Not Admin Here`")
         return
 
@@ -1137,7 +1117,7 @@ async def set_warn_strength(event):
             sql.set_warn_strength(event.chat_id, True)
             await event.edit("Warn Strength Set To Kick User.")
             return
-       
+
         else:
             await event.edit("`Please send Correct Arg!`")
     else:
@@ -1155,10 +1135,10 @@ async def set_warn_limit(event):
     creator = chat.creator
     input_str = event.pattern_match.group(1)
 
-    if not admin and not creator:
+    if not (admin or creator):
         await event.edit("`Bruh I Am Not Admin Here`")
         return
-    
+
     if input_str:
         if int(input_str) < 3:
             await event.edit("`The minimum warn limit is 3!`")
@@ -1166,7 +1146,7 @@ async def set_warn_limit(event):
             sql.set_warn_limit(event.chat_id, int(input_str))
             await event.edit("`Updated the warn limit to` {}".format(input_str))
             return
-        
+
     else:
         limit, soft_warn = sql.get_warn_setting(event.chat_id)
         await event.edit("`The current warn limit is {}`".format(limit))

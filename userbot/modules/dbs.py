@@ -24,7 +24,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 @register(outgoing=True, pattern="^.dbs$")
 async def amireallydbs(dbs):
-    if not is_mongo_alive() and not is_redis_alive():
+    if not (is_mongo_alive() or is_redis_alive()):
         db = "Both Mongo and Redis Database seems to be failing!"
     elif not is_mongo_alive():
         db = "Mongo DB seems to be failing!"
