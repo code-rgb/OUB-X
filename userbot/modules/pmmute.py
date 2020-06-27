@@ -15,7 +15,7 @@ async def startmute(event):
         await event.edit("Unexpected issues or ugly errors may occur!")
         await asyncio.sleep(3)
         private = True
-    if any([x in event.raw_text for x in ("/mute", "!mute")]):
+    if any(x in event.raw_text for x in ("/mute", "!mute")):
         await asyncio.sleep(0.5)
     else:
         reply = await event.get_reply_message()
@@ -30,15 +30,11 @@ async def startmute(event):
         chat_id = event.chat_id
         chat = await event.get_chat()
         if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None: 
-            if chat.admin_rights.delete_messages is True:
-                pass
-            else:
+            if chat.admin_rights.delete_messages is not True:
                 return await event.edit("`You can't mute a person if you dont have delete messages permission. ಥ﹏ಥ`")
         elif "creator" in vars(chat):
             pass
-        elif private == True:
-            pass
-        else:
+        elif private != True:
             return await event.edit("`You can't mute a person without admin rights niqq.` ಥ﹏ಥ  ")
         if is_muted(userid, chat_id):
             return await event.edit("This user is already muted in this chat ~~lmfao sed rip~~")
@@ -58,7 +54,7 @@ async def endmute(event):
         await event.edit("Unexpected issues or ugly errors may occur!")
         await asyncio.sleep(3)
         private = True
-    if any([x in event.raw_text for x in ("/unmute", "!unmute")]):
+    if any(x in event.raw_text for x in ("/unmute", "!unmute")):
         await asyncio.sleep(0.5)
     else:
         reply = await event.get_reply_message()
@@ -90,7 +86,7 @@ async def startmute(event):
         await event.edit("Unexpected issues or ugly errors may occur!")
         await asyncio.sleep(3)
         private = True
-    if any([x in event.raw_text for x in ("/mute", "!mute")]):
+    if any(x in event.raw_text for x in ("/mute", "!mute")):
         await asyncio.sleep(0.5)
     else:
         reply = await event.get_reply_message()
@@ -105,15 +101,11 @@ async def startmute(event):
         chat_id = event.chat_id
         chat = await event.get_chat()
         if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None: 
-            if chat.admin_rights.delete_messages is True:
-                pass
-            else:
+            if chat.admin_rights.delete_messages is not True:
                 return await event.edit("`You can't mute a person if you dont have delete messages permission. ಥ﹏ಥ`")
         elif "creator" in vars(chat):
             pass
-        elif private == True:
-            pass
-        else:
+        elif private != True:
             return await event.edit("`You can't mute a person without admin rights niqq.` ಥ﹏ಥ  ")
         if is_muted(userid, chat_id):
             return await event.edit("This user is already muted in this chat ~~lmfao sed rip~~")
@@ -133,7 +125,7 @@ async def endmute(event):
         await event.edit("Unexpected issues or ugly errors may occur!")
         await asyncio.sleep(3)
         private = True
-    if any([x in event.raw_text for x in ("/unmute", "!unmute")]):
+    if any(x in event.raw_text for x in ("/unmute", "!unmute")):
         await asyncio.sleep(0.5)
     else:
         reply = await event.get_reply_message()
@@ -170,10 +162,9 @@ async def hehehe(event):
     if event.fwd_from:
         return
     chat = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "supreme lord ehehe")
-            await bot.send_message(chat, "`This inbox has been blessed by my master. Consider yourself lucky.`\n**Increased Stability and Karma** (づ￣ ³￣)づ")
+    if event.is_private and not pmpermit_sql.is_approved(chat.id):
+        pmpermit_sql.approve(chat.id, "supreme lord ehehe")
+        await bot.send_message(chat, "`This inbox has been blessed by my master. Consider yourself lucky.`\n**Increased Stability and Karma** (づ￣ ³￣)づ")
             
 # CMD_HELP.update({
 #     "nopm":

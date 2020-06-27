@@ -24,7 +24,7 @@ isekai_list = ['12 Beast ', '100 Sleeping Princes and the Kingdom of Dreams ', "
 @register(outgoing=True, pattern="^.action(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[8:]
     number_of_times = int(number_of_times)
     i = 0
@@ -32,12 +32,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(action_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -53,7 +53,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.harem(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[7:]
     number_of_times = int(number_of_times)
     i = 0
@@ -61,12 +61,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(harem_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -82,7 +82,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.mecha(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[7:]
     number_of_times = int(number_of_times)
     i = 0
@@ -90,12 +90,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(mecha_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -111,7 +111,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.romance(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[9:]
     number_of_times = int(number_of_times)
     i = 0
@@ -119,12 +119,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(romance_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -140,7 +140,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.isekai(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[8:]
     number_of_times = int(number_of_times)
     i = 0
@@ -148,12 +148,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(isekai_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -169,7 +169,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.adventure(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[10:]
     number_of_times = int(number_of_times)
     i = 0
@@ -177,12 +177,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(adventure_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
@@ -198,7 +198,7 @@ async def action(event):
 @register(outgoing=True, pattern="^.slice(?: |$)(.*)")
 async def action(event):
     if event.fwd_from:
-        return   
+        return
     number_of_times = event.text[7:]
     number_of_times = int(number_of_times)
     i = 0
@@ -206,12 +206,12 @@ async def action(event):
     while i != number_of_times:
         anime = random.choice(slice_of_life_list)
         anime_list.append(anime+"\n")
-        i = i + 1
+        i += 1
     counter = 1
-    msg_str = []   
+    msg_str = []
     for i in anime_list:
         msg_str.append(str(counter)+". "+i)
-        counter = counter + 1
+        counter += 1
     msg_str = str(msg_str)
     msg_str = msg_str.replace("['","")
     msg_str = msg_str.replace(",","")
