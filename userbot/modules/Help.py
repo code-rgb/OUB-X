@@ -17,7 +17,7 @@ async def help(event):
         if args in CMD_HELP:
             await event.edit(str(CMD_HELP[args]))
         else:
-            await event.edit("**Module doesn't exist or Module name is invalid**😔")
+            await event.edit("**Module doesn't exist or name invalid**")
     else:
         await event.edit("\nAvailable Modules: "
         "\nFor more info use .help <module name>."
