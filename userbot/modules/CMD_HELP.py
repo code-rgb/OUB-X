@@ -87,6 +87,8 @@ CMD_HELP.update({
 \n𝙐𝙨𝙖𝙜𝙚: Invoke the feeling of chaos.\
 \n\n`Oof`\
 \n𝙐𝙨𝙖𝙜𝙚: Ooooof\
+\n\n`bigoof`\
+\n𝙐𝙨𝙖𝙜𝙚: Very big OOF sur!\
 \n\n`.moon`\
 \n𝙐𝙨𝙖𝙜𝙚: kensar moon animation.\
 \n\n`.clock`\
@@ -1151,6 +1153,8 @@ CMD_HELP.update({
 CMD_HELP.update(
     {"stats": ".stats\
     \n𝙐𝙨𝙖𝙜𝙚: Count the Number of Dialogs you have in your Telegram Account."})
+
+
 
 
 
