@@ -17,6 +17,7 @@ from userbot.events import register
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import InputStickerSetID
 from telethon.tl.types import DocumentAttributeSticker
+import asyncio
 
 KANGING_STR = [
     "Using Witchery to kang this sticker...",
@@ -239,6 +240,8 @@ async def kang(args):
         await args.edit(f"`Sticker kanged successfully!`\
             \nPack can be found [here](t.me/addstickers/{packname})",
                         parse_mode='md')
+asyncio.sleep(6)                
+await args.delete()	        
 
 
 async def resize_photo(photo):
