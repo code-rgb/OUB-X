@@ -11,22 +11,18 @@ from userbot.events import register
 
 @register(outgoing=True, pattern="^.mlist(?: |$)(.*)")
 async def help(event):
-    """ For .mlist command,"""
+   
     args = event.pattern_match.group(1).lower()
-    #Prevent Channel Bug to get any information and commad from all modules 
-    if event.is_channel and not event.is_group:
-        await event.edit("`Help Commad isn't permitted on channels`")
-        return
     if args:
         if args in CMD_HELP:
             await event.edit(str(CMD_HELP[args]))
         else:
-            await event.edit("Please specify a valid module name.")
+            await event.edit("**Module doesn't exist or Module name is invalid**")
     else:
-        string = "**List of all loaded module(s)**\n\
-                 \nSpecify which module do you want help for !! \
-                 \n**Usage:** `.help` <module name>\n\n•    "
+        await event.edit("**All currently  loaded modules are listed below**\
+            \nUsage: Type `.mlist or .help <module name>` for more info.")
+        string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
-            string += "`\t\t\t•\t\t\t "
-        await event.edit(f"{string}")
+            string += "`  -  "
+        await event.reply(string)
