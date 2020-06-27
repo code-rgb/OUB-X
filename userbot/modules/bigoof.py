@@ -32,7 +32,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 40])
 
- CMD_HELP.update({
+CMD_HELP.update({
      "bigoof":
      ".bigoof\
 \nUsage: for very big oof sur."
