@@ -1,11 +1,11 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 """ Userbot module containing commands for keeping global notes. """
 
 from userbot.events import register
-from userbot import BOTLOG_CHATID
+from userbot import CMD_HELP, BOTLOG_CHATID
 
 
 @register(outgoing=True,
@@ -23,19 +23,19 @@ async def on_snip(event):
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
-    if snip:
-        if snip.f_mesg_id:
-            msg_o = await event.client.get_messages(entity=BOTLOG_CHATID,
-                                                    ids=int(snip.f_mesg_id))
-            await event.client.send_message(event.chat_id,
-                                            msg_o.message,
-                                            reply_to=message_id_to_reply,
-                                            file=msg_o.media)
-        elif snip.reply:
-            await event.client.send_message(event.chat_id,
-                                            snip.reply,
-                                            reply_to=message_id_to_reply)
-
+    if snip and snip.f_mesg_id:
+        msg_o = await event.client.get_messages(entity=BOTLOG_CHATID,
+                                                ids=int(snip.f_mesg_id))
+        await event.client.send_message(event.chat_id,
+                                        msg_o.message,
+                                        reply_to=message_id_to_reply,
+                                        file=msg_o.media)
+        await event.delete()
+    elif snip and snip.reply:
+        await event.client.send_message(event.chat_id,
+                                        snip.reply,
+                                        reply_to=message_id_to_reply)
+        await event.delete()
 
 @register(outgoing=True, pattern="^.snip (\w*)")
 async def on_snip_save(event):
@@ -91,7 +91,10 @@ async def on_snip_list(event):
     for a_snip in all_snips:
         if message == "`No snips available right now.`":
             message = "Available snips:\n"
-        message += f"`${a_snip.snip}`\n"
+            message += f"`${a_snip.snip}`\n"
+        else:
+            message += f"`${a_snip.snip}`\n"
+
     await event.edit(message)
 
 
