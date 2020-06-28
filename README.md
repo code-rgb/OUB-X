@@ -36,9 +36,10 @@
 
 
 
+
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://telegra.ph/file/f2190842045b90dd671b4.png" height= 20% width= 20% alt="Press to Takeoff"></a>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff" height="90%" width="90%"></a>
 </p>
 <p align="center">&nbsp;</p>
 
@@ -63,5 +64,4 @@
 <h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.d, February 2020</p>
 <p align="center">&nbsp;</p>
-
 
