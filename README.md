@@ -38,7 +38,7 @@
 
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff"></a>
+<p align="center"><a href="https://telegra.ph/file/f2190842045b90dd671b4.png" height= 20% width= 20% alt="Press to Takeoff"></a>
 </p>
 <p align="center">&nbsp;</p>
 
