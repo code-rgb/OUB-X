@@ -59,7 +59,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">Updates and Support</h2>
 <p align="center">Join <a href="https://t.me/PPE_Support">OpenUserBot's</a> support group</p>
-<p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420">𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r</a></p>
+<p align="center">OUB-X Owner: <a href="https://t.me/deleteduser420"><b>𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r</b></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/code-rgb/OUB-X/blob/sql-extended/LICENSE">Raphielscape Public License</a> - Version 1.d, February 2020</p>
