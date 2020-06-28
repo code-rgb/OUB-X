@@ -9,8 +9,8 @@ import asyncio
 import os
 import requests
 import math
-from platform import python_version, uname
-from userbot import CMD_HELP, HEROKU_APP_NAME, HEROKU_API_KEY, ALIVE_NAME
+from platform import uname
+from userbot import HEROKU_APP_NAME, HEROKU_API_KEY, ALIVE_NAME
 from userbot.events import register
 from userbot.prettyjson import prettyjson
 

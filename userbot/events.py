@@ -14,9 +14,8 @@ from time import gmtime, strftime
 from traceback import format_exc
 
 from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins
 
-from userbot import bot, BOTLOG, BOTLOG_CHATID, LOGSPAMMER
+from userbot import bot, BOTLOG_CHATID, LOGSPAMMER
 
 
 def register(**args):

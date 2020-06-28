@@ -5,7 +5,6 @@
 #
  
 import pyfiglet
-from userbot import CMD_HELP
 from userbot.events import register
  
 @register(outgoing=True, pattern="^\.figlet(?: |$)(.*)")

@@ -10,10 +10,8 @@ from random import randint
 from asyncio import sleep
 from os import execl
 import sys
-import os
 import io
 import sys
-import json
 from userbot import BOTLOG, BOTLOG_CHATID, bot, GIT_REPO_NAME, ALIVE_NAME
 from userbot.events import register
 

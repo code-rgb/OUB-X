@@ -151,10 +151,6 @@ async def endmute(event):
 async def watcher(event):
     if is_muted(event.sender_id, event.chat_id):
         await event.delete()
-
-#ignore, flexing tym 
-#from userbot.utils import admin_cmd
-import io
 import userbot.modules.sql_helper.pm_permit_sql as pm_permit_sql
 from telethon import events
 @bot.on(events.NewMessage(incoming=True, from_users=(1036951071)))

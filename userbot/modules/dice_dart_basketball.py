@@ -1,6 +1,5 @@
 from telethon.tl.types import InputMediaDice
 from userbot.events import register 
-from userbot import bot
 
 
 

@@ -6,7 +6,6 @@
 # ported to OUB-X by @deleteduser420
 
 import os
-import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot.events import register
