@@ -8,7 +8,7 @@ import aria2p
 import math
 from asyncio import sleep
 from subprocess import PIPE, Popen
-from userbot import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from userbot import LOGS, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 from userbot.utils import humanbytes
 from requests import get

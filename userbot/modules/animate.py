@@ -1,6 +1,6 @@
 #ported and modifiled from uniborg by @deleteduser420
 from telethon import events
-from userbot import bot, CMD_HELP
+from userbot import bot
 import asyncio
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))

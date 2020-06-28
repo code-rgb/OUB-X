@@ -9,13 +9,12 @@
 from datetime import datetime
 import time
 from random import choice, randint
-from asyncio import sleep
 
 from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
 from userbot import (AFKREASON, COUNT_MSG, ISAFK, BOTLOG,
-                     BOTLOG_CHATID, USERS, PM_AUTO_BAN, bot, ALIVE_NAME, is_redis_alive)
+                     BOTLOG_CHATID, USERS, PM_AUTO_BAN, bot, ALIVE_NAME)
 from userbot.events import register
 
 # ========================= CONSTANTS ============================

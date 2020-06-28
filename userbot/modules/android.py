@@ -14,7 +14,7 @@ import math
 from requests import get
 from bs4 import BeautifulSoup
 
-from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from userbot import TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 from userbot.utils import (
     chrome, humanbytes, time_formatter, md5, human_to_bytes

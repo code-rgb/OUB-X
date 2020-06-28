@@ -5,7 +5,7 @@
 """ Userbot module containing commands for keeping global notes. """
 
 from userbot.events import register
-from userbot import CMD_HELP, BOTLOG_CHATID
+from userbot import BOTLOG_CHATID
 
 
 @register(outgoing=True,

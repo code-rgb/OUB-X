@@ -3,10 +3,8 @@
 #ported by @DeletedUser420
 #"""Corona: Avaible commands: .corona <cname>
 #"""
-import datetime
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot.events import register
 
 
