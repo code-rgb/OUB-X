@@ -3,8 +3,8 @@
 <h1></h1>
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
-<h4 align="center">Based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
-<h4 align="center">...or rather, it's modified OUB enriched with kangness</h4>
+<h4 align="center"><b>Core</b> is based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
+<h4 align="center">...or rather, it's <b>Modified</b> <a href="https://github.com/mkaraniya/OpenUserBot">OpenUserBot</a> enriched with kangness !!</h4>
 <p align="center">&nbsp;</p>
 
 
@@ -39,7 +39,7 @@
 
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff" width="550px"></a>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff" width="570px"></a>
 </p>
 <p align="center">&nbsp;</p>
 
