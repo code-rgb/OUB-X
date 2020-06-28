@@ -39,7 +39,7 @@
 
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff" width="570px"></a>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/code-rgb/OUB-X/tree/sql-extended"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="570px"></a>
 </p>
 <p align="center">&nbsp;</p>
 
