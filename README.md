@@ -4,7 +4,7 @@
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
 <h4 align="center"><b>Core</b> is based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
-<h4 align="center">...or rather, it's <b>Modified</b> <a href="https://github.com/mkaraniya/OpenUserBot">OpenUserBot</a> enriched with kangness !!</h4>
+<h4 align="center">...or rather, it's MODIFIED <a href="https://github.com/mkaraniya/OpenUserBot">OpenUserBot</a> enriched with kangness !!</h4>
 <p align="center">&nbsp;</p>
 
 
