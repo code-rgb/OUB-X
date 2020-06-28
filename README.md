@@ -38,7 +38,7 @@
 
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the image below</h5>
-<p align="center"><a href="https://telegra.ph/file/415d59b3e66b593398a3a.png" alt="Press to Takeoff"></a>
+<p align="center"><a href="https://telegra.ph/file/f2190842045b90dd671b4.png" alt="Press to Takeoff"></a>
 </p>
 <p align="center">&nbsp;</p>
 
@@ -48,7 +48,7 @@
 
 <p align="center">
   <a href="https://telegra.ph/How-To-Setup-Google-Drive-04-03"><img src="https://telegra.ph/file/fde15d05e4bde3448b01a.png" alt="SetGDRIVE"></a>
-<img src="https://telegra.ph/file/415d59b3e66b593398a3a.png" alt="SetGDRIVE">
+
 </p>
 
 
