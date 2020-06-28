@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/code-rgb/OUB-X.svg?branch=sql-extended)](https://travis-ci.com/code-rgb/OUB-X)
-<p align="center"><a href="#-disclaimer">Disclaimer</a> | <a href="#how-to-host"><b>HOW TO "HOST"</b></a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
+<p align="center"><a href="#-disclaimer">Disclaimer</a> | <a href="#how-to-host"><b>How To HOST</b></a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
 <h1></h1>
 <h1 align="center"> Project OUB-X</h1><p align="center">&nbsp;</p>
 <h3 align="center">A modular Telegram userbot running on Python 3.8+ with an sqlalchemy database.</h3>
